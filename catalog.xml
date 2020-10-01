@@ -1,4 +1,5 @@
 <?xml version='1.0'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
-	<rewriteURI uriStartString="http://" rewritePrefix="src/" />
+	<rewriteURI uriStartString="http://imce.jpl.nasa.gov/" rewritePrefix="src/oml/imce.jpl.nasa.gov/" />
+	<rewriteURI uriStartString="http://" rewritePrefix="build/oml/" />
 </catalog>
