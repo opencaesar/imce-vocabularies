@@ -1,7 +1,7 @@
 /* 
  * The Maven coordinates for the project artifact
  */
-description='The set of openCAESAR jpl-vocabulary ontologies'
+description='The set of JPL vocabularies'
 group = 'io.opencaesar.ontologies'
 version = '1.0.0'
 
@@ -32,14 +32,14 @@ buildscript {
  * Dependency versions
  */
 ext { 
-	vocabulariesVersion = '1.1.+'
+	vocabulariesVersion = '1.+'
 }
 
 /*
  * The configuration of OML dependencies
  */
 configurations {
-	oml // Include the oml dependencies only
+	oml
 }
 
 /*
@@ -67,9 +67,38 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 }
 
 /*
+ * A task to generate Bikeshed specification for the OML catalog
+ */
+task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
+	// OML catalog
+	inputCatalogPath = file('catalog.xml')
+	// OWL folder
+	outputFolderPath = file('build/bikeshed')
+	// Root ontology IRI
+	rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
+	// Publish URL
+	publishUrl = 'https://opencaesar.github.io/jpl-vocabularies/'
+}
+
+/*
+ * A task to render the Bikeshed specification to HTML
+ */
+import org.gradle.internal.os.OperatingSystem
+task generateDocs(dependsOn: omlToBikeshed) {
+	doLast {
+		if (OperatingSystem.current().isWindows()) {
+			exec { commandLine 'build/bikeshed/publish.bat' }
+		} else {
+			exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
+			exec { commandLine 'build/bikeshed/publish.sh' }
+		}
+	}
+}
+
+/*
  * A task to convert the OML catalog to OWL catalog
  */
-task oml2owl(type:io.opencaesar.oml2owl.Oml2OwlTask, dependsOn: downloadDependencies) {
+task omlToOwl(type:io.opencaesar.oml2owl.Oml2OwlTask, dependsOn: downloadDependencies) {
 	// OML catalog
 	inputCatalogPath = file('catalog.xml')
 	// OWL catalog
@@ -79,7 +108,7 @@ task oml2owl(type:io.opencaesar.oml2owl.Oml2OwlTask, dependsOn: downloadDependen
 /*
  * A task to run the Openllet reasoner on the OWL catalog
  */
-task owlreason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: oml2owl) {
+task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: omlToOwl) {
 	// OWL catalog
 	catalogPath = file('build/owl/catalog.xml')
 	// Input ontology IRI to reason on
@@ -95,47 +124,10 @@ task owlreason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: oml2owl) 
 }
 
 /*
- * A task to generate Bikeshed specification for the OML catalog
- */
-task oml2bikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
-	// OML catalog
-	inputCatalogPath = file('catalog.xml')
-	// OWL folder
-	outputFolderPath = file('build/bikeshed')
-	// Root ontology IRI
-	rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
-	// Publish URL
-	publishUrl = 'https://opencaesar.github.io/vocabularies/'
-}
-
-/*
- * A task to render the Bikeshed specification to HTML
- */
-task bikeshed2html(dependsOn: oml2bikeshed) {
-	doLast {
-		exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
-		exec { commandLine 'build/bikeshed/publish.sh' }
-	}
-}
-
-/*
- * A task to generate a publishable Zip archive for the OML sources of this project
- */
-task omlzip(type: Zip) {
-	from file('src')
-	include "**/*.oml"
-	destinationDir(file('build/libs'))
-	archiveBaseName = project.name
-	archiveVersion = project.version
-}
-
-/*
  * A task to build the project, which executes several tasks together
  */
 task build() {
-	dependsOn omlzip
-	dependsOn owlreason
-	dependsOn bikeshed2html
+	dependsOn owlReason
 }
 
 /*
@@ -150,12 +142,20 @@ task clean(type: Delete) {
  */
 apply plugin: 'maven-publish'
 
-publishToMavenLocal.dependsOn omlzip
+task omlZip(type: Zip) {
+	from file('src/oml')
+	include "**/*.oml"
+	destinationDir(file('build/libs'))
+	archiveBaseName = project.name
+	archiveVersion = project.version
+}
+
+publishToMavenLocal.dependsOn omlZip
 
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact omlzip
+            artifact omlZip
 			pom.withXml {
                 def dependencies = asNode().appendNode('dependencies')
                 configurations.oml.allDependencies.stream().each {
