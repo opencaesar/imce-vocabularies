@@ -47,7 +47,7 @@ configurations {
  */
 repositories {
 	mavenLocal()
-	maven { url 'https://dl.bintray.com/opencaesar/vocabularies' }
+	maven { url 'https://dl.bintray.com/opencaesar/ontologies' }
 	jcenter()
 }
 
@@ -177,7 +177,7 @@ apply plugin: 'com.jfrog.bintray'
 ext.gh = [
 	dep: 'https://github.com',
 	org: 'opencaesar',
-	rep: 'jpl-vocabularies'
+	rep: 'ontologies'
 ]
 
 bintray {
