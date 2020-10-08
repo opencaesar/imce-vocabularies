@@ -39,7 +39,7 @@ vocabulary <http://iso.org/80000-3/units> with # as units {
 
     relation entity metre-per-second_of_second :>  metrology:HasUnitFactor [
         from metre-per-second
-        to metre
+        to second
         forward metre-per-second_of_second-factor
         restricts scalar property metrology:numerator to -1
         restricts scalar property metrology:denominator to 1
