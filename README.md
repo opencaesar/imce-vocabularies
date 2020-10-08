@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/opencaesar/jpl-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/jpl-vocabularies)
 [ ![Download](https://api.bintray.com/packages/opencaesar/ontologies/jpl-vocabularies/images/download.svg) ](https://bintray.com/opencaesar/ontologies/jpl-vocabularies/_latestVersion)
+[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://opencaesar.github.io/jpl-vocabularies/) 
 
 This is a set of JPL vocabularies expressed in [OML](https://github.com/opencaesar/oml)
 
