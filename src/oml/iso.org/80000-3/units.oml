@@ -1,0 +1,21 @@
+description <http://iso.org/80000-3/units> with # as units {
+    extends <http://imce.jpl.nasa.gov/foundation/metrology>
+
+    @dc:source "3-1 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    ci metre : metrology:IndependentMeasurementUnit
+
+    @dc:source "3-7 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    ci second : metrology:IndependentMeasurementUnit
+
+    @dc:source "3-15 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    ci hertz : metrology:DerivedMeasurementUnit
+
+    ri hertz_second : metrology:HasUnitFactor [
+        from hertz
+        to second
+        metrology:numerator -1
+        metrology:denominator 1
+    ]
+
+
+}

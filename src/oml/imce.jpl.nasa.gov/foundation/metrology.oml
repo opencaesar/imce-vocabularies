@@ -34,6 +34,18 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     @dc:source "numerical quantity value [https://jcgm.bipm.org/vim/en/1.20.html]"
     concept Number :> Thing
 
+    aspect ExponentFactor :> Thing
+
+    scalar property numerator [
+        domain ExponentFactor
+        range xsd:int
+    ]
+
+    scalar property denominator [
+        domain ExponentFactor
+        range xsd:int
+    ]
+
     @dc:^description "common defining aspect of mutually comparable properties having a magnitude."
     @dc:source "kind of quantity [https://jcgm.bipm.org/vim/en/1.2.html]"
     @dc:source "kind-of-quantity [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 13.3.1, p. 125 and 13.4.1, p. 126]"
@@ -74,21 +86,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     @dc:source "derived unitary kind-of-quantity [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 13.11, p. 130-1]"
     concept DerivedUnitaryQuantityKind :> UnitaryQuantityKind
 
-    relation entity HasQuantityFactor [
+    relation entity HasQuantityFactor :> ExponentFactor [
         from DerivedUnitaryQuantityKind
         to UnitaryQuantityKind
         forward hasQuantityFactor
         irreflexive
-    ]
-
-    scalar property NumeratorOfQuantityFactor [
-        domain HasQuantityFactor
-        range xsd:int
-    ]
-
-    scalar property DenominatorOfQuantityFactor [
-        domain HasQuantityFactor
-        range xsd:int
     ]
 
     @dc:^description "A SystemOfUnitaryQuantityKinds is a collection of UnitaryQuantityKinds that can be partitioned into two groups:
@@ -142,21 +144,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     @dc:source "derived metrological unit, derived unit [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 18.17, p 192]"
     concept DerivedMeasurementUnit :> MeasurementUnit
 
-    relation entity HasUnitFactor [
+    relation entity HasUnitFactor :> ExponentFactor [
         from DerivedMeasurementUnit
         to MeasurementUnit
         forward hasUnitFactor
         irreflexive
-    ]
-
-    scalar property NumeratorOfUnitFactor [
-        domain HasUnitFactor
-        range xsd:int
-    ]
-
-    scalar property DenominatorOfUnitFactor [
-        domain HasUnitFactor
-        range xsd:int
     ]
 
     @dc:^description "A SystemOfMetrologicalUnits is a collection of MeasurementUnits that can be partitioned into two groups:
