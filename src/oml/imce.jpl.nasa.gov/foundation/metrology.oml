@@ -1,11 +1,20 @@
 @dc:title "Metrology"
 @dc:^description "The Metology vocabulary defines the concepts of metrology according to Prof. Rene Dybkaer's 'An Ontology of Property' and the VIM3.
 See https://jcgm.bipm.org/vim/en/index.html
-See https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf"
+See https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf
+
+In OML, the intended usage is to define MetrologyEntities as classes instead of instances.
+This allows using class specialization for modeling the specialization of metrological entities.
+
+The rationale for this intent is that metrology fundamentally organizes quantity kinds and measurement units
+in a hiearchical taxonomy of concepts and specializations. If these entities were modeled as instances in an OML description,
+then it would be necessary to define at the metrology vocabulary level relations for representing specialization of instances
+to represent their hierarchical taxonomy.
+"
 @dc:rights "Copyright 2019, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology.\n\nThis software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
 @dc:creator "Jet Propulsion Laboratory, California Institute of Technology"
 @dc:hasVersion "1.1.0"
-@dc:date "2020-10-06"
+@dc:date "2020-10-08"
 vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
 
     extends <http://www.w3.org/2002/07/owl>
@@ -14,7 +23,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     aspect Thing
 
     @dc:^description "metrology:MetrologicalEntity is the root of the toplevel category of OML concepts corresponding to VIM3 definitions."
-    concept MetrologicalEntity :> Thing
+    aspect MetrologicalEntity :> Thing
 
     @dc:^description "metrology:Component is the root of the taxonomy of OML entities corresponding to a phenomenon, body or substance that
     can be the subject of:
@@ -39,11 +48,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     scalar property numerator [
         domain ExponentFactor
         range xsd:int
+        functional
     ]
 
     scalar property denominator [
         domain ExponentFactor
         range xsd:int
+        functional
     ]
 
     @dc:^description "common defining aspect of mutually comparable properties having a magnitude."
@@ -65,15 +76,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
         from UnitaryQuantityKind
         to MeasurementUnit
         forward hasMeasurementUnit
-    ]
-
-    @dc:source "taxonomic relations among unitary kind-of-quantity is an inherent aspect of the concept system in [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, Table 2.13, p. 28 and Figure 13.13, p. 135]"
-    relation entity HasGeneralUnitaryQuantityKind [
-        from UnitaryQuantityKind
-        to UnitaryQuantityKind
-        forward hasGeneralUnitaryQuantityKind
-        asymmetric
-        irreflexive
     ]
 
     @dc:^description "An IndependentUnitaryQuantityKind is a UnitaryQuantityKind defined independently of any other UnitaryQuantityKind."
@@ -109,29 +111,42 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     scalar property IsBaseQuantityKind [
         domain SystemHasUnitaryQuantityKind
         range xsd:boolean
+        functional
     ]
 
-    concept Reference :> MetrologicalEntity
+    aspect Reference :> MetrologicalEntity
 
     @dc:source "measurement procedure [https://jcgm.bipm.org/vim/en/2.6.html]"
     @dc:source "measurement procedure [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 14.4.3, p 139]"
-    concept MeasurementProcedure :> Reference
+    aspect MeasurementProcedure :> Reference
 
     @dc:source "reference material [https://jcgm.bipm.org/vim/en/5.13.html]"
     @dc:source "reference material [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 5.1, p 47]"
-    concept ReferenceMaterial :> Reference
+    aspect ReferenceMaterial :> Reference
 
     @dc:source "measurement unit [https://jcgm.bipm.org/vim/en/1.9.html]"
     @dc:source "metrological unit, measurement unit [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 18.12, p 189]"
-    concept MeasurementUnit :> Reference
+    aspect MeasurementUnit :> Reference
 
-    @dc:source "taxonomic relations among measurement units is an inherent aspect of the concept system in [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, Table 2.13, p. 28 and Figure 13.13, p. 135]"
-    relation entity HasGeneralMeasurementUnit [
-        from MeasurementUnit
-        to MeasurementUnit
-        forward hasGeneralMeasurementUnit
-        asymmetric
-        irreflexive
+    @dc:^description "An NonCoherentDerivedMeasurementUnit is a MeasurementUnit that has a proportionality factor different than one with respect to another MeasurementUnit (that it must specialize)."
+    @dc:source "non-coherent derived measurement unit [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 18.20, p 194]"
+    concept NonCoherentDerivedMeasurementUnit :> MeasurementUnit
+
+    scalar property nonCoherentRelationship [
+        domain NonCoherentDerivedMeasurementUnit
+        range xsd:string
+        functional
+    ]
+
+    @dc:^description "An PrefixedMeasurementUnit is a MeasurementUnit defined by multiplication of another MeasurementUnit (that it must specialize) and a prefix."
+    @dc:source "multiple of a unit 3.17, submultiple of a unit 3.18 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-1:ed-1:v1:en]"
+    concept PrefixedMeasurementUnit :> MeasurementUnit
+
+    relation entity HasPrefixNumber [
+        from PrefixedMeasurementUnit
+        to Number
+        forward hasPrefixNumber
+        functional
     ]
 
     @dc:^description "An IndependentMeasurementUnit is a MeasurementUnit defined independently of any other MeasurementUnits."
@@ -167,6 +182,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
     scalar property IsBaseMetrologicalUnit [
         domain SystemHasMetrologicalUnit
         range xsd:boolean
+        functional
     ]
 
     @dc:source "quantity value [https://jcgm.bipm.org/vim/en/1.19.html]"
@@ -177,12 +193,14 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
         from QuantityValue
         to Number
         forward hasNumber
+        functional
     ]
 
     relation entity HasReference [
         from QuantityValue
         to Reference
         forward hasReference
+        functional
     ]
 
     @dc:source "ordinal quantity value [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 16.9, p 163]"
@@ -207,6 +225,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/metrology> with # as metrology {
         from Quantity
         to QuantityKind
         forward hasQuantityKind
+        functional
     ]
 
     @dc:source "ordinal quantity [https://iupac.org/wp-content/uploads/2016/01/ontology-on-Property-Division-VII.pdf, 12.16, p 116]"

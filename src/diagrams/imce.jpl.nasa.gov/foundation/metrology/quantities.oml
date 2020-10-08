@@ -22,7 +22,7 @@ vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/quantities> w
     @diagram:include
     @diagram:hierarchy "specialization"
     @diagram:hierarchyHops 0
-    ref concept metrology:Reference
+    ref aspect metrology:Reference
 
     @diagram:include
     ref concept metrology:QuantityKind

@@ -9,6 +9,5 @@ This software may be subject to U.S. export control laws. By accepting this soft
 vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle> with # as foundation-bundle {
 	includes <http://imce.jpl.nasa.gov/foundation/project>
 	includes <http://imce.jpl.nasa.gov/foundation/metrology>
-	includes <http://iso.org/iso-80000-5>
-	includes <http://iso.org/iso-80000-6>
+	includes <http://iso.org/80000-3/quantityKinds>
 }

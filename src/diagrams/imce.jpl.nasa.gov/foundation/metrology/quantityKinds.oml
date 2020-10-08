@@ -8,9 +8,6 @@ vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/quantityKinds
     ref concept metrology:QuantityKind
 
     @diagram:include
-    ref relation entity metrology:HasGeneralUnitaryQuantityKind
-
-    @diagram:include
     @diagram:include "properties"
     ref relation entity metrology:SystemHasUnitaryQuantityKind
 

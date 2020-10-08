@@ -5,14 +5,11 @@ vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/units> with #
 
     @diagram:include
     @diagram:hierarchy "specialization"
-    ref concept metrology:MeasurementUnit
+    ref aspect metrology:MeasurementUnit
 
     @diagram:include
     @diagram:include "properties"
     ref relation entity metrology:SystemHasMetrologicalUnit
-
-    @diagram:include
-    ref relation entity metrology:HasGeneralMeasurementUnit
 
     @diagram:include
     @diagram:include "properties"

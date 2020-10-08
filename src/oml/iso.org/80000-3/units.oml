@@ -1,21 +1,79 @@
-description <http://iso.org/80000-3/units> with # as units {
+vocabulary <http://iso.org/80000-3/units> with # as units {
     extends <http://imce.jpl.nasa.gov/foundation/metrology>
+    uses <http://iso.org/80000-1>
 
     @dc:source "3-1 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
-    ci metre : metrology:IndependentMeasurementUnit
+    aspect Metre :> metrology:MeasurementUnit
 
-    @dc:source "3-7 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
-    ci second : metrology:IndependentMeasurementUnit
+    concept metre :> Metre
 
-    @dc:source "3-15 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
-    ci hertz : metrology:DerivedMeasurementUnit
-
-    ri hertz_second : metrology:HasUnitFactor [
-        from hertz
-        to second
-        metrology:numerator -1
-        metrology:denominator 1
+    concept kilometre :> Metre, metrology:PrefixedMeasurementUnit [
+        restricts relation metrology:hasPrefixNumber to 80000-1:kilo
     ]
 
+    @dc:source "3-7 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    aspect Second :> metrology:MeasurementUnit
+
+    concept second :> Second
+
+    concept minute :> Second, metrology:NonCoherentDerivedMeasurementUnit [
+        restricts scalar property metrology:nonCoherentRelationship to "1 minute = 60 seconds"
+    ]
+
+    concept hour :> minute, metrology:NonCoherentDerivedMeasurementUnit [
+        restricts scalar property metrology:nonCoherentRelationship to "1 hour = 60 minutes"
+    ]
+
+    @dc:source "3-8 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    aspect Metre-per-Second :> metrology:MeasurementUnit
+
+    concept metre-per-second :> Metre-per-Second, metrology:DerivedMeasurementUnit
+
+    relation entity metre-per-second_of_metre :>  metrology:HasUnitFactor [
+        from metre-per-second
+        to metre
+        forward metre-per-second_of_metre-factor
+        restricts scalar property metrology:numerator to 1
+        restricts scalar property metrology:denominator to 1
+    ]
+
+    relation entity metre-per-second_of_second :>  metrology:HasUnitFactor [
+        from metre-per-second
+        to metre
+        forward metre-per-second_of_second-factor
+        restricts scalar property metrology:numerator to -1
+        restricts scalar property metrology:denominator to 1
+    ]
+
+    concept kilometre-per-second :> Metre-per-Second, metrology:DerivedMeasurementUnit
+
+    relation entity kilometre-per-second_of_metre :>  metrology:HasUnitFactor [
+        from metre-per-second
+        to kilometre
+        forward kilometre-per-second_of_metre-factor
+        restricts scalar property metrology:numerator to 1
+        restricts scalar property metrology:denominator to 1
+    ]
+
+    relation entity kilometre-per-second_of_second :>  metrology:HasUnitFactor [
+        from metre-per-second
+        to second
+        forward kilometre-per-second_of_second-factor
+        restricts scalar property metrology:numerator to -1
+        restricts scalar property metrology:denominator to 1
+    ]
+
+    @dc:source "3-15 [https://www.iso.org/obp/ui/#iso:std:iso:80000:-3:ed-2:v1:en]"
+    aspect Hertz :> metrology:MeasurementUnit
+
+    concept hertz :> Hertz, metrology:DerivedMeasurementUnit
+
+    relation entity hertz_of_second :> metrology:HasUnitFactor [
+        from hertz
+        to second
+        forward hertz-of-second-factor
+        restricts scalar property metrology:numerator to -1
+        restricts scalar property metrology:denominator to 1
+    ]
 
 }
