@@ -1,0 +1,11 @@
+@diagram:specifier
+vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/core> with # as core {
+    extends <http://imce.jpl.nasa.gov/foundation/diagram>
+    extends <http://imce.jpl.nasa.gov/foundation/metrology>
+
+    @diagram:include
+    @diagram:hierarchy "specialization"
+    @diagram:hierarchyHops 1
+    ref aspect metrology:Thing
+
+}

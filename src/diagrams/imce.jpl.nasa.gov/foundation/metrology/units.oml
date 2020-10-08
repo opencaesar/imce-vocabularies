@@ -1,0 +1,20 @@
+@diagram:specifier
+vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/units> with # as units {
+    extends <http://imce.jpl.nasa.gov/foundation/diagram>
+    extends <http://imce.jpl.nasa.gov/foundation/metrology>
+
+    @diagram:include
+    @diagram:hierarchy "specialization"
+    ref concept metrology:MeasurementUnit
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:SystemHasMetrologicalUnit
+
+    @diagram:include
+    ref relation entity metrology:HasGeneralMeasurementUnit
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:HasUnitFactor
+}

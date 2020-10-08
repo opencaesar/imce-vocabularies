@@ -1,0 +1,30 @@
+@diagram:specifier
+vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/quantities> with # as quantities {
+    extends <http://imce.jpl.nasa.gov/foundation/diagram>
+    extends <http://imce.jpl.nasa.gov/foundation/metrology>
+
+    @diagram:include
+    ref relation entity metrology:HasQuantityKind
+    
+    @diagram:include
+    @diagram:hierarchy "specialization"
+    ref concept metrology:QuantityValue
+
+    @diagram:include
+    ref relation entity metrology:Quantity
+
+    @diagram:include
+    ref relation entity metrology:HasNumber
+
+    @diagram:include
+    ref relation entity metrology:HasReference
+    
+    @diagram:include
+    @diagram:hierarchy "specialization"
+    @diagram:hierarchyHops 0
+    ref concept metrology:Reference
+
+    @diagram:include
+    ref concept metrology:QuantityKind
+    
+}
