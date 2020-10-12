@@ -1,0 +1,21 @@
+@diagram:specifier
+vocabulary <http://diagrams/ontology.iupac.org/metrology/kindsOfQuantities> with # as kindsOfQuantities {
+    extends <http://imce.jpl.nasa.gov/foundation/diagram>
+    extends <http://ontology.iupac.org/metrology>
+
+    @diagram:include
+    @diagram:hierarchy "specialization"
+    @diagram:hierarchyHops 1
+    ref concept metrology:KindOfQuantity
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:SystemHasUnitaryQuantityKind
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:HasFactorForUnitaryKindOfQuantity
+
+    @diagram:include
+    ref relation entity metrology:ForQuantitiesOfTheSameUnitaryKindOfQuantity
+}

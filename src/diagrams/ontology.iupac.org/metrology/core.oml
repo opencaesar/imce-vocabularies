@@ -1,7 +1,7 @@
 @diagram:specifier
-vocabulary <http://diagrams/imce.jpl.nasa.gov/foundation/metrology/core> with # as core {
+vocabulary <http://diagrams/ontology.iupac.org/metrology/core> with # as core {
     extends <http://imce.jpl.nasa.gov/foundation/diagram>
-    extends <http://imce.jpl.nasa.gov/foundation/metrology>
+    extends <http://ontology.iupac.org/metrology>
 
     @diagram:include
     @diagram:hierarchy "specialization"

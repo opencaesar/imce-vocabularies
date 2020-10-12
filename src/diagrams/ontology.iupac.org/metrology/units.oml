@@ -1,0 +1,44 @@
+@diagram:specifier
+vocabulary <http://diagrams/ontology.iupac.org/metrology/units> with # as units {
+    extends <http://imce.jpl.nasa.gov/foundation/diagram>
+    extends <http://ontology.iupac.org/metrology>
+
+    @diagram:include
+    @diagram:include "properties"
+    @diagram:hierarchy "generalization"
+    @diagram:hierarchyHops 1
+    ref concept metrology:NonCoherentDerivedMeasurementUnit
+
+    @diagram:include
+    @diagram:hierarchy "generalization"
+    @diagram:hierarchyHops 1
+    ref concept metrology:IndependentMeasurementUnit
+    
+    @diagram:include
+    @diagram:hierarchy "generalization"
+    @diagram:hierarchyHops 1
+    ref concept metrology:DerivedMeasurementUnit
+
+    @diagram:include
+    @diagram:include "properties"
+    ref aspect metrology:CoherentMeasurementUnit
+
+    @diagram:include
+    @diagram:hierarchy "generalization"
+    @diagram:hierarchyHops 1
+    ref concept metrology:PrefixedMeasurementUnit
+
+    @diagram:include
+    ref relation entity metrology:HasPrefixNumber
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:SystemHasMetrologicalUnit
+
+    @diagram:include
+    @diagram:include "properties"
+    ref relation entity metrology:HasFactorForMeasurementUnit
+
+    // @diagram:include
+    // ref relation entity metrology:HasPrefixNumber
+}
