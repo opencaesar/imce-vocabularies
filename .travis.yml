@@ -15,7 +15,8 @@ install:
   - pip3 install bikeshed && bikeshed update
 
 script:
-  - ./gradlew build generateDocs
+  - ./gradlew build 
+  - ./gradlew generateDocs
 
 env:
   global:
