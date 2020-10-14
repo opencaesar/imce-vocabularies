@@ -17,7 +17,9 @@ install:
 script:
   - ./gradlew omlToOwl
   - echo `pwd`
-  - find . -name 'bundle.*' -o name 'mission.*'
+  - find . -name 'mission.*'
+  - find . -name '80000-6-kindsOfQuantities.*'
+  - find . -name 'bundle.*'
   - ./gradlew owlReason
   - ./gradlew generateDocs
 
