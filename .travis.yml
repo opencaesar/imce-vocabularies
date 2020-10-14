@@ -15,12 +15,7 @@ install:
   - pip3 install bikeshed && bikeshed update
 
 script:
-  - ./gradlew omlToOwl
-  - echo `pwd`
-  - find . -name 'mission.*'
-  - find . -name '80000-6-kindsOfQuantities.*'
-  - find . -name 'bundle.*'
-  - ./gradlew owlReason
+  - ./gradlew build
   - ./gradlew generateDocs
 
 env:
