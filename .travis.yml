@@ -17,7 +17,7 @@ install:
 script:
   - ./gradlew omlToOwl
   - echo `pwd`
-  - find ./build/owl/ -name '*.owl'
+  - find . -name 'bundle.*' -o name 'mission.*'
   - ./gradlew owlReason
   - ./gradlew generateDocs
 
