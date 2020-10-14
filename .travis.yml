@@ -15,9 +15,13 @@ install:
   - pip3 install bikeshed && bikeshed update
 
 script:
+  - echo "#1"
   - ./gradlew build
+  - echo "#2"
   - echo `pwd`
-  - find ./build/owl/src -name '*.owl'
+  - echo "#3"
+  - find /home/travis/build/opencaesar/jpl-vocabularies/build/owl/ -name '*.owl'
+  - echo "#4"
   - ./gradlew generateDocs
 
 env:
