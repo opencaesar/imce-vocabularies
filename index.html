@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,10 +1321,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/jpl-vocabularies/" rel="canonical">
   <link href="https://opencaesar.github.io/assets/img/oml.png" rel="icon">
-  <meta content="cb47ec3406619749d03948a2b08b9a0d8bcd3a87" name="document-revision">
+  <meta content="1ca1d7d6c9a591406b8857b7475624283bc10093" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1704,7 +1704,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">OML Ontologies Index</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-02">2 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-15">15 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1729,83 +1729,93 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#heading-domain-iso.org"><span class="secno">1</span> <span class="content">iso.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-iso-80000-2-1"><span class="secno">1.1</span> <span class="content"><span>ISO-80000-2</span></span></a>
-      <li><a href="#heading-iso-80000-3-2"><span class="secno">1.2</span> <span class="content"><span>ISO-80000-3</span></span></a>
-      <li><a href="#heading-iso-80000-4-3"><span class="secno">1.3</span> <span class="content"><span>ISO-80000-4</span></span></a>
-      <li><a href="#heading-iso-80000-5-4"><span class="secno">1.4</span> <span class="content"><span>ISO-80000-5</span></span></a>
-      <li><a href="#heading-iso-80000-6-5"><span class="secno">1.5</span> <span class="content"><span>ISO-80000-6</span></span></a>
+      <li><a href="#heading-80000-1-decimalPrefix-1"><span class="secno">1.1</span> <span class="content"><span>80000-1-decimalPrefix</span></span></a>
+      <li><a href="#heading-80000-1-2"><span class="secno">1.2</span> <span class="content"><span>80000-1</span></span></a>
+      <li><a href="#heading-80000-3-kindsOfQuantities-3"><span class="secno">1.3</span> <span class="content"><span>80000-3-kindsOfQuantities</span></span></a>
+      <li><a href="#heading-80000-3-units-4"><span class="secno">1.4</span> <span class="content"><span>80000-3-units</span></span></a>
+      <li><a href="#heading-80000-4-kindsOfQuantities-5"><span class="secno">1.5</span> <span class="content"><span>80000-4-kindsOfQuantities</span></span></a>
+      <li><a href="#heading-80000-4-units-6"><span class="secno">1.6</span> <span class="content"><span>80000-4-units</span></span></a>
+      <li><a href="#heading-80000-5-kindsOfQuantities-7"><span class="secno">1.7</span> <span class="content"><span>80000-5-kindsOfQuantities</span></span></a>
+      <li><a href="#heading-80000-5-units-8"><span class="secno">1.8</span> <span class="content"><span>80000-5-units</span></span></a>
+      <li><a href="#heading-80000-6-kindsOfQuantities-9"><span class="secno">1.9</span> <span class="content"><span>80000-6-kindsOfQuantities</span></span></a>
+      <li><a href="#heading-80000-6-units-10"><span class="secno">1.10</span> <span class="content"><span>80000-6-units</span></span></a>
      </ol>
     <li>
-     <a href="#heading-domain-purl.org"><span class="secno">2</span> <span class="content">purl.org</span></a>
+     <a href="#heading-domain-ontology.iupac.org"><span class="secno">2</span> <span class="content">ontology.iupac.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-dc-6"><span class="secno">2.1</span> <span class="content"><span>DC</span></span></a>
+      <li><a href="#heading-metrology-11"><span class="secno">2.1</span> <span class="content"><span>An Ontology on Property</span></span></a>
      </ol>
     <li>
-     <a href="#heading-domain-www.w3.org"><span class="secno">3</span> <span class="content">www.w3.org</span></a>
+     <a href="#heading-domain-purl.org"><span class="secno">3</span> <span class="content">purl.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-rdf-7"><span class="secno">3.1</span> <span class="content"><span>RDF</span></span></a>
-      <li><a href="#heading-rdfs-8"><span class="secno">3.2</span> <span class="content"><span>RDFS</span></span></a>
-      <li><a href="#heading-xsd-9"><span class="secno">3.3</span> <span class="content"><span>XSD</span></span></a>
-      <li><a href="#heading-owl-10"><span class="secno">3.4</span> <span class="content"><span>OWL2</span></span></a>
+      <li><a href="#heading-dc-12"><span class="secno">3.1</span> <span class="content"><span>DC</span></span></a>
      </ol>
     <li>
-     <a href="#heading-domain-imce.jpl.nasa.gov"><span class="secno">4</span> <span class="content">imce.jpl.nasa.gov</span></a>
+     <a href="#heading-domain-www.w3.org"><span class="secno">4</span> <span class="content">www.w3.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-analysis-11"><span class="secno">4.1</span> <span class="content"><span>Analysis</span></span></a>
-      <li><a href="#heading-base-12"><span class="secno">4.2</span> <span class="content"><span>Base</span></span></a>
-      <li><a href="#heading-foundation-bundle-13"><span class="secno">4.3</span> <span class="content"><span>Foundation Bundle</span></span></a>
-      <li><a href="#heading-metrology-14"><span class="secno">4.4</span> <span class="content"><span>Metrology</span></span></a>
-      <li><a href="#heading-mission-15"><span class="secno">4.5</span> <span class="content"><span>Mission</span></span></a>
-      <li><a href="#heading-project-16"><span class="secno">4.6</span> <span class="content"><span>Project</span></span></a>
+      <li><a href="#heading-rdf-13"><span class="secno">4.1</span> <span class="content"><span>RDF</span></span></a>
+      <li><a href="#heading-rdfs-14"><span class="secno">4.2</span> <span class="content"><span>RDFS</span></span></a>
+      <li><a href="#heading-xsd-15"><span class="secno">4.3</span> <span class="content"><span>XSD</span></span></a>
+      <li><a href="#heading-owl-16"><span class="secno">4.4</span> <span class="content"><span>OWL2</span></span></a>
+     </ol>
+    <li>
+     <a href="#heading-domain-imce.jpl.nasa.gov"><span class="secno">5</span> <span class="content">imce.jpl.nasa.gov</span></a>
+     <ol class="toc">
+      <li><a href="#heading-analysis-17"><span class="secno">5.1</span> <span class="content"><span>Analysis</span></span></a>
+      <li><a href="#heading-base-18"><span class="secno">5.2</span> <span class="content"><span>Base</span></span></a>
+      <li><a href="#heading-foundation-bundle-19"><span class="secno">5.3</span> <span class="content"><span>Foundation Bundle</span></span></a>
+      <li><a href="#heading-mission-20"><span class="secno">5.4</span> <span class="content"><span>Mission</span></span></a>
+      <li><a href="#heading-project-21"><span class="secno">5.5</span> <span class="content"><span>Project</span></span></a>
      </ol>
    </ol>
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="heading-domain-iso.org"><span class="secno">1. </span><span class="content">iso.org</span><a class="self-link" href="#heading-domain-iso.org"></a></h2>
-   <h3 class="heading settled" data-level="1.1" id="heading-iso-80000-2-1"><span class="secno">1.1. </span><span class="content"><a href="./build/oml/iso.org/iso-80000-2.html">ISO-80000-2</a></span><a class="self-link" href="#heading-iso-80000-2-1"></a></h3>
-    The ISO 80000 Part 2 vocabulary is a subset of the vocabulary maintained by the International Organization for Standards. 
-   <h3 class="heading settled" data-level="1.2" id="heading-iso-80000-3-2"><span class="secno">1.2. </span><span class="content"><a href="./build/oml/iso.org/iso-80000-3.html">ISO-80000-3</a></span><a class="self-link" href="#heading-iso-80000-3-2"></a></h3>
-    The ISO 80000 Part 3 vocabulary is a subset of the vocabulary maintained by the International Organization for Standards. 
-   <h3 class="heading settled" data-level="1.3" id="heading-iso-80000-4-3"><span class="secno">1.3. </span><span class="content"><a href="./build/oml/iso.org/iso-80000-4.html">ISO-80000-4</a></span><a class="self-link" href="#heading-iso-80000-4-3"></a></h3>
-    The ISO 80000 Part 4 vocabulary is a subset of the vocabulary maintained by the International Organization for Standards. 
-   <h3 class="heading settled" data-level="1.4" id="heading-iso-80000-5-4"><span class="secno">1.4. </span><span class="content"><a href="./build/oml/iso.org/iso-80000-5.html">ISO-80000-5</a></span><a class="self-link" href="#heading-iso-80000-5-4"></a></h3>
-    The ISO 80000 Part 5 vocabulary is a subset of the vocabulary maintained by the International Organization for Standards. 
-   <h3 class="heading settled" data-level="1.5" id="heading-iso-80000-6-5"><span class="secno">1.5. </span><span class="content"><a href="./build/oml/iso.org/iso-80000-6.html">ISO-80000-6</a></span><a class="self-link" href="#heading-iso-80000-6-5"></a></h3>
-    The ISO 80000 Part 6 vocabulary is a subset of the vocabulary maintained by the International Organization for Standards. 
-   <h2 class="heading settled" data-level="2" id="heading-domain-purl.org"><span class="secno">2. </span><span class="content">purl.org</span><a class="self-link" href="#heading-domain-purl.org"></a></h2>
-   <h3 class="heading settled" data-level="2.1" id="heading-dc-6"><span class="secno">2.1. </span><span class="content"><a href="./build/oml/purl.org/dc/elements/1.1.html">DC</a></span><a class="self-link" href="#heading-dc-6"></a></h3>
+   <h3 class="heading settled" data-level="1.1" id="heading-80000-1-decimalPrefix-1"><span class="secno">1.1. </span><span class="content"><a href="./build/oml/iso.org/80000-1-decimalPrefix.html">80000-1-decimalPrefix</a></span><a class="self-link" href="#heading-80000-1-decimalPrefix-1"></a></h3>
+   <h3 class="heading settled" data-level="1.2" id="heading-80000-1-2"><span class="secno">1.2. </span><span class="content"><a href="./build/oml/iso.org/80000-1.html">80000-1</a></span><a class="self-link" href="#heading-80000-1-2"></a></h3>
+   <h3 class="heading settled" data-level="1.3" id="heading-80000-3-kindsOfQuantities-3"><span class="secno">1.3. </span><span class="content"><a href="./build/oml/iso.org/80000-3-kindsOfQuantities.html">80000-3-kindsOfQuantities</a></span><a class="self-link" href="#heading-80000-3-kindsOfQuantities-3"></a></h3>
+   <h3 class="heading settled" data-level="1.4" id="heading-80000-3-units-4"><span class="secno">1.4. </span><span class="content"><a href="./build/oml/iso.org/80000-3-units.html">80000-3-units</a></span><a class="self-link" href="#heading-80000-3-units-4"></a></h3>
+   <h3 class="heading settled" data-level="1.5" id="heading-80000-4-kindsOfQuantities-5"><span class="secno">1.5. </span><span class="content"><a href="./build/oml/iso.org/80000-4-kindsOfQuantities.html">80000-4-kindsOfQuantities</a></span><a class="self-link" href="#heading-80000-4-kindsOfQuantities-5"></a></h3>
+   <h3 class="heading settled" data-level="1.6" id="heading-80000-4-units-6"><span class="secno">1.6. </span><span class="content"><a href="./build/oml/iso.org/80000-4-units.html">80000-4-units</a></span><a class="self-link" href="#heading-80000-4-units-6"></a></h3>
+   <h3 class="heading settled" data-level="1.7" id="heading-80000-5-kindsOfQuantities-7"><span class="secno">1.7. </span><span class="content"><a href="./build/oml/iso.org/80000-5-kindsOfQuantities.html">80000-5-kindsOfQuantities</a></span><a class="self-link" href="#heading-80000-5-kindsOfQuantities-7"></a></h3>
+   <h3 class="heading settled" data-level="1.8" id="heading-80000-5-units-8"><span class="secno">1.8. </span><span class="content"><a href="./build/oml/iso.org/80000-5-units.html">80000-5-units</a></span><a class="self-link" href="#heading-80000-5-units-8"></a></h3>
+   <h3 class="heading settled" data-level="1.9" id="heading-80000-6-kindsOfQuantities-9"><span class="secno">1.9. </span><span class="content"><a href="./build/oml/iso.org/80000-6-kindsOfQuantities.html">80000-6-kindsOfQuantities</a></span><a class="self-link" href="#heading-80000-6-kindsOfQuantities-9"></a></h3>
+   <h3 class="heading settled" data-level="1.10" id="heading-80000-6-units-10"><span class="secno">1.10. </span><span class="content"><a href="./build/oml/iso.org/80000-6-units.html">80000-6-units</a></span><a class="self-link" href="#heading-80000-6-units-10"></a></h3>
+   <h2 class="heading settled" data-level="2" id="heading-domain-ontology.iupac.org"><span class="secno">2. </span><span class="content">ontology.iupac.org</span><a class="self-link" href="#heading-domain-ontology.iupac.org"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="heading-metrology-11"><span class="secno">2.1. </span><span class="content"><a href="./build/oml/ontology.iupac.org/metrology.html">An Ontology on Property</a></span><a class="self-link" href="#heading-metrology-11"></a></h3>
+    This vocabulary is a partial account of Prof. Rene Dybkaer’s 'An Ontology of Property' 
+focused on the concepts necessary for dimensional analysis of systems of metrological units and
+of systems of quantities based on the algebraic relationships involved in the
+definitions of the metrological units and the kinds of quantities in these respective systems. 
+   <p>See the rationale behind the 3rd revision of the Vocabulary of International Metrology, VIM3,
+for references to Prof. Dybkaer’s influential work: https://www.bipm.org/en/publications/guides/rationale-vim3.html</p>
+   <p>Where possible, correspondences to VIM3 definitions will be referenced from https://jcgm.bipm.org/vim/en/index.html
+The VIM3 is available in document PDF here: https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf</p>
+   <p>References to definitions in the ontology are indicated via a reference
+in parentheses with a chapter and section and a page number;
+for example, (S.2.23, p. 33) refers to the definition of <a class="property" data-link-type="propdesc">object</a> on page 33.</p>
+   <h2 class="heading settled" data-level="3" id="heading-domain-purl.org"><span class="secno">3. </span><span class="content">purl.org</span><a class="self-link" href="#heading-domain-purl.org"></a></h2>
+   <h3 class="heading settled" data-level="3.1" id="heading-dc-12"><span class="secno">3.1. </span><span class="content"><a href="./build/oml/purl.org/dc/elements/1.1.html">DC</a></span><a class="self-link" href="#heading-dc-12"></a></h3>
     The DC vocabulary is a subset of the vocabulary maintained by the Dublin Core Metadata Initiative. 
-   <h2 class="heading settled" data-level="3" id="heading-domain-www.w3.org"><span class="secno">3. </span><span class="content">www.w3.org</span><a class="self-link" href="#heading-domain-www.w3.org"></a></h2>
-   <h3 class="heading settled" data-level="3.1" id="heading-rdf-7"><span class="secno">3.1. </span><span class="content"><a href="./build/oml/www.w3.org/1999/02/22-rdf-syntax-ns.html">RDF</a></span><a class="self-link" href="#heading-rdf-7"></a></h3>
+   <h2 class="heading settled" data-level="4" id="heading-domain-www.w3.org"><span class="secno">4. </span><span class="content">www.w3.org</span><a class="self-link" href="#heading-domain-www.w3.org"></a></h2>
+   <h3 class="heading settled" data-level="4.1" id="heading-rdf-13"><span class="secno">4.1. </span><span class="content"><a href="./build/oml/www.w3.org/1999/02/22-rdf-syntax-ns.html">RDF</a></span><a class="self-link" href="#heading-rdf-13"></a></h3>
     The RDF vocabulary is a subset of the vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="3.2" id="heading-rdfs-8"><span class="secno">3.2. </span><span class="content"><a href="./build/oml/www.w3.org/2000/01/rdf-schema.html">RDFS</a></span><a class="self-link" href="#heading-rdfs-8"></a></h3>
+   <h3 class="heading settled" data-level="4.2" id="heading-rdfs-14"><span class="secno">4.2. </span><span class="content"><a href="./build/oml/www.w3.org/2000/01/rdf-schema.html">RDFS</a></span><a class="self-link" href="#heading-rdfs-14"></a></h3>
     The RDFS vocabulary is a subset of the vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="3.3" id="heading-xsd-9"><span class="secno">3.3. </span><span class="content"><a href="./build/oml/www.w3.org/2001/XMLSchema.html">XSD</a></span><a class="self-link" href="#heading-xsd-9"></a></h3>
+   <h3 class="heading settled" data-level="4.3" id="heading-xsd-15"><span class="secno">4.3. </span><span class="content"><a href="./build/oml/www.w3.org/2001/XMLSchema.html">XSD</a></span><a class="self-link" href="#heading-xsd-15"></a></h3>
     The XSD vocabulary is a subset of the corresponding vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="3.4" id="heading-owl-10"><span class="secno">3.4. </span><span class="content"><a href="./build/oml/www.w3.org/2002/07/owl.html">OWL2</a></span><a class="self-link" href="#heading-owl-10"></a></h3>
+   <h3 class="heading settled" data-level="4.4" id="heading-owl-16"><span class="secno">4.4. </span><span class="content"><a href="./build/oml/www.w3.org/2002/07/owl.html">OWL2</a></span><a class="self-link" href="#heading-owl-16"></a></h3>
     The OWL2 vocabulary is a subset of the vocabulary maintained by the W3C. 
-   <h2 class="heading settled" data-level="4" id="heading-domain-imce.jpl.nasa.gov"><span class="secno">4. </span><span class="content">imce.jpl.nasa.gov</span><a class="self-link" href="#heading-domain-imce.jpl.nasa.gov"></a></h2>
-   <h3 class="heading settled" data-level="4.1" id="heading-analysis-11"><span class="secno">4.1. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/analysis.html">Analysis</a></span><a class="self-link" href="#heading-analysis-11"></a></h3>
+   <h2 class="heading settled" data-level="5" id="heading-domain-imce.jpl.nasa.gov"><span class="secno">5. </span><span class="content">imce.jpl.nasa.gov</span><a class="self-link" href="#heading-domain-imce.jpl.nasa.gov"></a></h2>
+   <h3 class="heading settled" data-level="5.1" id="heading-analysis-17"><span class="secno">5.1. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/analysis.html">Analysis</a></span><a class="self-link" href="#heading-analysis-17"></a></h3>
     The Analysis Ontology defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts. 
-   <h3 class="heading settled" data-level="4.2" id="heading-base-12"><span class="secno">4.2. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/base.html">Base</a></span><a class="self-link" href="#heading-base-12"></a></h3>
+   <h3 class="heading settled" data-level="5.2" id="heading-base-18"><span class="secno">5.2. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/base.html">Base</a></span><a class="self-link" href="#heading-base-18"></a></h3>
     The Base Ontology defines foundation concepts that are common to multiple specialized ontologies. 
-   <h3 class="heading settled" data-level="4.3" id="heading-foundation-bundle-13"><span class="secno">4.3. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/bundle.html">Foundation Bundle</a></span><a class="self-link" href="#heading-foundation-bundle-13"></a></h3>
+   <h3 class="heading settled" data-level="5.3" id="heading-foundation-bundle-19"><span class="secno">5.3. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/bundle.html">Foundation Bundle</a></span><a class="self-link" href="#heading-foundation-bundle-19"></a></h3>
     This is the bundle of foundation ontologies. 
-   <h3 class="heading settled" data-level="4.4" id="heading-metrology-14"><span class="secno">4.4. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/metrology.html">Metrology</a></span><a class="self-link" href="#heading-metrology-14"></a></h3>
-    The Metology vocabulary defines the concepts of metrology according to VIM3.
-See https://jcgm.bipm.org/vim/en/index.html
-See https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf 
-   <p>VIM3 was the basis for the updated SysML v1 QUDV library.
-VIM3 is also the basis for the revised SysML v2 QUDV library currently developed by the SysML v2 SST;
-which is also the basis of the present OML QUDV vocabulary.</p>
-   <p>The objective is to align this OML QUDV library with the SysMLv2 QUDV library
-such that their respective semantics become interoperable in a practically meaningful way.
-That is, the goal is to achieve a level of semantic compatibility such that
-the representation of metrology in OML or in SysMLv2 becomes a difference of concrete syntax representation
-(i.e, in OML or in Alf) with an equivalent logical semantics in OWL2 DL + SWRL and in SysMLv2’s logical semantics.</p>
-   <h3 class="heading settled" data-level="4.5" id="heading-mission-15"><span class="secno">4.5. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/mission.html">Mission</a></span><a class="self-link" href="#heading-mission-15"></a></h3>
+   <h3 class="heading settled" data-level="5.4" id="heading-mission-20"><span class="secno">5.4. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/mission.html">Mission</a></span><a class="self-link" href="#heading-mission-20"></a></h3>
     The Mission Ontology defines concepts and properties for describing missions in terms of their objectives, their constituent components, the functions those components perform, and the requirements that specify them. 
-   <h3 class="heading settled" data-level="4.6" id="heading-project-16"><span class="secno">4.6. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/project.html">Project</a></span><a class="self-link" href="#heading-project-16"></a></h3>
+   <h3 class="heading settled" data-level="5.5" id="heading-project-21"><span class="secno">5.5. </span><span class="content"><a href="./src/oml/imce.jpl.nasa.gov/foundation/project.html">Project</a></span><a class="self-link" href="#heading-project-21"></a></h3>
     The Project Ontology defines concepts and properties for describing a project in terms of its stakeholders, concerns, work breakdown, and deliverables. It provides a basis for specialization by domain experts. 
   </main>
 <script>
