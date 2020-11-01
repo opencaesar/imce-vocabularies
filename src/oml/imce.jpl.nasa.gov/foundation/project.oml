@@ -33,7 +33,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 
 	@dc:^description "<para>A <classname>Concern</classname> represents a specific interest that one or more stakeholders have in the successful completion of a <classname>Project</classname> or <classname>Program</classname> and its <classname>Mission</classname>s. </para>"
 	@rdfs:label "Concern"
-	concept Concern :> analysis:MeasuredElement, base:AggregatedElement, base:IdentifiedElement [
+	concept Concern :> analysis:ConstrainedElement, base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:aggregates to Concern
 		restricts all relation base:isAggregatedIn to Concern
 	]
