@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>jpl-vocabularies</name>
-	<comment>Project jpl-vocabularies created by Buildship.</comment>
+	<name>imce-vocabularies</name>
 	<projects>
 	</projects>
 	<buildSpec>

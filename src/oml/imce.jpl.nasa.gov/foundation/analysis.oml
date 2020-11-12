@@ -9,13 +9,12 @@ This software may be subject to U.S. export control laws. By accepting this soft
 vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	extends <http://imce.jpl.nasa.gov/foundation/mission>
-  extends <http://iupac.org/metrology>
+
+	extends <http://iupac.org/metrology>
 
 	aspect AnalyzedElement
 
 	aspect CharacterizedElement
-
-  ref aspect metrology:Object :> analysis:CharacterizedElement
 
 	aspect ConstrainedElement :> AnalyzedElement, CharacterizedElement
 
@@ -31,10 +30,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
     is a set of name/value pairs, but other characterizations (e.g., classification) are possible."
 	@rdfs:label "Characterization"
 	concept Characterization :> AnalyzedElement, CharacterizedElement, base:IdentifiedElement
-  
-	@dc:^description "A metrology:Quantity characterizes a metrology:Object"
-	ref concept metrology:Quantity :> analysis:Characterization
-  
+
 	@dc:^description "A <classname>Constraint</classname> is a container for one or more mathematical expressions asserting constraints on values."
 	@rdfs:label "Constraint"
 	concept Constraint :> AnalyzedElement, CharacterizedElement
@@ -113,8 +109,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 		irreflexive
 	]
 
-  ref relation entity metrology:IsQuantityOf :> analysis:Characterizes
-
 	@rdfs:label "Constrains"
 	relation entity Constrains :> AnalyzedElement, CharacterizedElement [
 		from Constraint
@@ -183,6 +177,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 		domain GlossaryEntry
 		range xsd:string
 	]
+
+	ref aspect metrology:Object :> analysis:CharacterizedElement
+
+	@dc:^description "A metrology:Quantity characterizes a metrology:Object"
+	ref concept metrology:Quantity :> analysis:Characterization
+
+	ref relation entity metrology:IsQuantityOf :> analysis:Characterizes
 
 	ref aspect base:AggregatedElement :> AnalyzedElement, CharacterizedElement
 

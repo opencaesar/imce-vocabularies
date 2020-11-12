@@ -7,7 +7,10 @@ This software may be subject to U.S. export control laws. By accepting this soft
 @dc:hasVersion "1.0.3"
 @dc:date "2020-09-29"
 vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle> with # as foundation-bundle {
+
 	includes <http://imce.jpl.nasa.gov/foundation/project>
+
 	includes <http://iso.org/80000-6-derivation-consistency>
+
 	includes <http://iso.org/80000-6-quantityValues>
 }
