@@ -1,7 +1,7 @@
 /* 
  * The Maven coordinates for the project artifact
  */
-description='The set of JPL vocabularies'
+description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
 version = '1.3.0'
 
@@ -11,7 +11,7 @@ version = '1.3.0'
 buildscript {
 	repositories {
 		mavenLocal()
-		maven { url 'https://dl.bintray.com/opencaesar/owl-adapter' }
+		maven { url 'https://dl.bintray.com/opencaesar/adapters' }
 		maven { url 'https://dl.bintray.com/opencaesar/owl-tools' }
 		maven { url 'https://dl.bintray.com/opencaesar/oml-tools' }
 		maven { url 'https://dl.bintray.com/opencaesar/oml' }
@@ -19,9 +19,9 @@ buildscript {
 	}
 	dependencies {
 		classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-		classpath 'io.opencaesar.owl:oml2owl-gradle:0.7.+'
-		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.7.+'
-		classpath 'io.opencaesar.oml:oml-merge-gradle:0.7.+'
+		classpath 'io.opencaesar.adapters:oml2owl-gradle:0.8.+'
+		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.8.+'
+		classpath 'io.opencaesar.oml:oml-merge-gradle:0.8.+'
 		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
 		// needed since gradle bintray brings an old version of xerces
 		configurations.classpath.exclude group: 'xerces', module: 'xercesImpl'
@@ -201,5 +201,13 @@ bintray {
 			released  = new Date()
 		}
 	}
+}
 
+/*
+ * Integration with the Eclipse IDE
+ */ 
+apply plugin: 'eclipse'
+
+eclipse {
+    synchronizationTasks downloadDependencies
 }
