@@ -177,7 +177,8 @@ apply plugin: 'com.jfrog.bintray'
 ext.gh = [
 	dep: 'https://github.com',
 	org: 'opencaesar',
-	rep: 'ontologies'
+	rep: 'imce-vocabularies',
+	bintray: 'ontologies'
 ]
 
 bintray {
@@ -188,7 +189,7 @@ bintray {
 	override = true
 	pkg {
 		name = project.name
-		repo = gh.rep
+		repo = gh.bintray
 		userOrg = gh.org
 		desc = project.description
 		licenses = ['Apache-2.0']
