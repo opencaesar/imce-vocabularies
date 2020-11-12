@@ -10,16 +10,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	extends <http://imce.jpl.nasa.gov/foundation/mission>
 
+	extends <http://iupac.org/metrology>
+
 	aspect AnalyzedElement
 
 	aspect CharacterizedElement
 
 	aspect ConstrainedElement :> AnalyzedElement, CharacterizedElement
-
-	@dc:^description """<para>A <classname>MeasuredElement</classname> is a model element that may be measured by one or more associated <classname>Metric</classname>s. Both <classname>Objective</classname>s and
-    <classname>Requirement</classname>s</para> <para>are <classname>MeasuredElement</classname>s.</para>"""
-	@rdfs:label "Measured Element"
-	aspect MeasuredElement :> AnalyzedElement, CharacterizedElement
 
 	@dc:^description "<classname>Analysis</classname> is a deprecated synonym for <classname>Explanation</classname>."
 	@rdfs:label "Analysis"
@@ -37,10 +34,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	@dc:^description "A <classname>Constraint</classname> is a container for one or more mathematical expressions asserting constraints on values."
 	@rdfs:label "Constraint"
 	concept Constraint :> AnalyzedElement, CharacterizedElement
-
-	@dc:^description "A <classname>CostEstimate</classname> is a kind of <classname>Explanation</classname> that provides a cost estimate for the model elements it explains."
-	@rdfs:label "Cost Estimate"
-	concept CostEstimate :> Analysis
 
 	@dc:^description """<para>A <classname>Criterion</classname> establishes a region for some <classname>Metric</classname> that corresponds to success for some <classname>MeasuredElement</classname>.</para>
     <para>A <classname>Criterion</classname> for the <classname>Metric</classname> <emphasis role="italic">sample mass in kg</emphasis> might be <emphasis role="italic">at least 10 kg</emphasis>.</para>"""
@@ -82,23 +75,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	concept KeyRequirementsExplanation :> Analysis [
 		restricts all relation explains to mission:Requirement
 	]
-
-	@dc:^description """<para>A <classname>Metric</classname> establishes a method for quantifying achievement or satisfaction of one or more <classname>MeasuredElement</classname>s. Note that the
-    relationship is many to many: a given <classname>Metric</classname> may jointly quantify multiple <classname>MeasuredElement</classname>s. Likewise, a <classname>MeasuredElement</classname> may be quantified by multiple
-    <classname>Metric</classname>s.</para> <para>Appropriate <classname>Metric</classname>s for the <classname>Objective</classname> <emphasis role="italic">image Martian north polar region</emphasis> might include data
-    volumes at specified wavelength and resolution.</para>"""
-	@rdfs:label "Metric"
-	concept Metric :> AnalyzedElement, CharacterizedElement, base:IdentifiedElement
-
-	@dc:^description """<para>A <classname>Quantity</classname> attaches a value for some <classname>Metric</classname> to one or more <classname>SpecifiedElement</classname>s.
-    That is, it evaluates some aspect of a design by assigning a definite value to a specific <classname>Metric</classname>.</para>"""
-	@rdfs:comment "TODO: analysis:Quantification subclass of qudv:Quantity"
-	@rdfs:label "Quantity"
-	concept Quantity :> Characterization
-
-	@dc:^description "A <classname>QuantityValue</classname> assigns a value to a <classname>Quantity</classname>."
-	@rdfs:label "Quantity Value"
-	concept QuantityValue :> AnalyzedElement, CharacterizedElement
 
 	@dc:^description "A <classname>TradeStudy</classname> explains some set of model elements and their properties through comparison with alternatives."
 	@rdfs:label "Trade Study"
@@ -160,43 +136,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 		irreflexive
 	]
 
-	@rdfs:label "Has Criterion"
-	relation entity HasCriterion :> AnalyzedElement, CharacterizedElement [
-		from Metric
-		to Criterion
-		@dc:^description """<para>A <classname>Metric</classname> <replaceable>m</replaceable> <property>hasCriterion</property> some <classname>Criterion</classname>
-        <replaceable>c</replaceable> if and only if <replaceable>c</replaceable> establishes a region of success for <replaceable>m</replaceable>.</para>"""
-		@rdfs:label "has criterion"
-		forward hasCriterion
-		@rdfs:label "is criterion for"
-		reverse isCriterionFor
-		inverse functional
-	]
-
-	@rdfs:label "Has Metric"
-	relation entity HasMetric :> AnalyzedElement, CharacterizedElement [
-		from Quantity
-		to Metric
-		@dc:^description """<para>An <classname>Quantification</classname> <replaceable>q</replaceable> <property>hasMetric</property> some <classname>Metric</classname>
-        <replaceable>m</replaceable> if and only if <replaceable>q</replaceable> assigns a value to <replaceable>m</replaceable> for some aspect of a design.</para>"""
-		@rdfs:label "has metric"
-		forward hasMetric
-		functional
-		asymmetric
-		irreflexive
-	]
-
-	@rdfs:label "Has Value"
-	relation entity HasValue :> AnalyzedElement, CharacterizedElement [
-		from Quantity
-		to QuantityValue
-		@rdfs:label "has value"
-		forward hasValue
-		functional
-		asymmetric
-		irreflexive
-	]
-
 	@rdfs:label "Limits"
 	relation entity Limits :> Characterizes, AnalyzedElement, CharacterizedElement [
 		from Assumption
@@ -208,34 +147,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 		@dc:^description "See <property>limits</property>."
 		@rdfs:label "is limited by"
 		reverse isLimitedBy
-		asymmetric
-		irreflexive
-	]
-
-	@rdfs:label "Measures"
-	relation entity Measures :> AnalyzedElement, CharacterizedElement [
-		from Criterion
-		to MeasuredElement
-		@dc:^description """<para>A <classname>Criterion</classname> <replaceable>c</replaceable> <property>measures</property> some <classname>MeasuredElement</classname>
-        <replaceable>e</replaceable> if and only if <replaceable>c</replaceable> defines a region for some <classname>Metric</classname> that corresponds to succes for <replaceable>e</replaceable>.</para>"""
-		@rdfs:label "measures"
-		forward measures
-		@rdfs:label "is measured by"
-		reverse isMeasuredBy
-		asymmetric
-		irreflexive
-	]
-
-	@rdfs:label "Quantifies"
-	relation entity Quantifies :> AnalyzedElement, CharacterizedElement [
-		from Quantity
-		to mission:SpecifiedElement
-		@dc:^description """<para>A <classname>Quantification</classname> <replaceable>q</replaceable> <property>quantifies</property> some <classname>SpecifiedElement</classname>
-        <replaceable>e</replaceable> if and only if <replaceable>q</replaceable> assigns a value to some <classname>Metric</classname>  for <replaceable>e</replaceable>.</para>"""
-		@rdfs:label "quantifies"
-		forward quantifies
-		@rdfs:label "is quantified by"
-		reverse isQuantifiedBy
 		asymmetric
 		irreflexive
 	]
@@ -266,6 +177,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 		domain GlossaryEntry
 		range xsd:string
 	]
+
+	ref aspect metrology:Object :> analysis:CharacterizedElement
+
+	@dc:^description "A metrology:Quantity characterizes a metrology:Object"
+	ref concept metrology:Quantity :> analysis:Characterization
+
+	ref relation entity metrology:IsQuantityOf :> analysis:Characterizes
 
 	ref aspect base:AggregatedElement :> AnalyzedElement, CharacterizedElement
 
@@ -323,7 +241,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	ref concept mission:Mission :> AnalyzedElement, CharacterizedElement
 
-	ref concept mission:Objective :> AnalyzedElement, CharacterizedElement, MeasuredElement
+	ref concept mission:Objective :> AnalyzedElement, CharacterizedElement
 
 	ref aspect mission:PerformingElement :> AnalyzedElement, CharacterizedElement
 
@@ -343,7 +261,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	ref relation entity mission:Refines :> AnalyzedElement, CharacterizedElement
 
-	ref concept mission:Requirement :> AnalyzedElement, CharacterizedElement, MeasuredElement
+	ref concept mission:Requirement :> AnalyzedElement, CharacterizedElement
 
 	ref relation entity mission:Sends :> AnalyzedElement, CharacterizedElement
 

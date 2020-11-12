@@ -1,15 +1,15 @@
-# JPL Vocabularies
+# IMCE Vocabularies
 
-[![Build Status](https://travis-ci.org/opencaesar/jpl-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/jpl-vocabularies)
-[ ![Download](https://api.bintray.com/packages/opencaesar/ontologies/jpl-vocabularies/images/download.svg) ](https://bintray.com/opencaesar/ontologies/jpl-vocabularies/_latestVersion)
-[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://opencaesar.github.io/jpl-vocabularies/) 
+[![Build Status](https://travis-ci.org/opencaesar/imce-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/imce-vocabularies)
+[ ![Download](https://api.bintray.com/packages/opencaesar/ontologies/imce-vocabularies/images/download.svg) ](https://bintray.com/opencaesar/ontologies/imce-vocabularies/_latestVersion)
+[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://opencaesar.github.io/imce-vocabularies/) 
 
-This is a set of JPL vocabularies expressed in [OML](https://github.com/opencaesar/oml)
+This is a set of IMCE vocabularies expressed in [OML](https://github.com/opencaesar/oml)
 
 ## Clone
 ```
-  git clone https://github.com/opencaesar/jpl-vocabularies.git
-  cd jpl-vocabularies
+  git clone https://github.com/opencaesar/imce-vocabularies.git
+  cd imce-vocabularies
 ```
 
 ## Build
