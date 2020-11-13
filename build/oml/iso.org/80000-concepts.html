@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>RDF</title>
+  <title>80000-concepts</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns" rel="canonical">
+  <link href="https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-concepts" rel="canonical">
   <meta content="f97ce109aa601adfafb0a947dbf0b941fe135506" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1528,6 +1528,47 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-dfn-panel */
+
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    height: auto;
+    width: -webkit-fit-content;
+    width: fit-content;
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0; }
+.dfn-panel li { list-style: inside; }
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled { cursor: pointer; }
+</style>
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1703,20 +1744,26 @@ dfn > a.self-link::before      { content: "#"; }
         --selflink-hover-text: white;
     }
 }
-</style>
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref allcaps" id="title">RDF</h1>
+   <h1 class="p-name no-ref" id="title">80000-concepts</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns">https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-concepts">https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-concepts</a>
      <dt class="editor">Editor:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">W3C</span>
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
-     <dd>Copyright 1999 W3C.
+     <dd>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1724,7 +1771,12 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The RDF vocabulary is a subset of the vocabulary maintained by the W3C.</p>
+   <p>This vocabulary defines two concepts, 80000-concepts:Unitary80000-concepts:UnitaryQuantityValueQuantity and 80000-concepts:MeasurementUnit,
+
+ intended to be the root of the taxonomy of all definitions of metrology:Unitary80000-concepts:UnitaryQuantityValueQuantity and metrology:MeasurementUnit respectively.</p>
+   <p>The bundle closure over this vocabulary and a set of ISO 80K vocabularies will effectively
+
+ force all definitions of 80000-concepts:Unitary80000-concepts:UnitaryQuantityValueQuantity and 80000-concepts:MeasurementUnit to be mutually disjoint.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1733,20 +1785,20 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
     <li>
-     <a href="#Scalars"><span class="secno">3</span> <span class="content">Scalars</span></a>
+     <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#PlainLiteral"><span class="secno">3.1</span> <span class="content"><span>PlainLiteral</span></span></a>
-      <li><a href="#XMLLiteral"><span class="secno">3.2</span> <span class="content"><span>XMLLiteral</span></span></a>
+      <li><a href="#MeasurementUnit"><span class="secno">3.1</span> <span class="content"><span>MeasurementUnit</span></span></a>
      </ol>
     <li>
-     <a href="#AnnotationProperties"><span class="secno">4</span> <span class="content">Annotation Properties</span></a>
+     <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
      <ol class="toc">
-      <li><a href="#About"><span class="secno">4.1</span> <span class="content"><span>about</span></span></a>
+      <li><a href="#UnitaryQuantityMagnitude"><span class="secno">4.1</span> <span class="content"><span>UnitaryQuantityMagnitude</span></span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
       <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
      </ol>
    </ol>
   </nav>
@@ -1755,18 +1807,30 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>rdf: <a href="22-rdf-syntax-ns.html">http://www.w3.org/1999/02/22-rdf-syntax-ns</a></p>
+      <p>80000-concepts: <a href="80000-concepts.html">http://iso.org/80000-concepts</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>xsd: <a href="http://www.w3.org/2001/XMLSchema.html">http://www.w3.org/2001/XMLSchema</a></p>
+      <p>metrology: <a href="http://iupac.org/metrology.html">http://iupac.org/metrology</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="Scalars"><span class="secno">3. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="PlainLiteral"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plainliteral">PlainLiteral<a class="self-link" href="#plainliteral"></a></dfn></span><a class="self-link" href="#PlainLiteral"></a></h3>
-    <h3 class="heading settled" data-level="3.2" id="XMLLiteral"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmlliteral">XMLLiteral<a class="self-link" href="#xmlliteral"></a></dfn></span><a class="self-link" href="#XMLLiteral"></a></h3>
-    <h2 class="heading settled" data-level="4" id="AnnotationProperties"><span class="secno">4. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="About"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="about">about<a class="self-link" href="#about"></a></dfn></span><a class="self-link" href="#About"></a></h3>
+    <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="MeasurementUnit"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="measurementunit">MeasurementUnit<a class="self-link" href="#measurementunit"></a></dfn></span><a class="self-link" href="#MeasurementUnit"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../iupac.org/metrology.html#measurementunit" id="ref-for-measurementunit">metrology:MeasurementUnit</a></p>
+    <p><em>Subtypes:</em> <a data-link-type="dfn" href="80000-6-units.html#ampere" id="ref-for-ampere">80000-6-units:ampere</a>, <a data-link-type="dfn" href="80000-6-units.html#coulomb" id="ref-for-coulomb">80000-6-units:coulomb</a>, <a data-link-type="dfn" href="80000-5-units.html#degreecelcius" id="ref-for-degreecelcius">80000-5-units:degreeCelcius</a>, <a data-link-type="dfn" href="80000-4-units.html#gram" id="ref-for-gram">80000-4-units:gram</a>, <a data-link-type="dfn" href="80000-3-units.html#hertz" id="ref-for-hertz">80000-3-units:hertz</a>, <a data-link-type="dfn" href="80000-3-units.html#hour" id="ref-for-hour">80000-3-units:hour</a>, <a data-link-type="dfn" href="80000-5-units.html#kelvin" id="ref-for-kelvin">80000-5-units:kelvin</a>, <a data-link-type="dfn" href="80000-4-units.html#kilogram-metre-per-second" id="ref-for-kilogram-metre-per-second">80000-4-units:kilogram-metre-per-second</a>, <a data-link-type="dfn" href="80000-3-units.html#kilometre" id="ref-for-kilometre">80000-3-units:kilometre</a>, <a data-link-type="dfn" href="80000-3-units.html#kilometre-per-second" id="ref-for-kilometre-per-second">80000-3-units:kilometre-per-second</a>, <a data-link-type="dfn" href="80000-3-units.html#metre" id="ref-for-metre">80000-3-units:metre</a>, <a data-link-type="dfn" href="80000-3-units.html#metre-per-second" id="ref-for-metre-per-second">80000-3-units:metre-per-second</a>, <a data-link-type="dfn" href="80000-3-units.html#minute" id="ref-for-minute">80000-3-units:minute</a>, <a data-link-type="dfn" href="80000-4-units.html#newton" id="ref-for-newton">80000-4-units:newton</a>, <a data-link-type="dfn" href="80000-4-units.html#newton-millisecond" id="ref-for-newton-millisecond">80000-4-units:newton-millisecond</a>, <a data-link-type="dfn" href="80000-6-units.html#newton-per-coulomb" id="ref-for-newton-per-coulomb">80000-6-units:newton-per-coulomb</a>, <a data-link-type="dfn" href="80000-4-units.html#newton-second" id="ref-for-newton-second">80000-4-units:newton-second</a>, <a data-link-type="dfn" href="80000-6-units.html#ohm" id="ref-for-ohm">80000-6-units:ohm</a>, <a data-link-type="dfn" href="80000-3-units.html#radian" id="ref-for-radian">80000-3-units:radian</a>, <a data-link-type="dfn" href="80000-3-units.html#revolutions" id="ref-for-revolutions">80000-3-units:revolutions</a>, <a data-link-type="dfn" href="80000-3-units.html#second" id="ref-for-second">80000-3-units:second</a>, <a data-link-type="dfn" href="80000-6-units.html#volt" id="ref-for-volt">80000-6-units:volt</a>, <a data-link-type="dfn" href="80000-4-units.html#watt" id="ref-for-watt">80000-4-units:watt</a></p>
+    <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
+    <h3 class="heading settled" data-level="4.1" id="UnitaryQuantityMagnitude"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unitaryquantitymagnitude">UnitaryQuantityMagnitude<a class="self-link" href="#unitaryquantitymagnitude"></a></dfn></span><a class="self-link" href="#UnitaryQuantityMagnitude"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="../iupac.org/metrology.html#unitaryquantity" id="ref-for-unitaryquantity">metrology:UnitaryQuantity</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-concepts.html#unitaryquantitymagnitude" id="ref-for-unitaryquantitymagnitude">UnitaryQuantityMagnitude</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="UnitaryQuantityMagnitude" data-dfn-type="attribute" data-export id="dom-unitaryquantitymagnitude-unitaryquantityhasmagnitude"><code>unitaryQuantityHasMagnitude</code><a class="self-link" href="#dom-unitaryquantitymagnitude-unitaryquantityhasmagnitude"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../iupac.org/metrology.html#hasmagnitude" id="ref-for-hasmagnitude">metrology:HasMagnitude</a>, <a data-link-type="dfn" href="../iupac.org/metrology.html#unitaryquantityvalue" id="ref-for-unitaryquantityvalue">metrology:UnitaryQuantityValue</a></p>
+    <p><em>Subtypes:</em> <a data-link-type="dfn" href="80000-6-quantityValues.html#ampere-magnitude" id="ref-for-ampere-magnitude">80000-6-quantityValues:ampere-magnitude</a>, <a data-link-type="dfn" href="80000-6-quantityValues.html#coulomb-magnitude" id="ref-for-coulomb-magnitude">80000-6-quantityValues:coulomb-magnitude</a>, <a data-link-type="dfn" href="80000-6-quantityValues.html#newton-per-coulomb-magnitude" id="ref-for-newton-per-coulomb-magnitude">80000-6-quantityValues:newton-per-coulomb-magnitude</a>, <a data-link-type="dfn" href="80000-6-quantityValues.html#ohm-magnitude" id="ref-for-ohm-magnitude">80000-6-quantityValues:ohm-magnitude</a>, <a data-link-type="dfn" href="80000-6-quantityValues.html#volt-magnitude" id="ref-for-volt-magnitude">80000-6-quantityValues:volt-magnitude</a></p>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../iupac.org/metrology.html#unitaryquantity" id="ref-for-unitaryquantity①">metrology:UnitaryQuantity</a> ← <a data-link-type="dfn" href="80000-concepts.html#unitaryquantitymagnitude" id="ref-for-unitaryquantitymagnitude①">UnitaryQuantityMagnitude</a> → UnitaryQuantityMagnitude</p>
+    </ul>
    </div>
   </main>
 <script>
@@ -1901,7 +1965,325 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#about">about</a><span>, in §4.1</span>
-   <li><a href="#plainliteral">PlainLiteral</a><span>, in §3.1</span>
-   <li><a href="#xmlliteral">XMLLiteral</a><span>, in §3.2</span>
+   <li><a href="#measurementunit">MeasurementUnit</a><span>, in §3.1</span>
+   <li><a href="#dom-unitaryquantitymagnitude-unitaryquantityhasmagnitude">unitaryQuantityHasMagnitude</a><span>, in §4.1</span>
+   <li><a href="#unitaryquantitymagnitude">UnitaryQuantityMagnitude</a><span>, in §4.1</span>
   </ul>
+  <aside class="dfn-panel" data-for="term-for-hertz">
+   <a href="80000-3-units.html#hertz">80000-3-units.html#hertz</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-hertz">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-hour">
+   <a href="80000-3-units.html#hour">80000-3-units.html#hour</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-hour">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kilometre">
+   <a href="80000-3-units.html#kilometre">80000-3-units.html#kilometre</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kilometre">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kilometre-per-second">
+   <a href="80000-3-units.html#kilometre-per-second">80000-3-units.html#kilometre-per-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kilometre-per-second">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-metre">
+   <a href="80000-3-units.html#metre">80000-3-units.html#metre</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-metre">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-metre-per-second">
+   <a href="80000-3-units.html#metre-per-second">80000-3-units.html#metre-per-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-metre-per-second">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-minute">
+   <a href="80000-3-units.html#minute">80000-3-units.html#minute</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-minute">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-radian">
+   <a href="80000-3-units.html#radian">80000-3-units.html#radian</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-radian">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-revolutions">
+   <a href="80000-3-units.html#revolutions">80000-3-units.html#revolutions</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-revolutions">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-second">
+   <a href="80000-3-units.html#second">80000-3-units.html#second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-second">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-gram">
+   <a href="80000-4-units.html#gram">80000-4-units.html#gram</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-gram">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kilogram-metre-per-second">
+   <a href="80000-4-units.html#kilogram-metre-per-second">80000-4-units.html#kilogram-metre-per-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kilogram-metre-per-second">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton">
+   <a href="80000-4-units.html#newton">80000-4-units.html#newton</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton-millisecond">
+   <a href="80000-4-units.html#newton-millisecond">80000-4-units.html#newton-millisecond</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton-millisecond">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton-second">
+   <a href="80000-4-units.html#newton-second">80000-4-units.html#newton-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton-second">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-watt">
+   <a href="80000-4-units.html#watt">80000-4-units.html#watt</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-watt">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-degreecelcius">
+   <a href="80000-5-units.html#degreecelcius">80000-5-units.html#degreecelcius</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-degreecelcius">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kelvin">
+   <a href="80000-5-units.html#kelvin">80000-5-units.html#kelvin</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kelvin">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-ampere-magnitude">
+   <a href="80000-6-quantityValues.html#ampere-magnitude">80000-6-quantityValues.html#ampere-magnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ampere-magnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-coulomb-magnitude">
+   <a href="80000-6-quantityValues.html#coulomb-magnitude">80000-6-quantityValues.html#coulomb-magnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-coulomb-magnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton-per-coulomb-magnitude">
+   <a href="80000-6-quantityValues.html#newton-per-coulomb-magnitude">80000-6-quantityValues.html#newton-per-coulomb-magnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton-per-coulomb-magnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-ohm-magnitude">
+   <a href="80000-6-quantityValues.html#ohm-magnitude">80000-6-quantityValues.html#ohm-magnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ohm-magnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-volt-magnitude">
+   <a href="80000-6-quantityValues.html#volt-magnitude">80000-6-quantityValues.html#volt-magnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-volt-magnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-ampere">
+   <a href="80000-6-units.html#ampere">80000-6-units.html#ampere</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ampere">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-coulomb">
+   <a href="80000-6-units.html#coulomb">80000-6-units.html#coulomb</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-coulomb">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton-per-coulomb">
+   <a href="80000-6-units.html#newton-per-coulomb">80000-6-units.html#newton-per-coulomb</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton-per-coulomb">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-ohm">
+   <a href="80000-6-units.html#ohm">80000-6-units.html#ohm</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ohm">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-volt">
+   <a href="80000-6-units.html#volt">80000-6-units.html#volt</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-volt">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitaryquantitymagnitude">
+   <a href="80000-concepts.html#unitaryquantitymagnitude">80000-concepts.html#unitaryquantitymagnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitaryquantitymagnitude">4.1. UnitaryQuantityMagnitude</a> <a href="#ref-for-unitaryquantitymagnitude①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-hasmagnitude">
+   <a href="../iupac.org/metrology.html#hasmagnitude">../iupac.org/metrology.html#hasmagnitude</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-hasmagnitude">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-measurementunit">
+   <a href="../iupac.org/metrology.html#measurementunit">../iupac.org/metrology.html#measurementunit</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-measurementunit">3.1. MeasurementUnit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitaryquantity">
+   <a href="../iupac.org/metrology.html#unitaryquantity">../iupac.org/metrology.html#unitaryquantity</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitaryquantity">4.1. UnitaryQuantityMagnitude</a> <a href="#ref-for-unitaryquantity①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitaryquantityvalue">
+   <a href="../iupac.org/metrology.html#unitaryquantityvalue">../iupac.org/metrology.html#unitaryquantityvalue</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitaryquantityvalue">4.1. UnitaryQuantityMagnitude</a>
+   </ul>
+  </aside>
+  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="index">
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-3-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-hertz">hertz</span>
+     <li><span class="dfn-paneled" id="term-for-hour">hour</span>
+     <li><span class="dfn-paneled" id="term-for-kilometre">kilometre</span>
+     <li><span class="dfn-paneled" id="term-for-kilometre-per-second">kilometre-per-second</span>
+     <li><span class="dfn-paneled" id="term-for-metre">metre</span>
+     <li><span class="dfn-paneled" id="term-for-metre-per-second">metre-per-second</span>
+     <li><span class="dfn-paneled" id="term-for-minute">minute</span>
+     <li><span class="dfn-paneled" id="term-for-radian">radian</span>
+     <li><span class="dfn-paneled" id="term-for-revolutions">revolutions</span>
+     <li><span class="dfn-paneled" id="term-for-second">second</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-4-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-gram">gram</span>
+     <li><span class="dfn-paneled" id="term-for-kilogram-metre-per-second">kilogram-metre-per-second</span>
+     <li><span class="dfn-paneled" id="term-for-newton">newton</span>
+     <li><span class="dfn-paneled" id="term-for-newton-millisecond">newton-millisecond</span>
+     <li><span class="dfn-paneled" id="term-for-newton-second">newton-second</span>
+     <li><span class="dfn-paneled" id="term-for-watt">watt</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-5-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-degreecelcius">degreecelcius</span>
+     <li><span class="dfn-paneled" id="term-for-kelvin">kelvin</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-6-quantityvalues]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-ampere-magnitude">ampere-magnitude</span>
+     <li><span class="dfn-paneled" id="term-for-coulomb-magnitude">coulomb-magnitude</span>
+     <li><span class="dfn-paneled" id="term-for-newton-per-coulomb-magnitude">newton-per-coulomb-magnitude</span>
+     <li><span class="dfn-paneled" id="term-for-ohm-magnitude">ohm-magnitude</span>
+     <li><span class="dfn-paneled" id="term-for-volt-magnitude">volt-magnitude</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-6-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-ampere">ampere</span>
+     <li><span class="dfn-paneled" id="term-for-coulomb">coulomb</span>
+     <li><span class="dfn-paneled" id="term-for-newton-per-coulomb">newton-per-coulomb</span>
+     <li><span class="dfn-paneled" id="term-for-ohm">ohm</span>
+     <li><span class="dfn-paneled" id="term-for-volt">volt</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-concepts]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-unitaryquantitymagnitude">unitaryquantitymagnitude</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iupac.org/metrology]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-hasmagnitude">hasmagnitude</span>
+     <li><span class="dfn-paneled" id="term-for-measurementunit">measurementunit</span>
+     <li><span class="dfn-paneled" id="term-for-unitaryquantity">unitaryquantity</span>
+     <li><span class="dfn-paneled" id="term-for-unitaryquantityvalue">unitaryquantityvalue</span>
+    </ul>
+  </ul>
+<script>/* script-dfn-panel */
+
+document.body.addEventListener("click", function(e) {
+    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+    // Find the dfn element or panel, if any, that was clicked on.
+    var el = e.target;
+    var target;
+    var hitALink = false;
+    while(el.parentElement) {
+        if(el.tagName == "A") {
+            // Clicking on a link in a <dfn> shouldn't summon the panel
+            hitALink = true;
+        }
+        if(el.classList.contains("dfn-paneled")) {
+            target = "dfn";
+            break;
+        }
+        if(el.classList.contains("dfn-panel")) {
+            target = "dfn-panel";
+            break;
+        }
+        el = el.parentElement;
+    }
+    if(target != "dfn-panel") {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+            el.classList.remove("on");
+            el.classList.remove("activated");
+        });
+    }
+    if(target == "dfn" && !hitALink) {
+        // open the panel
+        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+        if(dfnPanel) {
+            dfnPanel.classList.add("on");
+            var rect = el.getBoundingClientRect();
+            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+            dfnPanel.style.top = window.scrollY + rect.top + "px";
+            var panelRect = dfnPanel.getBoundingClientRect();
+            var panelWidth = panelRect.right - panelRect.left;
+            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                // Reposition, because the panel is overflowing
+                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+            }
+        } else {
+            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+        }
+    } else if(target == "dfn-panel") {
+        // Switch it to "activated" state, which pins it.
+        el.classList.add("activated");
+        el.style.left = null;
+        el.style.top = null;
+    }
+
+});
+</script>

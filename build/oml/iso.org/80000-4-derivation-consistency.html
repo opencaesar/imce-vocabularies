@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>RDF</title>
+  <title>80000-4-derivation-consistency</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns" rel="canonical">
+  <link href="https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-4-derivation-consistency" rel="canonical">
   <meta content="f97ce109aa601adfafb0a947dbf0b941fe135506" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1707,16 +1707,16 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref allcaps" id="title">RDF</h1>
+   <h1 class="p-name no-ref" id="title">80000-4-derivation-consistency</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns">https://opencaesar.github.io/imce-vocabularies//build/oml/www.w3.org/1999/02/22-rdf-syntax-ns</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-4-derivation-consistency">https://opencaesar.github.io/imce-vocabularies//build/oml/iso.org/80000-4-derivation-consistency</a>
      <dt class="editor">Editor:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">W3C</span>
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
-     <dd>Copyright 1999 W3C.
+     <dd>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1724,7 +1724,7 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The RDF vocabulary is a subset of the vocabulary maintained by the W3C.</p>
+   <p>Optional consistency rules to enforce that derived quantities are about the same object as the objects of their quantity factors.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1733,15 +1733,11 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
     <li>
-     <a href="#Scalars"><span class="secno">3</span> <span class="content">Scalars</span></a>
+     <a href="#Rules"><span class="secno">3</span> <span class="content">Rules</span></a>
      <ol class="toc">
-      <li><a href="#PlainLiteral"><span class="secno">3.1</span> <span class="content"><span>PlainLiteral</span></span></a>
-      <li><a href="#XMLLiteral"><span class="secno">3.2</span> <span class="content"><span>XMLLiteral</span></span></a>
-     </ol>
-    <li>
-     <a href="#AnnotationProperties"><span class="secno">4</span> <span class="content">Annotation Properties</span></a>
-     <ol class="toc">
-      <li><a href="#About"><span class="secno">4.1</span> <span class="content"><span>about</span></span></a>
+      <li><a href="#Force-derivation-consistency"><span class="secno">3.1</span> <span class="content"><span>force-derivation-consistency</span></span></a>
+      <li><a href="#Momentum-derivation-consistency"><span class="secno">3.2</span> <span class="content"><span>momentum-derivation-consistency</span></span></a>
+      <li><a href="#Power-derivation-consistency"><span class="secno">3.3</span> <span class="content"><span>power-derivation-consistency</span></span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1755,18 +1751,67 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>rdf: <a href="22-rdf-syntax-ns.html">http://www.w3.org/1999/02/22-rdf-syntax-ns</a></p>
+      <p>80000-4-derivation-consistency: <a href="80000-4-derivation-consistency.html">http://iso.org/80000-4-derivation-consistency</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>xsd: <a href="http://www.w3.org/2001/XMLSchema.html">http://www.w3.org/2001/XMLSchema</a></p>
+      <p>80000-4-quantities: <a href="http://iso.org/80000-4-quantities.html">http://iso.org/80000-4-quantities</a></p>
+     <li data-md>
+      <p>80000-3-derivation-consistency: <a href="http://iso.org/80000-3-derivation-consistency.html">http://iso.org/80000-3-derivation-consistency</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="Scalars"><span class="secno">3. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="PlainLiteral"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plainliteral">PlainLiteral<a class="self-link" href="#plainliteral"></a></dfn></span><a class="self-link" href="#PlainLiteral"></a></h3>
-    <h3 class="heading settled" data-level="3.2" id="XMLLiteral"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmlliteral">XMLLiteral<a class="self-link" href="#xmlliteral"></a></dfn></span><a class="self-link" href="#XMLLiteral"></a></h3>
-    <h2 class="heading settled" data-level="4" id="AnnotationProperties"><span class="secno">4. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="About"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="about">about<a class="self-link" href="#about"></a></dfn></span><a class="self-link" href="#About"></a></h3>
+    <h2 class="heading settled" data-level="3" id="Rules"><span class="secno">3. </span><span class="content">Rules</span><a class="self-link" href="#Rules"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="Force-derivation-consistency"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="force-derivation-consistency">force-derivation-consistency<a class="self-link" href="#force-derivation-consistency"></a></dfn></span><a class="self-link" href="#Force-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ force(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ momentum(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ velocity(z)
+ ∧ force-of-momentum-forward(x, y)
+ ∧ force-of-velocity-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, yo)</p>
+    <h3 class="heading settled" data-level="3.2" id="Momentum-derivation-consistency"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="momentum-derivation-consistency">momentum-derivation-consistency<a class="self-link" href="#momentum-derivation-consistency"></a></dfn></span><a class="self-link" href="#Momentum-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ momentum(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ mass(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ velocity(z)
+ ∧ momentum-of-mass-forward(x, y)
+ ∧ momentum-of-velocity-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, yo)</p>
+    <h3 class="heading settled" data-level="3.3" id="Power-derivation-consistency"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="power-derivation-consistency">power-derivation-consistency<a class="self-link" href="#power-derivation-consistency"></a></dfn></span><a class="self-link" href="#Power-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ power(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ force(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ velocity(z)
+ ∧ power-of-force-forward(x, y)
+ ∧ power-of-velocity-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, yo)</p>
    </div>
   </main>
 <script>
@@ -1901,7 +1946,7 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#about">about</a><span>, in §4.1</span>
-   <li><a href="#plainliteral">PlainLiteral</a><span>, in §3.1</span>
-   <li><a href="#xmlliteral">XMLLiteral</a><span>, in §3.2</span>
+   <li><a href="#force-derivation-consistency">force-derivation-consistency</a><span>, in §3.1</span>
+   <li><a href="#momentum-derivation-consistency">momentum-derivation-consistency</a><span>, in §3.2</span>
+   <li><a href="#power-derivation-consistency">power-derivation-consistency</a><span>, in §3.3</span>
   </ul>
