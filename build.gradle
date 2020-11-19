@@ -32,7 +32,7 @@ buildscript {
  * Dependency versions
  */
 ext { 
-	vocabulariesVersion = '2.+'
+	coreVersion = '2.+'
 }
 
 /*
@@ -55,7 +55,7 @@ repositories {
  * The OML dependencies
  */
 dependencies {
-	oml "io.opencaesar.ontologies:core-vocabularies:$vocabulariesVersion"
+	oml "io.opencaesar.ontologies:core-vocabularies:$coreVersion"
 }
 
 /*
