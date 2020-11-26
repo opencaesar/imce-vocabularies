@@ -10,7 +10,4 @@ vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle> with # as foundat
 
 	includes <http://imce.jpl.nasa.gov/foundation/project>
 
-	includes <http://iso.org/80000-6-derivation-consistency>
-
-	includes <http://iso.org/80000-6-quantityValues>
 }
