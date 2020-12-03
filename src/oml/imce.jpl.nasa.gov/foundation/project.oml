@@ -10,35 +10,39 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 
 	extends <http://imce.jpl.nasa.gov/foundation/analysis>
 
-	@dc:^description "An <classname>AssignedElement</classname> is any model element that can have the <property>isAssignedTo</property> relationship with a <classname>Role</classname>."
+	@dc:^description "<classname>AssignedElement</classname> is the domain of <property>isAssignedTo</property>."
 	@rdfs:label "Assigned Element"
-	aspect AssignedElement :> analysis:AnalyzedElement, analysis:CharacterizedElement
+	aspect AssignedElement
 
-	@dc:^description "A <classname>DevelopedElement</classname> is any model element that manifests <classname>DevelopmentState</classname>s. Example <classname>DevelopedElement</classname>s include spacecraft, thermal test facility, and requirements document."
+	@dc:^description "<classname>BoundElement</classname> is the domain of <property>binds</property>."
+	@rdfs:label "Bound Element"
+	aspect BoundElement
+
+	@dc:^description "<classname>DevelopedElement</classname> is the domain of <property>manifests</property>."
 	@rdfs:label "Developed Element"
-	aspect DevelopedElement :> analysis:AnalyzedElement, analysis:CharacterizedElement, AssignedElement
+	aspect DevelopedElement
 
-	@dc:^description "A <classname>RealizedElement</classname> is any element that <property>realizes</property> or <property>isRealizedBy</property> another element."
+	@dc:^description "<classname>RealizedElement</classname> is the domain and range of <property>realizes</property>."
 	@rdfs:label "Realized Element"
-	aspect RealizedElement :> analysis:AnalyzedElement, analysis:CharacterizedElement
+	aspect RealizedElement
 
-	@dc:^description "A <classname>SuppliedElement</classname> is any model element that an <classname>Authority</classname> properly <property>supplies</property>. Example <classname>SuppliedElement</classname>s include <classname>Mission</classname> and <classname>Component</classname>."
+	@dc:^description "A <classname>SuppliedElement</classname> is the range of <property>supplies</property>."
 	@rdfs:label "Supplied Element"
-	aspect SuppliedElement :> analysis:AnalyzedElement, analysis:CharacterizedElement
+	aspect SuppliedElement
 
 	@dc:^description """An <classname>Authority</classname> is any entity that asserts a fact in a model. Example <classname>Authority</classname>s include <classname>Program</classname>, <classname>Project</classname>, and <classname>WorkPackage</classname>. (The association of an 
-    <classname>Authority</classname> with its asserted facts requires mechanisms outside the vocabulary of OWL itself, e.g., named graphs. For this reason, there is no object property <property>authorizes</property>. Authorization is conveyed by the organization of statements in a repository.)"""
+    <classname>Authority</classname> with its asserted facts requires mechanisms outside the vocabulary of OML and OWL proper, e.g., named graphs. Authorization is conveyed by the organization of statements in a repository.)"""
 	@rdfs:label "Authority"
-	concept Authority :> base:Package
+	concept Authority
 
-	@dc:^description "<para>A <classname>Concern</classname> represents a specific interest that one or more stakeholders have in the successful completion of a <classname>Project</classname> or <classname>Program</classname> and its <classname>Mission</classname>s. </para>"
+	@dc:^description "<para>A <classname>Concern</classname> is a specific interest that one or more <classname>Stakeholder<classname>s have in the successful completion of a <classname>Project</classname> or <classname>Program</classname> and its <classname>Mission</classname>s. </para>"
 	@rdfs:label "Concern"
-	concept Concern :> analysis:ConstrainedElement, base:AggregatedElement, base:IdentifiedElement [
+	concept Concern :> base:IdentifiedElement, base:AggregatedElement [
 		restricts all relation base:aggregates to Concern
 		restricts all relation base:isAggregatedIn to Concern
 	]
 
-	@dc:^description "A <classname>Deliverable</classname> is the result of successful execution of a <classname>Process</classname>. It may be an input to or prerequisite for another <classname>Process</classname>."
+	@dc:^description "A <classname>Deliverable</classname> is the result of successful execution of a <classname>Process</classname>. It may be a prerequisite to another <classname>Process</classname>."
 	@rdfs:label "Deliverable"
 	concept Deliverable :> base:IdentifiedElement
 
@@ -58,20 +62,22 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	@rdfs:label "Interchange"
 	concept Interchange :> base:IdentifiedElement
 
+	@dc:^description """An <classname>InterchangePoint</classname> is a feature of a <classname>Process</classname> that permits it to participate
+			in an <classname>Interchange</classname>."""
 	@rdfs:label "Interchange Point"
 	concept InterchangePoint :> base:IdentifiedElement
 
-	@dc:^description "An <classname>Organization</classname> is any entity that <property>isResponsibleFor</property> a <classname>Authority</classname>."
+	@dc:^description "An <classname>Organization</classname> is <property>isResponsibleFor</property> zero or more <classname>Authority</classname>s."
 	@rdfs:label "Organization"
-	concept Organization :> analysis:AnalyzedElement, analysis:CharacterizedElement
+	concept Organization :> base:IdentifiedElement
 
-	@dc:^description "A <classname>Person</classname> corresponds to an individual named person. A <classname>Person</classname> <property>belongsTo</property> zero or more <classname>Organization</classname>s."
+	@dc:^description "A <classname>Person</classname> is an individual human being. A <classname>Person</classname> <property>belongsTo</property> zero or more <classname>Organization</classname>s."
 	@rdfs:label "Person"
 	concept Person :> base:IdentifiedElement
 
 	@dc:^description "A <classname>Policy</classname> represents a specific exercise of authority that <property>binds</property> one or more model elements."
 	@rdfs:label "Policy"
-	concept Policy :> analysis:AnalyzedElement, analysis:CharacterizedElement
+	concept Policy :> base:IdentifiedElement
 
 	@dc:^description "A <classname>Process</classname> is an activity authorized by a <classname>WorkPackage</classname> in support of delivering a <classname>Component</classname> or producing a <classname>Product</classname>. Examples include <emphasis>
     design trajectory</emphasis>, <emphasis>conduct trade study</emphasis>, and <emphasis>review subsystem design</emphasis>."
@@ -88,12 +94,17 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 		restricts all relation base:isAggregatedIn to Product
 	]
 
+	@dc:^description """A <classname>Program</classname> is an <classname>Authority</classname> that <property>authorizes</property> zero or more <classname>Project</classname>s."""
 	@rdfs:label "Program"
-	concept Program :> Authority
+	concept Program :> Authority [
+		restricts all relation authorizes to Project
+	]
 
-	@dc:^description "A <classname>Project</classname> is a kind of <classname>Authority</classname> that <property>supplies</property> a related set of <classname>Mission</classname>s in pursuit of a set of <classname>Objective</classname>s."
+	@dc:^description "A <classname>Project</classname> is an <classname>Authority</classname> that <property>supplies</property> a related set of <classname>Mission</classname>s in pursuit of a set of <classname>Objective</classname>s."
 	@rdfs:label "Project"
 	concept Project :> Authority, RealizedElement [
+		restricts all relation authorizes to WorkPackage
+		restricts all relation isAuthorizedBy to Program
 		restricts all relation realizes to Project
 		restricts all relation isRealizedBy to Project
 		restricts all relation supplies to mission:Mission
@@ -108,39 +119,49 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	@rdfs:label "Stakeholder"
 	concept Stakeholder :> base:IdentifiedElement
 
-	@dc:^description "A <classname>WorkPackage</classname> represents a discrete unit of <classname>Project</classname> cost, schedule, and activity. <classname>WorkPackage</classname>s form a hierarchy called the Work Breakdown Structure."
+	@dc:^description """A <classname>WorkPackage</classname> is an <classname>Authority</classname> subordinate to a <classname>Project</classname>
+			that <property>produces</property> definite <classname>Product</classname>s and/or <property>supplies</property> definite
+			<classname>SuppliedElements</classname> in the context of that <classname>Project</classname>."""
 	@rdfs:label "Work Package"
 	concept WorkPackage :> base:Package, Authority, RealizedElement [
+		restricts all relation authorizes to WorkPackage
+		restricts all relation isAuthorizedBy to Program
 		restricts all relation isRealizedBy to WorkPackage
 		restricts all relation realizes to WorkPackage
 		restricts all relation supplies to mission:Component
 	]
 
 	@rdfs:label "Approves"
-	relation entity Approves :> HasAssignment, analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Approves :> HasAssignment [
 		from Role
 		to Product
 		@rdfs:label "approves"
+		@dc:^description "A <classname>Role</classname> <property>approves</property> zero or more <classname>Product</classname>s."
 		forward approves
 		@rdfs:label "is approved by"
+		@dc:^description "See <property>approves</property>."
 		reverse isApprovedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Authorizes"
-	relation entity Authorizes :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Authorizes [
 		from Authority
 		to Authority
 		@rdfs:label "authorizes"
+		@dc:^description "An <classname>Authority</classname> <property>authorizes</property> zero or more <classname>Authority</classname>s."
 		forward authorizes
+		@rdfs:label "is authorized by"
+		@dc:^description "See <property>authorizes</property>."
+		reverse isAuthorizedBy
 		inverse functional
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Belongs To"
-	relation entity BelongsTo :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity BelongsTo [
 		from Person
 		to Organization
 		@dc:^description "A <classname>Person</classname> <property>belongsTo</property> zero or more <classname>Organization</classname>s."
@@ -149,11 +170,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Binds"
-	relation entity Binds :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Binds [
 		from Policy
-		to mission:SpecifiedElement
-		@dc:^description """A <classname>Policy</classname> <replaceable>p</replaceable> <property>binds</property> a <classname>SpecifiedElement</classname> <replaceable>e</replaceable>
-        if and only if the course of action embodied in <replaceable>p</replaceable> governs the design, analysis, implementation, operation, or other applicable aspects of <replaceable>e</replaceable>."""
+		to BoundElement
+		@dc:^description """A <classname>Policy</classname> <property>binds</property> zero or more <classname>BoundElement</classname>s."""
 		@rdfs:label "binds"
 		forward binds
 		@dc:^description "See <property>binds</property>."
@@ -164,11 +184,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Concurs"
-	relation entity Concurs :> HasAssignment, analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Concurs :> HasAssignment [
 		from Role
 		to Product
+		@dc:^description """A <classname>Role</classname> <property>concurs</property> in zero or more <classname>Product</classname>s."""
 		@rdfs:label "concurs"
 		forward concurs
+		@dc:^description "See <property>concurs</property>."
 		@rdfs:label "is concurred by"
 		reverse isConcurredBy
 		asymmetric
@@ -176,11 +198,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Delegates To"
-	relation entity DelegatesTo :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity DelegatesTo [
 		from Role
 		to Role
-		@dc:^description """A <classname>Role</classname> <replaceable>r<subscript>1</subscript></replaceable> <property>delegatesTo</property> a <classname>Role</classname> <replaceable>r<subscript>2</subscript></replaceable>
-        if and only if <replaceable>r<subscript>1</subscript></replaceable> gives direction or otherwise exercises authority over <replaceable>r<subscript>2</subscript></replaceable>."""
+		@dc:^description """A <classname>Role</classname> <property>delegatesTo</property> zero or more <classname>Role</classname>s."""
 		@rdfs:label "delegates to"
 		forward delegatesTo
 		@dc:^description "See <property>delegatesTo</property>."
@@ -192,11 +213,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Delivers"
-	relation entity Delivers :> analysis:AnalyzedElement, analysis:CharacterizedElement, AssignedElement [
+	relation entity Delivers [
 		from InterchangePoint
 		to Deliverable
-		@dc:^description "A <classname>Process</classname> <replaceable>p</replaceable> <property>delivers</property> a <classname>Deliverable</classname> <replaceable>r</replaceable>
-        if and only if the successful execution of <replaceable>p</replaceable> results in availability of <replaceable>r</replaceable>."
+		@dc:^description """An <classname>InterchangePoint</classname> <property>delivers</property> zero or more <classname>Deliverable</classname>s."""
 		@rdfs:label "delivers"
 		forward delivers
 		@dc:^description "See <property>delivers</property>."
@@ -208,11 +228,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Describes"
-	relation entity Describes :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Describes [
 		from Product
 		to DevelopedElement
-		@dc:^description """A <classname>Product</classname> <replaceable>p</replaceable> <property>describes</property> a <classname>DevelopmentElement</classname> <replaceable>e</replaceable>
-        if and only if <replaceable>p</replaceable> contains design, analysis, operations, or other information about <replaceable>e</replaceable>."""
+		@dc:^description """A <classname>Product</classname> <property>describes</property> zero or more <classname>DevelopedElement</classname>s."""
 		@rdfs:label "describes"
 		forward describes
 		@dc:^description "See <property>describes</property>."
@@ -223,11 +242,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Executes"
-	relation entity Executes :> mission:SpecifiedElement, AssignedElement [
+	relation entity Executes [
 		from Authority
 		to Process
-		@dc:^description "An <classname>Authority</classname> <replaceable>a</replaceable> <property>executes</property> a <classname>Process</classname> <replaceable>p</replaceable> 
-        if and only if <replaceable>a</replaceable> carries out any actions required for successful completion of <replaceable>p</replaceable> ."
+		@dc:^description """An <classname>Authority</classname> <property>executes</property> zero or more <classname>Process</classname>es."""
 		@rdfs:label "executes"
 		forward executes
 		@dc:^description "See <property>executes</property>."
@@ -239,11 +257,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Assignment"
-	relation entity HasAssignment :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity HasAssignment [
 		from Role
 		to AssignedElement
-		@dc:^description """A <classname>Role</classname> <replaceable>r</replaceable> <property>hasAssignment</property> some <classname>AssignedElement</classname> <replaceable>e</replaceable>
-        if and only if  <replaceable>r</replaceable> has specific cognizance and/or responsibility for <replaceable>e</replaceable>."""
+		@dc:^description """A <classname>Role</classname> <property>hasAssignment</property> zero or more <classname>AssignedElement</classname>es."""
 		@rdfs:label "has assignment"
 		forward hasAssignment
 		@dc:^description "See <property>hasAssignment</property>."
@@ -254,24 +271,24 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Participant"
-	relation entity HasParticipant :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity HasParticipant [
 		from Interchange
 		to Deliverable
+		@dc:^description """An <classname>Interchange</classname> <property>hasParticipant</property> zero or more <classname>Deliverable</classname>s."""
 		@rdfs:label "has participant"
 		forward hasParticipant
 		@rdfs:label "participates in"
+		@dc:^description "See <property>has participant</property>."
 		reverse participatesIn
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Has Responsibility For"
-	relation entity HasResponsibilityFor :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity HasResponsibilityFor [
 		from Organization
 		to Authority
-		@dc:^description """An <classname>Organization</classname> <replaceable>o</replaceable> <property>hasResponsibilityFor</property> some <classname>Authority</classname> <replaceable>a</replaceable> 
-        if and only if  <replaceable>o</replaceable> provides the actual workforce and execution of the work embodied in <replaceable>a</replaceable>. An example is the relation between a "doing" 
-        <classname>Organization</classname> and a <classname>WorkPackage</classname>."""
+		@dc:^description """An <classname>Organization</classname> <property>hasResponsibilityFor</property> zero or more <classname>Authority</classname>s."""
 		@rdfs:label "has responsibility for"
 		forward hasResponsibilityFor
 		@dc:^description "See <property>hasResponsibilityFor</property>."
@@ -281,11 +298,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Role"
-	relation entity HasRole :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity HasRole [
 		from Person
 		to Role
-		@dc:^description """A <classname>Person</classname> <replaceable>p</replaceable> <property>hasRole</property> <classname>Role</classname> <replaceable>r</replaceable> 
-        if and only if  <replaceable>p</replaceable> acts to execute the assignments of <replaceable>r</replaceable>."""
+		@dc:^description """A <classname>Person</classname> <property>hasRole</property> zero or more <classname>Role</classname>s."""
 		@rdfs:label "has role"
 		forward hasRole
 		@dc:^description "See <property>hasRole</property>."
@@ -297,10 +313,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Interchanges Through"
-	relation entity InterchangesThrough :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity InterchangesThrough [
 		from Process
 		to InterchangePoint
 		@rdfs:label "interchanges through"
+		@dc:^description """A <classname>Process</classname> <property>interchangesThrough</property> zero or more <classname>InterchangePoint</classname>s."""
 		forward interchangesThrough
 		@rdfs:label "is interchange point for"
 		reverse isInterchangePointFor
@@ -310,11 +327,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Invokes"
-	relation entity Invokes :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Invokes [
 		from Process
 		to Process
-		@dc:^description "A <classname>PerformedElement</classname> <replaceable>p</replaceable> <property>invokes</property> a <classname>PerformedElement</classname> <replaceable>c</replaceable> 
-        if and only if the execution of <replaceable>c</replaceable> may be triggered or caused by and within the execution of <replaceable>p</replaceable>."
+		@dc:^description """A <classname>Process</classname> <property>invokes</property> zero or more <classname>Process</classname>es."""
 		@rdfs:label "invokes"
 		forward invokes
 		@dc:^description "See <property>invokes</property>."
@@ -324,9 +340,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Involves"
-	relation entity Involves :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Involves [
 		from Interchange
 		to Process
+		@dc:^description """An <classname>Interchange</classname> <property>involves</property> zero or more <classname>Process</classname>es."""
 		@rdfs:label "involves"
 		forward involves
 		@rdfs:label "is involved in"
@@ -340,6 +357,9 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 		from Interchange
 		to Process
 		@rdfs:label "involves1"
+		@dc:^description """<property>involves1</property> and <property>involves2</property> are distinguishable specializations of
+							<property>involves</property>. These specializations are employed to indicate distinct ends of an
+							<classname>Interchange</classname>."""
 		forward involves1
 		@rdfs:label "is involved in1"
 		reverse isInvolvedIn1
@@ -353,6 +373,9 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 		from Interchange
 		to Process
 		@rdfs:label "involves2"
+		@dc:^description """<property>involves1</property> and <property>involves2</property> are distinguishable specializations of
+							<property>involves</property>. These specializations are employed to indicate distinct ends of an
+							<classname>Interchange</classname>."""
 		forward involves2
 		@rdfs:label "is involved in2"
 		reverse isInvolvedIn2
@@ -362,15 +385,14 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Manifests"
-	relation entity Manifests :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Manifests [
 		from DevelopedElement
 		to DevelopmentState
-		@dc:^description """A <classname>DevelopmentalElement</classname> <replaceable>e</replaceable> has <property>manifests</property> a <classname>DevelopmentState</classname> <replaceable>s</replaceable>
-        if and only if <replaceable>e</replaceable> attains <replaceable>s</replaceable> during its development process."""
+		@dc:^description """A <classname>DevelopedElement</classname> <property>manifests</property> zero or more <classname>DevelopmentState</classname>s."""
 		@rdfs:label "manifests"
 		forward manifests
 		@dc:^description "See <property>manifests</property>."
-		@rdfs:label "is manfested by"
+		@rdfs:label "is manifested by"
 		reverse isManfestedBy
 		inverse functional
 		asymmetric
@@ -378,10 +400,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Prepares"
-	relation entity Prepares :> HasAssignment, analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Prepares :> HasAssignment [
 		from Role
 		to Product
 		@rdfs:label "prepares"
+		@dc:^description """A <classname>Role</classname> <property>prepares</property> zero or more <classname>Product</classname>s."""
 		forward prepares
 		@rdfs:label "is prepared by"
 		reverse isPreparedBy
@@ -390,13 +413,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Produces"
-	relation entity Produces :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Produces [
 		from Authority
 		to Product
-		@dc:^description "A <classname>WorkPackage</classname> <replaceable>w</replaceable> <property>produces</property> a <classname>Product</classname> <replaceable>p</replaceable> 
-        if and only if <replaceable>w</replaceable> is responsible for creation and development of <replaceable>p</replaceable>."
-		@rdfs:comment "Subproperty of <property>isSuppliedBy</property>. Candidate for deprecation."
-		@rdfs:comment "Subproperty of <property>supplies</property>. Candidate for deprecation."
+		@dc:^description """A <classname>Authority</classname> <property>produces</property> zero or more <classname>Product</classname>s."""
 		@rdfs:label "produces"
 		forward produces
 		@dc:^description "See <property>produces</property>."
@@ -408,11 +428,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Realizes"
-	relation entity Realizes :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Realizes [
 		from RealizedElement
 		to RealizedElement
-		@dc:^description """A <classname>SpecifiedElement</classname> <replaceable>c<subscript>1</subscript></replaceable> <property>realizes</property> a <classname>SpecifiedElement</classname> <replaceable>c<subscript>2</subscript></replaceable>
-        if and only if <replaceable>c<subscript>1</subscript></replaceable> is proffered by a supplier as a specification-compliant implementation of <replaceable>c<subscript>2</subscript></replaceable>."""
+		@dc:^description """A <classname>RealizedElement</classname> <property>realizes</property> zero or more <classname>RealizedElement</classname>s."""
 		@rdfs:label "realizes"
 		forward realizes
 		@dc:^description "See <property>realizes</property>."
@@ -423,11 +442,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Receives"
-	relation entity Receives :> analysis:AnalyzedElement, analysis:CharacterizedElement, AssignedElement [
+	relation entity Receives :> AssignedElement [
 		from InterchangePoint
 		to Deliverable
-		@dc:^description "A<classname>Process</classname> <replaceable>p</replaceable> <property>receives</property> a <classname>Deliverable</classname> <replaceable>r</replaceable> 
-        if and only if the successful execution of <replaceable>p</replaceable> is contingent on the receipt of <replaceable>r</replaceable>."
+		@dc:^description """An <classname>InterchangePoint</classname> <property>receives</property> zero or more <classname>Deliverable</classname>s."""
 		@rdfs:label "receives"
 		forward receives
 		@dc:^description "See <property>receives</property>."
@@ -438,9 +456,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Relies On"
-	relation entity ReliesOn :> analysis:AnalyzedElement, analysis:CharacterizedElement, AssignedElement [
+	relation entity ReliesOn :> AssignedElement [
 		from Authority
 		to DevelopedElement
+		@dc:^description """An <classname>Authority</classname> <property>reliesOn</property> zero or more <classname>DevelopedElement</classname>s."""
 		@rdfs:label "relies on"
 		forward reliesOn
 		@rdfs:label "is relied on by"
@@ -450,11 +469,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Represents"
-	relation entity Represents :> analysis:AnalyzedElement, analysis:CharacterizedElement [
+	relation entity Represents [
 		from Stakeholder
 		to Concern
-		@dc:^description "A <classname>Stakeholder</classname> <replaceable>s</replaceable> <property>represents</property> <classname>Concern</classname> <replaceable>c</replaceable> 
-        if and only if <replaceable>s</replaceable> has a direct, legitimate, and recognized interest in <replaceable>c</replaceable> as it relates to a particular <classname>Project</classname> or <classname>Program</classname>."
+		@dc:^description """An <classname>Stakeholder</classname> <property>represents</property> zero or more <classname>Concern</classname>s."""
 		@rdfs:label "represents"
 		forward represents
 		@dc:^description "See <property>represents</property>."
@@ -465,11 +483,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Supplies"
-	relation entity Supplies :> analysis:AnalyzedElement, analysis:CharacterizedElement, AssignedElement [
+	relation entity Supplies :> AssignedElement [
 		from Authority
 		to SuppliedElement
-		@dc:^description "A <classname>WorkPackage</classname> <replaceable>w</replaceable> <property>supplies</property> a <classname>Component</classname> <replaceable>c</replaceable> 
-        if and only if <replaceable>w</replaceable> is responsible for the acquisition and delivery of <replaceable>c</replaceable>."
+		@dc:^description """An <classname>Authority</classname> <property>supplies</property> zero or more <classname>SuppliedElement</classname>s."""
 		@rdfs:label "supplies"
 		forward supplies
 		@dc:^description "See <property>supplies</property>."
@@ -482,16 +499,14 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 
 	scalar date
 
-	@dc:^description "A <classname>ScheduledElement</classname> <replaceable>e</replaceable>  <property>isRequiredNotLaterThan</property> <replaceable>d</replaceable> 
-    if and only if <replaceable>e</replaceable> must be completed or achieved no later than <replaceable>d</replaceable>."
+	@dc:^description "A <classname>ScheduledElement</classname> <property>isRequiredNotLaterThan</property> some <property>date</property>."
 	@rdfs:label "is required not later than"
 	scalar property isRequiredNotLaterThan [
 		domain Deliverable
 		range date
-		functional
 	]
 
-	ref concept mission:Objective :> Concern, base:IdentifiedElement
+	ref concept mission:Objective :> Concern
 
 	ref concept mission:Component :> DevelopedElement, RealizedElement, SuppliedElement [
 		restricts all relation isRealizedBy to mission:Component
