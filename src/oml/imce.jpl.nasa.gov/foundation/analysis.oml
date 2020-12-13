@@ -143,7 +143,6 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	ref aspect metrology:Object :> analysis:CharacterizedElement
 
-	@dc:^description "A metrology:Quantity characterizes a metrology:Object"
 	ref concept metrology:Quantity :> analysis:Characterization
 
 	ref relation entity metrology:IsQuantityOf :> analysis:Characterizes

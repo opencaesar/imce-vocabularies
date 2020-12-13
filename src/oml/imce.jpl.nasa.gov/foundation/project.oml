@@ -497,14 +497,12 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 		irreflexive
 	]
 
-	scalar date
-
 	@dc:^description "A <classname>ScheduledElement</classname> <property>isRequiredNotLaterThan</property> some <property>date</property>."
 	@rdfs:label "is required not later than"
 	scalar property isRequiredNotLaterThan [
 		domain Deliverable
-		range date
-	]
+		range xsd:dateTime
+  ]
 
 	ref concept mission:Objective :> Concern
 
