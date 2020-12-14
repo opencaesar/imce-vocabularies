@@ -1,39 +1,37 @@
-@dc:title "Mission"
-@dc:^description "The Mission Ontology defines concepts and properties for describing missions in terms of their objectives, their constituent components, the functions those components perform, and the requirements that specify them."
-@dc:rights """Copyright 2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology."""
-
 @dc:creator "Jet Propulsion Laboratory"
-@dc:hasVersion "1.0.3"
-@dc:date "2020-09-29"
+@dc:rights """Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
+This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."""
+@dc:^description "The Mission vocabulary defines concepts and properties for describing missions in terms of their objectives, their constituent components, the functions those components perform, and the requirements that specify them."
+@dc:title "Mission"
 vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 
 	extends <http://imce.jpl.nasa.gov/foundation/base>
 
 	@rdfs:label "Performing Element"
-	@dc:^description """<classname>PerformingElement</classname> is the domain of <property>performs</property>.
-		Any concept that <property>performs</property> a <classname>Function<classname> should specialize <classname>PerformingElement</classname>."""
+	@dc:^description """[=PerformingElement=] is the domain of [=performs=].
+		Any concept that [=performs=] a [=Function=] should specialize [=PerformingElement=]."""
 	aspect PerformingElement
 
 	@rdfs:label "Presenting Element"
-	@dc:^description """<classname>PresentingElement</classname> is the domain of <property>presents</property>.
-		Any concept that <property>presents</property> an <classname>Interface</classname> should specialize <classname>PresentingElement</classname>."""
+	@dc:^description """[=PresentingElement=] is the domain of [=presents=].
+		Any concept that [=presents=] an [=Interface=] should specialize [=PresentingElement=]."""
 	aspect PresentingElement
 
 	@rdfs:label "Specified Element"
-	@dc:^description """<classname>SpecifiedElement</classname> is the range of <property>specifies</property>.
-		Any concept or reified relation that <property>isSpecifiedBy</property> a <classname>Requirement</classname> should specialize
-		<classname>SpecifiedElement</classname>."""
+	@dc:^description """[=SpecifiedElement=] is the range of [=specifies=].
+		Any concept or reified relation that [=isSpecifiedBy=] a [=Requirement=] should specialize
+		[=SpecifiedElement=]."""
 	aspect SpecifiedElement
 
 	@rdfs:label "Presenting Element"
-	@dc:^description """"<classname>TraversingElement</classname> is the domain of <property>traverses</property>.
-		Any concept that <property>traverses</property> an <classname>Interface</classname> should specialize <classname>TraversingElement</classname>."""
+	@dc:^description """"[=TraversingElement=] is the domain of [=traverses=].
+		Any concept that [=traverses=] an [=Interface=] should specialize [=TraversingElement=]."""
 	@rdfs:label "Traversing Element"
 	aspect TraversingElement
 
 	@rdfs:label "Component"
-	@dc:^description """<para>A <classname>Component</classname> is a designed entity that exists to 
-		perform a <classname>Function</classname>. Example <classname>Component</classname>s
+	@dc:^description """<para>A [=Component=] is a designed entity that exists to 
+		perform a [=Function=]. Example [=Component=]s
     	include launch vehicle, spacecraft, telecommunication subsystem, flight software, attitude control software, and mission operations team."""
 	concept Component :> base:AggregatedElement, base:ContainedElement, base:Container, base:IdentifiedElement, PerformingElement, PresentingElement, SpecifiedElement [
 		restricts all relation base:aggregates to Component
@@ -43,8 +41,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Environment"
-	@dc:^description """An <classname>Environment</classname> represents a set of conditions under which a <classname>Component</classname> <property>performs</property>
-		some <classname>Function</classname>. 
+	@dc:^description """An [=Environment=] represents a set of conditions under which a [=Component=] [=performs=]
+		some [=Function=]. 
     	Example environments include low earth orbit, trans-Jupiter cruise, and Martian north polar surface."""
 	concept Environment :> base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:isAggregatedIn to Environment
@@ -52,198 +50,189 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Flow"
-	@dc:^description """A <classname>Flow</classname> is a non-discrete transfer of substance or energy between <classname>Component</classname>s. 
-		<emphasis role="italic">Non-discrete</emphasis> implies that the substance or energy has no natural boundaries. Examples of <classname>Flow</classname> include electric current, propellant, and heat."""
+	@dc:^description """A [=Flow=] is a non-discrete transfer of substance or energy between [=Component=]s. 
+		<emphasis role="italic">Non-discrete</emphasis> implies that the substance or energy has no natural boundaries. Examples of [=Flow=] include electric current, propellant, and heat."""
 	concept Flow :> base:ContainedElement, base:Container, base:IdentifiedElement, TraversingElement [
 		restricts all relation base:isContainedIn to Flow
 		restricts all relation base:contains to Flow
 	]
 
 	@rdfs:label "Function"
-	@dc:^description """A <classname>Function</classname> is a purpose for which a <classname>PerformingElement</classname> is included in a designed system."""
+	@dc:^description """A [=Function=] is a purpose for which a [=PerformingElement=] is included in a designed system."""
 	concept Function :> base:IdentifiedElement [
 		restricts all relation isInvokedBy to Function
 		restricts all relation invokes to Function
 	]
 
 	@rdfs:label "Interface"
-	@dc:^description """An <classname>Interface</classname> represents a set of mechanical, electrical, signal, or other features that describe some aspect
-		of a <classname>PresentingElement</classname>'s connection to or interaction with another <classname>PresentingElement</classname>."""
+	@dc:^description """An [=Interface=] represents a set of mechanical, electrical, signal, or other features that describe some aspect
+		of a [=PresentingElement=]'s connection to or interaction with another [=PresentingElement=]."""
 	concept Interface :> base:IdentifiedElement, PresentingElement
 
 	@rdfs:label "Item"
-	@dc:^description "An <classname>Item</classname> is a discrete unit of material or information exchanged between two <classname>PresentingElement</classname>s."
+	@dc:^description "An [=Item=] is a discrete unit of material or information exchanged between two [=PresentingElement=]s."
 	concept Item :> base:ContainedElement, base:Container, base:IdentifiedElement, TraversingElement [
 		restricts all relation base:isContainedIn to Item
 		restricts all relation base:contains to Item
 	]
 
 	@rdfs:label "Junction"
-	@dc:^description """An <classname>Junction</classname> represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected <classname>Interface</classname>s."""
+	@dc:^description """An [=Junction=] represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected [=Interface=]s."""
 	concept Junction :> base:ContainedElement, base:Container, base:IdentifiedElement [
 		restricts all relation base:isContainedIn to Junction
 		restricts all relation base:contains to Junction
 	]
 
 	@rdfs:label "Material Item"
-	@dc:^description """A <classname>MaterialItem</classname> is a discrete unit of material exchanged between two <classname>Function</classname>s. Example <classname>MaterialItem</classname>s include rock hammer and soil sample."""
+	@dc:^description """A [=MaterialItem=] is a discrete unit of material exchanged between two [=Function=]s. Example [=MaterialItem=]s include rock hammer and soil sample."""
 	concept MaterialItem :> Item [
 		restricts all relation base:contains to MaterialItem
 		restricts all relation base:isContainedIn to MaterialItem
 	]
 
 	@rdfs:label "Message"
-	@dc:^description """A <classname>Message</classname> is a discrete unit of information exchanged between two <classname>Function</classname>s. Example <classname>Message</classname>s include command, command response, and file contents."""
+	@dc:^description """A [=Message=] is a discrete unit of information exchanged between two [=Function=]s. Example [=Message=]s include command, command response, and file contents."""
 	concept Message :> Item [
 		restricts all relation base:contains to Message
 		restricts all relation base:isContainedIn to Message
 	]
 
 	@rdfs:label "Mission"
-	@dc:^description """A <classname>Mission</classname> is a <classname>PerformingElement</classname> that <property>pursue</property>s <classname>Objective</classname>s."""
+	@dc:^description """A [=Mission=] is a [=PerformingElement=] that [=pursue=]s [=Objective=]s."""
 	concept Mission :> base:IdentifiedElement, PerformingElement, PresentingElement, SpecifiedElement
 
 	@rdfs:label "Objective"
-	@dc:^description """An <classname>Objective</classname> represents a specific interest that one or more stakeholders have in the successful execution of a mission."""
+	@dc:^description """An [=Objective=] represents a specific interest that one or more stakeholders have in the successful execution of a mission."""
 	concept Objective :> base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:aggregates to Objective
 		restricts all relation base:isAggregatedIn to Objective
 	]
 
 	@rdfs:label "Product"
-	@dc:^description """A <classname>Product</classname> is a tangible artifact that results from achievement of mission objectives."""
+	@dc:^description """A [=Product=] is a tangible artifact that results from achievement of mission objectives."""
 	concept Product :> base:AggregatedElement, base:IdentifiedElement [
-		restricts all relation base:isAggregatedIn to base:AggregatedElement
-		restricts all relation base:aggregates to base:AggregatedElement
+		restricts all relation base:isAggregatedIn to Product
+		restricts all relation base:aggregates to Product
 	]
 
 	@rdfs:label "Requirement"
-	@dc:^description """A <classname>Requirement</classname> specifies an assertion about a <classname>SpecifiedElement</classname> that must be true for every acceptable realization of that element."""
+	@dc:^description """A [=Requirement=] specifies an assertion about a [=SpecifiedElement=] that must be true for every acceptable realization of that element."""
 	concept Requirement :> base:IdentifiedElement
 
 	@rdfs:label "Deploys"
+	@dc:^description """A [=Mission=] [=deploys=] zero or more [=Component=]s."""
 	relation entity Deploys [
 		from Mission
 		to Component
 		@rdfs:label "deploys"
-		@dc:^description """A <classname>Mission</classname> <property>deploys</property> zero or more <classname>Component</classname>s."""
 		forward deploys
 		@rdfs:label "is deployed by"
-		@dc:^description """See <property>deploys</property>."""
 		reverse isDeployedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Induces"
+	@dc:^description """A [=Component=] [=induces=] zero or more [=Environment=]s."""
 	relation entity Induces [
 		from Component
 		to Environment
 		@rdfs:label "induces"
-		@dc:^description """A <classname>Component</classname> <property>induces</property> zero or more <classname>Environment</classname>s."""
 		forward induces
 		@rdfs:label "is induced by"
-		@dc:^description """See <property>induces</property>."""
 		reverse isInducedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Influences"
+	@dc:^description """An [=Environment=] [=influences=] zero or more [=Component=]s."""
 	relation entity Influences [
 		from Environment
 		to Component
-		@dc:^description """An <classname>Environment</classname> <property>influences</property> zero or more <classname>Component</classname>s."""
 		@rdfs:label "influences"
 		forward influences
 		@rdfs:label "is influenced by"
-		@dc:^description "See <property>influences</property>."
 		reverse isInfluencedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Invokes"
+	@dc:^description """A [=Function=] [=invokes=] zero or more [=Function=]s."""
 	relation entity Invokes [
 		from Function
 		to Function
 		@rdfs:label "invokes"
-		@dc:^description """A <classname>Function</classname> <property>invokes</property> zero or more <classname>Function</classname>s."""
 		forward invokes
 		@rdfs:label "is invoked by"
-		@dc:^description """See <property>invokes</property>."""
 		reverse isInvokedBy
 	]
 
 	@rdfs:label "Traverses"
-	relation entity IsTraversedBy [
-		from Junction
-		to TraversingElement
+	@dc:^description """A [=TraversingElement=] [=traverses=] zero or more [=Junction=]s."""
+	relation entity Traverses [
+		from TraversingElement
+		to Junction
 		@rdfs:label "traverses"
-		@dc:^description """A <classname>TraversingElement</classname> <property>traverses</property> zero or more <classname>Junction</classname>s."""
+		forward traverses
 		@rdfs:label "is traversed by"
-		@dc:^description """See <property>traverses</property>."""
-		forward isTraversedBy
-		reverse traverses
+		reverse isTraversedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Joins"
+	@dc:^description """A [=Junction=] [=joins=] zero or more [=Interface=]s."""
 	relation entity Joins [
 		from Junction
 		to Interface
-		@dc:^description """A <classname>Junction</classname> <property>joins</property> zero or more <classname>Interface</classname>s."""
 		@rdfs:label "joins"
 		forward joins
 		@rdfs:label "is joined in"
-		@dc:^description "See <property>joins</property>."
 		reverse isJoinedIn
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Joins1"
+	@dc:^description """[=joins1=] and [=joins2=] are distinguishable specializations of
+		[=joins=]. These specializations are employed to indicate distinct ends of a
+		[=Junction=]."""
 	relation entity Joins1 :> Joins [
 		from Junction
 		to Interface
 		@rdfs:label "joins1"
-		@dc:^description """<property>joins1</property> and <property>joins2</property> are distinguishable specializations of
-							<property>joins</property>. These specializations are employed to indicate distinct ends of a
-							<classname>Junction</classname>."""
 		forward joins1
 		@rdfs:label "is joined in1"
-		@dc:^description "See <property>joins1</property>."
 		reverse isJoinedIn1
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Joins2"
+	@dc:^description """[=joins1=] and [=joins2=] are distinguishable specializations of
+		[=joins=]. These specializations are employed to indicate distinct ends of a
+		[=Junction=]."""
 	relation entity Joins2 :> Joins [
 		from Junction
 		to Interface
 		@rdfs:label "joins2"
-		@dc:^description """<property>joins1</property> and <property>joins2</property> are distinguishable specializations of
-							<property>joins</property>. These specializations are employed to indicate distinct ends of a
-							<classname>Junction</classname>."""
 		forward joins2
 		@rdfs:label "is joined in2"
-		@dc:^description "See <property>joins2</property>."
 		reverse isJoinedIn2
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Performs"
+	@dc:^description """A [=PerformingElement=] [=performs=] zero or more [=Function=]s."""
 	relation entity Performs :> SpecifiedElement [
 		from PerformingElement
 		to Function
 		@rdfs:label "performs"
-		@dc:^description """A <classname>PerformingElement</classname> <property>performs</property> zero or more <classname>Function</classname>s."""
 		forward performs
 		@rdfs:label "is performed by"
-		@dc:^description "See <property>performs</property>."
 		reverse isPerformedBy
 		inverse functional
 		asymmetric
@@ -251,14 +240,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Presents"
+	@dc:^description "A [=PresentingElement=] [=presents=] zero or more [=Interface=]s."
 	relation entity Presents :> SpecifiedElement [
 		from PresentingElement
 		to Interface
 		@rdfs:label "presents"
-		@dc:^description "A <classname>PresentingElement</classname> <property>presents</property> zero or more <classname>Interface</classname>s."
 		forward presents
 		@rdfs:label "is presented by"
-		@dc:^description "See <property>presents</property>."
 		reverse isPresentedBy
 		inverse functional
 		asymmetric
@@ -266,14 +254,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Produces"
+	@dc:^description """A [=PerformingElement=] [=produces=] zero or more [=Product=]s."""
 	relation entity Produces :> SpecifiedElement [
 		from PerformingElement
 		to Product
 		@rdfs:label "produces"
-		@dc:^description """A <classname>PerformingElement</classname> <property>produces</property> zero or more <classname>Product</classname>s."""
 		forward produces
 		@rdfs:label "is produced by"
-		@dc:^description "See <property>produces</property>."
 		reverse isProducedBy
 		inverse functional
 		asymmetric
@@ -281,43 +268,40 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Pursues"
+	@dc:^description """A [=Mission=] [=pursues=] zero or more [=Objective=]s."""
 	relation entity Pursues [
 		from Mission
 		to Objective
 		@rdfs:label "pursues"
-		@dc:^description """A <classname>Mission</classname> <property>pursues</property> zero or more <classname>Objective</classname>s."""
 		forward pursues
 		@rdfs:label "is pursued by"
-		@dc:^description "See <property>pursues</property>."
 		reverse isPursuedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Refines"
+	@dc:^description """A [=Requirement=] [=refines=] zero or more [=Requirement=]s."""
 	relation entity Refines [
 		from Requirement
 		to Requirement
 		@rdfs:label "refines"
-		@dc:^description """A <classname>Requirement</classname> <property>refines</property> zero or more <classname>Requirement</classname>s."""
 		forward refines
 		@rdfs:label "is refined by"
-		@dc:^description "See <property>refines</property>."
 		reverse isRefinedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Specifies"
+	@dc:^description """A [=Requirement=] [=specifies=] zero or more
+		[=SpecifiedElement=]s."""
 	relation entity Specifies [
 		from Requirement
 		to SpecifiedElement
 		@rdfs:label "specifies"
-		@dc:^description """A <classname>Requirement</classname> <property>specifies</property> zero or more
-			<classname>SpecifiedElement</classname>s."""
 		forward specifies
 		@rdfs:label "is specified by"
-		@dc:^description "See <property>specifies</property>."
 		reverse isSpecifiedBy
 		functional
 		asymmetric
@@ -325,40 +309,40 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Transfers"
+	@dc:^description """An [=Interface=] [=transfers=] zero or more [=TraversingElement=]s."""
 	relation entity Transfers [
 		from Interface
 		to TraversingElement
 		@rdfs:label "transfers"
-		@dc:^description """An <classname>Interface</classname> <property>transfers</property> zero or more <classname>TraversingElement</classname>s."""
 		forward transfers
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Transfers In"
+	@dc:^description """An [=Interface=] [=transfersIn=] zero or more [=TraversingElement=]s."""
 	relation entity TransfersIn :> Transfers, SpecifiedElement [
 		from Interface
 		to TraversingElement
 		@rdfs:label "transfers in"
-		@dc:^description """An <classname>Interface</classname> <property>transfersIn</property> zero or more <classname>TraversingElement</classname>s."""
 		forward transfersIn
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Transfers Out"
+	@dc:^description """An [=Interface=] [=transfersOut=] zero or more [=TraversingElement=]s."""
 	relation entity TransfersOut :> Transfers, SpecifiedElement [
 		from Interface
 		to TraversingElement
 		@rdfs:label "transfers out"
-		@dc:^description """An <classname>Interface</classname> <property>transfersOut</property> zero or more <classname>TraversingElement</classname>s."""
 		forward transfersOut
 		asymmetric
 		irreflexive
 	]
 
-	@dc:^description "A <property>rationale</property> explains why a <classname>Requirement</classname> exists and why it <property>specifies</property> what it does."
 	@rdfs:label "has rationale"
+	@dc:^description "[=hasRationale=] explains why a [=Requirement=] exists and why it [=specifies=] what it does."
 	scalar property hasRationale [
 		domain Requirement
 		range xsd:string

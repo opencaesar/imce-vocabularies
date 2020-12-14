@@ -1,86 +1,81 @@
-@dc:title "Analysis"
-@dc:^description "The Analysis Ontology defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts."
-@dc:rights """Copyright 2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology.
-
-This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."""
 @dc:creator "Jet Propulsion Laboratory"
-@dc:hasVersion "1.0.3"
-@dc:date "2020-09-29"
+@dc:rights """Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology.
+This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."""
+@dc:^description "The Analysis vocabulary defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts."
+@dc:title "Analysis"
 vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
 	extends <http://imce.jpl.nasa.gov/foundation/mission>
 
 	extends <http://iupac.org/metrology>
 
-	@dc:^description "<classname>CharacterizedElement</classname> is the range of <property>characterizes</property>."
 	@rdfs:label "Characterized Element"
+	@dc:^description "[=CharacterizedElement=] is the range of [=characterizes=]."
 	aspect CharacterizedElement
-	
-	@dc:^description "<classname>AnalyzedElement</classname> is the range of <property>analyzes</property>."
+
 	@rdfs:label "Analyzed Element"
+	@dc:^description "[=AnalyzedElement=] is the range of [=analyzes=]."
 	aspect AnalyzedElement
-	
-	@dc:^description "An <classname>Assumption</classname> is a <classname>Characterization</classname> that is taken to be true for the purpose of analysis."
+
 	@rdfs:label "Assumption"
+	@dc:^description "An [=Assumption=] is a [=Characterization=] that is taken to be true for the purpose of analysis."
 	concept Assumption :> Characterization
 
-	@dc:^description "A <classname>Characterization</classname> provides a parametric or other qualification of zero or more model elements."
 	@rdfs:label "Characterization"
+	@dc:^description "A [=Characterization=] provides a parametric or other qualification of zero or more model elements."
 	concept Characterization :> base:IdentifiedElement
 
-	@dc:^description "A <classname>DrivingRequirementsExplanation</classname> provides the rationale for designating a set of <classname>Requirement</classname>s as <emphasis>driving</emphasis>, and makes the 
-    designation via the <property>explains</property> property."
 	@rdfs:label "Driving Requirements Explanation"
+	@dc:^description "A [=DrivingRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s as <emphasis>driving</emphasis>, and makes the 
+    designation via the [=explains=] property."
 	concept DrivingRequirementsExplanation :> Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
-	@dc:^description """An <classname>Explanation</classname> captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
-    contain narrative prose directly or provide a reference to external products."""
 	@rdfs:label "Explanation"
+	@dc:^description """An [=Explanation=] captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
+    contain narrative prose directly or provide a reference to external products."""
 	concept Explanation :> Characterization, base:AggregatedElement
 
-	@dc:^description "A <classname>Fact</classname> is an <classname>Assumption</classname> taken because it is thought to be true."
 	@rdfs:label "Fact"
+	@dc:^description "A [=Fact=] is an [=Assumption=] taken because it is thought to be true."
 	concept Fact :> Assumption
 
-	@dc:^description "<classname>GlossaryEntry</classname> is a <classname>Characterization</classname> that associates a term with a definition."
 	@rdfs:label "GlossaryEntry"
+	@dc:^description "[=GlossaryEntry=] is a [=Characterization=] that associates a term with a definition."
 	concept GlossaryEntry :> Characterization
 
-	@dc:^description "A <classname>KeyRequirementsExplanation</classname> provides the rationale for designating a set of <classname>Requirement</classname>s 
-    as <emphasis>key</emphasis>, and makes the designation via the <property>explains</property> property."
 	@rdfs:label "Key Requirements Explanation"
+	@dc:^description "A [=KeyRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s 
+    as <emphasis>key</emphasis>, and makes the designation via the [=explains=] property."
 	concept KeyRequirementsExplanation :> Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
-	@dc:^description "A <classname>TradeStudy</classname> explains some set of model elements and their properties through comparison with alternatives."
 	@rdfs:label "Trade Study"
+	@dc:^description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
 	concept TradeStudy :> Explanation
 
 	@rdfs:label "Analyzes"
+	@dc:^description "An [=Explanation=] [=analyzes=] zero or more [=AnalyzedElement=]s."
 	relation entity Analyzes [
 		from Explanation
 		to AnalyzedElement
-		@dc:^description "An <classname>Explanation</classname> <property>analyzes</property> zero or more <classname>AnalyzedElement</classname>s."
 		@rdfs:label "analyzes"
 		forward analyzes
 		@rdfs:label "is analyzed by"
-		@dc:^description "See <property>analyzes</property>."
 		reverse isAnalyzedBy
 		asymmetric
 		irreflexive
 	]
 
 	@rdfs:label "Characterizes"
+	@dc:^description """A [=Characterization=] [=characterizes=] zero or more [=CharacterizedElement=]s."""
 	relation entity Characterizes :> mission:SpecifiedElement [
 		from Characterization
 		to CharacterizedElement
-		@dc:^description """A <classname>Characterization</classname> <property>characterizes</property> zero or more <classname>CharacterizedElement</classname>s."""
 		@rdfs:label "characterizes"
 		forward characterizes
-		@dc:^description "See <property>characterizes</property>."
 		@rdfs:label "is characterized by"
 		reverse isCharacterizedBy
 		asymmetric
@@ -88,13 +83,12 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Explains"
+	@dc:^description """An [=Explanation=] [=explains=] zero or more [=CharacterizedElement=]s."""
 	relation entity Explains :> Characterizes [
 		from Explanation
 		to CharacterizedElement
-		@dc:^description """An <classname>Explanation</classname> <property>explains</property> zero or more <classname>CharacterizedElement</classname>s."""
 		@rdfs:label "explains"
 		forward explains
-		@dc:^description "See <property>explains</property>."
 		@rdfs:label "is explained by"
 		reverse isExplainedBy
 		asymmetric
@@ -102,13 +96,12 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Limits"
+	@rdfs:comment """An [=Assumption=] [=limits=] zero or more [=CharacterizedElement=]s."""
 	relation entity Limits :> Characterizes [
 		from Assumption
 		to CharacterizedElement
 		@rdfs:label "limits"
-		@rdfs:comment """An <classname>Assumption</classname> <property>limits</property> zero or more <classname>CharacterizedElement</classname>s."""
 		forward limits
-		@dc:^description "See <property>limits</property>."
 		@rdfs:label "is limited by"
 		reverse isLimitedBy
 		asymmetric
@@ -116,13 +109,12 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Validates"
+	@dc:^description "An [=Explanation=] [=validates=] zero or more [=CharacterizedElement=]s."
 	relation entity Validates :> Explains [
 		from Explanation
 		to CharacterizedElement
-		@dc:^description "An <classname>Explanation</classname> <property>validates</property> zero or more <classname>CharacterizedElement</classname>s."
 		@rdfs:label "validates"
 		forward validates
-		@dc:^description "See <property>validates</property>."
 		@rdfs:label "is validated by"
 		reverse isValidatedBy
 		asymmetric
