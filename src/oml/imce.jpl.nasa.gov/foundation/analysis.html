@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version c6f50773a, updated Fri Apr 16 16:45:47 2021 -0700" name="generator">
   <link href="https://opencaesar.github.io/imce-vocabularies//src/oml/imce.jpl.nasa.gov/foundation/analysis" rel="canonical">
-  <meta content="d1d914d156554caab6b50b9be29e85b840403dee" name="document-revision">
+  <meta content="27f8bf2525ce78f3dc7850993534f6dc7d480299" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1940,7 +1940,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">Analysis</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2021-04-20">20 April 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2021-04-27">27 April 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2039,7 +2039,9 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Subtypes
        <td>
         <ul>
+         <li><a data-link-type="dfn" href="project.html#developedelement" id="ref-for-developedelement">project:DevelopedElement</a>
          <li><a data-link-type="dfn" href="../../../../build/oml/iupac.org/metrology.html#object" id="ref-for-object">metrology:Object</a>
+         <li><a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement">mission:Requirement</a>
         </ul>
       <tr>
        <th>Relations with target
@@ -2104,7 +2106,7 @@ dfn > a.self-link::before      { content: "#"; }
     </table>
     <h3 class="heading settled" data-level="4.3" id="DrivingRequirementsExplanation"><span class="secno">4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="drivingrequirementsexplanation">DrivingRequirementsExplanation</dfn></span><a class="self-link" href="#DrivingRequirementsExplanation"></a></h3>
     <p>
-     A <a data-link-type="dfn" href="#drivingrequirementsexplanation" id="ref-for-drivingrequirementsexplanation">DrivingRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement">Requirement</a>s as 
+     A <a data-link-type="dfn" href="#drivingrequirementsexplanation" id="ref-for-drivingrequirementsexplanation">DrivingRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement①">Requirement</a>s as 
      <emphasis>driving</emphasis>
      , and makes the
 	    designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains①">explains</a> property.
@@ -2121,7 +2123,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Relations with source
        <td>
         <ul>
-         <li>DrivingRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains②">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement①">mission:Requirement</a> 
+         <li>DrivingRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains②">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement②">mission:Requirement</a> 
         </ul>
     </table>
     <h3 class="heading settled" data-level="4.4" id="Explanation"><span class="secno">4.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="explanation">Explanation</dfn></span><a class="self-link" href="#Explanation"></a></h3>
@@ -2184,7 +2186,7 @@ dfn > a.self-link::before      { content: "#"; }
     </table>
     <h3 class="heading settled" data-level="4.7" id="KeyRequirementsExplanation"><span class="secno">4.7. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="keyrequirementsexplanation">KeyRequirementsExplanation</dfn></span><a class="self-link" href="#KeyRequirementsExplanation"></a></h3>
     <p>
-     A <a data-link-type="dfn" href="#keyrequirementsexplanation" id="ref-for-keyrequirementsexplanation①">KeyRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement②">Requirement</a>s
+     A <a data-link-type="dfn" href="#keyrequirementsexplanation" id="ref-for-keyrequirementsexplanation①">KeyRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement③">Requirement</a>s
 	    as 
      <emphasis>key</emphasis>
      , and makes the designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains④">explains</a> property.
@@ -2201,7 +2203,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Relations with source
        <td>
         <ul>
-         <li>KeyRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑤">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement③">mission:Requirement</a> 
+         <li>KeyRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑤">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement④">mission:Requirement</a> 
         </ul>
     </table>
     <h3 class="heading settled" data-level="4.8" id="TradeStudy"><span class="secno">4.8. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="tradestudy">TradeStudy</dfn></span><a class="self-link" href="#TradeStudy"></a></h3>
@@ -2711,14 +2713,21 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-requirement">
    <a href="mission.html#requirement">mission.html#requirement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-requirement">4.3. DrivingRequirementsExplanation</a> <a href="#ref-for-requirement①">(2)</a>
-    <li><a href="#ref-for-requirement②">4.7. KeyRequirementsExplanation</a> <a href="#ref-for-requirement③">(2)</a>
+    <li><a href="#ref-for-requirement">3.2. CharacterizedElement</a>
+    <li><a href="#ref-for-requirement①">4.3. DrivingRequirementsExplanation</a> <a href="#ref-for-requirement②">(2)</a>
+    <li><a href="#ref-for-requirement③">4.7. KeyRequirementsExplanation</a> <a href="#ref-for-requirement④">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-specifiedelement">
    <a href="mission.html#specifiedelement">mission.html#specifiedelement</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-specifiedelement">5.2. Characterizes</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-developedelement">
+   <a href="project.html#developedelement">project.html#developedelement</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-developedelement">3.2. CharacterizedElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-developmentstate">
@@ -2790,6 +2799,7 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/project]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="term-for-developedelement">developedelement</span>
      <li><span class="dfn-paneled" id="term-for-developmentstate">developmentstate</span>
     </ul>
    <li>
