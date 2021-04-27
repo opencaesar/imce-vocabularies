@@ -59,10 +59,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 
 	@rdfs:label "Function"
 	@dc:^description """A [=Function=] is a purpose for which a [=PerformingElement=] is included in a designed system."""
-	concept Function :> base:IdentifiedElement [
-		restricts all relation isInvokedBy to Function
-		restricts all relation invokes to Function
-	]
+	concept Function :> base:IdentifiedElement
 
 	@rdfs:label "Interface"
 	@dc:^description """An [=Interface=] represents a set of mechanical, electrical, signal, or other features that describe some aspect

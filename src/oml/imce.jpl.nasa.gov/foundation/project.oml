@@ -17,7 +17,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 
 	@rdfs:label "Developed Element"
 	@dc:^description "[=DevelopedElement=] is the domain of [=manifests=]."
-	aspect DevelopedElement
+	aspect DevelopedElement :> analysis:CharacterizedElement
 
 	@rdfs:label "Realized Element"
 	@dc:^description "[=RealizedElement=] is the domain and range of [=realizes=]."

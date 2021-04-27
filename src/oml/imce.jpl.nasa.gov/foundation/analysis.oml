@@ -134,6 +134,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	ref aspect metrology:Object :> analysis:CharacterizedElement
+	
+	ref concept mission:Requirement :> analysis:CharacterizedElement
 
 	ref concept metrology:Quantity :> analysis:Characterization
 
