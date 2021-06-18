@@ -1,6 +1,6 @@
 @dc:creator "Jet Propulsion Laboratory"
-@dc:rights """Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
-This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."""
+@dc:rights "Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
+This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
 @dc:^description "The Mission vocabulary defines concepts and properties for describing missions in terms of their objectives, their constituent components, the functions those components perform, and the requirements that specify them."
 @dc:title "Mission"
 vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
@@ -8,31 +8,31 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	extends <http://imce.jpl.nasa.gov/foundation/base>
 
 	@rdfs:label "Performing Element"
-	@dc:^description """[=PerformingElement=] is the domain of [=performs=].
-		Any concept that [=performs=] a [=Function=] should specialize [=PerformingElement=]."""
+	@dc:^description "[=PerformingElement=] is the domain of [=performs=].
+		Any concept that [=performs=] a [=Function=] should specialize [=PerformingElement=]."
 	aspect PerformingElement
 
 	@rdfs:label "Presenting Element"
-	@dc:^description """[=PresentingElement=] is the domain of [=presents=].
-		Any concept that [=presents=] an [=Interface=] should specialize [=PresentingElement=]."""
+	@dc:^description "[=PresentingElement=] is the domain of [=presents=].
+		Any concept that [=presents=] an [=Interface=] should specialize [=PresentingElement=]."
 	aspect PresentingElement
 
 	@rdfs:label "Specified Element"
-	@dc:^description """[=SpecifiedElement=] is the range of [=specifies=].
+	@dc:^description "[=SpecifiedElement=] is the range of [=specifies=].
 		Any concept or reified relation that [=isSpecifiedBy=] a [=Requirement=] should specialize
-		[=SpecifiedElement=]."""
+		[=SpecifiedElement=]."
 	aspect SpecifiedElement
 
 	@rdfs:label "Presenting Element"
-	@dc:^description """"[=TraversingElement=] is the domain of [=traverses=].
-		Any concept that [=traverses=] an [=Interface=] should specialize [=TraversingElement=]."""
+	@dc:^description "[=TraversingElement=] is the domain of [=traverses=].
+		Any concept that [=traverses=] an [=Interface=] should specialize [=TraversingElement=]."
 	@rdfs:label "Traversing Element"
 	aspect TraversingElement
 
 	@rdfs:label "Component"
-	@dc:^description """<para>A [=Component=] is a designed entity that exists to 
+	@dc:^description "<para>A [=Component=] is a designed entity that exists to 
 		perform a [=Function=]. Example [=Component=]s
-    	include launch vehicle, spacecraft, telecommunication subsystem, flight software, attitude control software, and mission operations team."""
+    	include launch vehicle, spacecraft, telecommunication subsystem, flight software, attitude control software, and mission operations team."
 	concept Component :> base:AggregatedElement, base:ContainedElement, base:Container, base:IdentifiedElement, PerformingElement, PresentingElement, SpecifiedElement [
 		restricts all relation base:aggregates to Component
 		restricts all relation base:isAggregatedIn to Component
@@ -41,29 +41,28 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Environment"
-	@dc:^description """An [=Environment=] represents a set of conditions under which a [=Component=] [=performs=]
-		some [=Function=]. 
-    	Example environments include low earth orbit, trans-Jupiter cruise, and Martian north polar surface."""
+	@dc:^description "An [=Environment=] represents a set of conditions under which a [=Component=] [=performs=]
+		some [=Function=]. Example environments include low earth orbit, trans-Jupiter cruise, and Martian north polar surface."
 	concept Environment :> base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:isAggregatedIn to Environment
 		restricts all relation base:aggregates to Environment
 	]
 
 	@rdfs:label "Flow"
-	@dc:^description """A [=Flow=] is a non-discrete transfer of substance or energy between [=Component=]s. 
-		<emphasis role="italic">Non-discrete</emphasis> implies that the substance or energy has no natural boundaries. Examples of [=Flow=] include electric current, propellant, and heat."""
+	@dc:^description "A [=Flow=] is a non-discrete transfer of substance or energy between [=Component=]s. <em>Non-discrete</em> implies 
+		that the substance or energy has no natural boundaries. Examples of [=Flow=] include electric  current, propellant, and heat."
 	concept Flow :> base:ContainedElement, base:Container, base:IdentifiedElement, TraversingElement [
 		restricts all relation base:isContainedIn to Flow
 		restricts all relation base:contains to Flow
 	]
 
 	@rdfs:label "Function"
-	@dc:^description """A [=Function=] is a purpose for which a [=PerformingElement=] is included in a designed system."""
+	@dc:^description "A [=Function=] is a purpose for which a [=PerformingElement=] is included in a designed system."
 	concept Function :> base:IdentifiedElement
 
 	@rdfs:label "Interface"
-	@dc:^description """An [=Interface=] represents a set of mechanical, electrical, signal, or other features that describe some aspect
-		of a [=PresentingElement=]'s connection to or interaction with another [=PresentingElement=]."""
+	@dc:^description "An [=Interface=] represents a set of mechanical, electrical, signal, or other features that describe some aspect
+		of a [=PresentingElement=]'s connection to or interaction with another [=PresentingElement=]."
 	concept Interface :> base:IdentifiedElement, PresentingElement
 
 	@rdfs:label "Item"
@@ -74,50 +73,50 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Junction"
-	@dc:^description """An [=Junction=] represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected [=Interface=]s."""
+	@dc:^description "An [=Junction=] represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected [=Interface=]s."
 	concept Junction :> base:ContainedElement, base:Container, base:IdentifiedElement [
 		restricts all relation base:isContainedIn to Junction
 		restricts all relation base:contains to Junction
 	]
 
 	@rdfs:label "Material Item"
-	@dc:^description """A [=MaterialItem=] is a discrete unit of material exchanged between two [=Function=]s. Example [=MaterialItem=]s include rock hammer and soil sample."""
+	@dc:^description "A [=MaterialItem=] is a discrete unit of material exchanged between two [=Function=]s. Example [=MaterialItem=]s include rock hammer and soil sample."
 	concept MaterialItem :> Item [
 		restricts all relation base:contains to MaterialItem
 		restricts all relation base:isContainedIn to MaterialItem
 	]
 
 	@rdfs:label "Message"
-	@dc:^description """A [=Message=] is a discrete unit of information exchanged between two [=Function=]s. Example [=Message=]s include command, command response, and file contents."""
+	@dc:^description "A [=Message=] is a discrete unit of information exchanged between two [=Function=]s. Example [=Message=]s include command, command response, and file contents."
 	concept Message :> Item [
 		restricts all relation base:contains to Message
 		restricts all relation base:isContainedIn to Message
 	]
 
 	@rdfs:label "Mission"
-	@dc:^description """A [=Mission=] is a [=PerformingElement=] that [=pursue=]s [=Objective=]s."""
+	@dc:^description "A [=Mission=] is a [=PerformingElement=] that [=pursue=]s [=Objective=]s."
 	concept Mission :> base:IdentifiedElement, PerformingElement, PresentingElement, SpecifiedElement
 
 	@rdfs:label "Objective"
-	@dc:^description """An [=Objective=] represents a specific interest that one or more stakeholders have in the successful execution of a mission."""
+	@dc:^description "An [=Objective=] represents a specific interest that one or more stakeholders have in the successful execution of a mission."
 	concept Objective :> base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:aggregates to Objective
 		restricts all relation base:isAggregatedIn to Objective
 	]
 
 	@rdfs:label "Product"
-	@dc:^description """A [=Product=] is a tangible artifact that results from achievement of mission objectives."""
+	@dc:^description "A [=Product=] is a tangible artifact that results from achievement of mission objectives."
 	concept Product :> base:AggregatedElement, base:IdentifiedElement [
 		restricts all relation base:isAggregatedIn to Product
 		restricts all relation base:aggregates to Product
 	]
 
 	@rdfs:label "Requirement"
-	@dc:^description """A [=Requirement=] specifies an assertion about a [=SpecifiedElement=] that must be true for every acceptable realization of that element."""
+	@dc:^description "A [=Requirement=] specifies an assertion about a [=SpecifiedElement=] that must be true for every acceptable realization of that element."
 	concept Requirement :> base:IdentifiedElement
 
 	@rdfs:label "Deploys"
-	@dc:^description """A [=Mission=] [=deploys=] zero or more [=Component=]s."""
+	@dc:^description "A [=Mission=] [=deploys=] zero or more [=Component=]s."
 	relation entity Deploys [
 		from Mission
 		to Component
@@ -130,7 +129,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Induces"
-	@dc:^description """A [=Component=] [=induces=] zero or more [=Environment=]s."""
+	@dc:^description "A [=Component=] [=induces=] zero or more [=Environment=]s."
 	relation entity Induces [
 		from Component
 		to Environment
@@ -143,7 +142,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Influences"
-	@dc:^description """An [=Environment=] [=influences=] zero or more [=Component=]s."""
+	@dc:^description "An [=Environment=] [=influences=] zero or more [=Component=]s."
 	relation entity Influences [
 		from Environment
 		to Component
@@ -156,7 +155,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Invokes"
-	@dc:^description """A [=Function=] [=invokes=] zero or more [=Function=]s."""
+	@dc:^description "A [=Function=] [=invokes=] zero or more [=Function=]s."
 	relation entity Invokes [
 		from Function
 		to Function
@@ -167,7 +166,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Traverses"
-	@dc:^description """A [=TraversingElement=] [=traverses=] zero or more [=Junction=]s."""
+	@dc:^description "A [=TraversingElement=] [=traverses=] zero or more [=Junction=]s."
 	relation entity Traverses [
 		from TraversingElement
 		to Junction
@@ -180,7 +179,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Joins"
-	@dc:^description """A [=Junction=] [=joins=] zero or more [=Interface=]s."""
+	@dc:^description "A [=Junction=] [=joins=] zero or more [=Interface=]s."
 	relation entity Joins [
 		from Junction
 		to Interface
@@ -193,9 +192,9 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Joins1"
-	@dc:^description """[=joins1=] and [=joins2=] are distinguishable specializations of
+	@dc:^description "[=joins1=] and [=joins2=] are distinguishable specializations of
 		[=joins=]. These specializations are employed to indicate distinct ends of a
-		[=Junction=]."""
+		[=Junction=]."
 	relation entity Joins1 :> Joins [
 		from Junction
 		to Interface
@@ -208,9 +207,9 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Joins2"
-	@dc:^description """[=joins1=] and [=joins2=] are distinguishable specializations of
+	@dc:^description "[=joins1=] and [=joins2=] are distinguishable specializations of
 		[=joins=]. These specializations are employed to indicate distinct ends of a
-		[=Junction=]."""
+		[=Junction=]."
 	relation entity Joins2 :> Joins [
 		from Junction
 		to Interface
@@ -223,7 +222,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Performs"
-	@dc:^description """A [=PerformingElement=] [=performs=] zero or more [=Function=]s."""
+	@dc:^description "A [=PerformingElement=] [=performs=] zero or more [=Function=]s."
 	relation entity Performs :> SpecifiedElement [
 		from PerformingElement
 		to Function
@@ -251,7 +250,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Produces"
-	@dc:^description """A [=PerformingElement=] [=produces=] zero or more [=Product=]s."""
+	@dc:^description "A [=PerformingElement=] [=produces=] zero or more [=Product=]s."
 	relation entity Produces :> SpecifiedElement [
 		from PerformingElement
 		to Product
@@ -265,7 +264,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Pursues"
-	@dc:^description """A [=Mission=] [=pursues=] zero or more [=Objective=]s."""
+	@dc:^description "A [=Mission=] [=pursues=] zero or more [=Objective=]s."
 	relation entity Pursues [
 		from Mission
 		to Objective
@@ -278,7 +277,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Refines"
-	@dc:^description """A [=Requirement=] [=refines=] zero or more [=Requirement=]s."""
+	@dc:^description "A [=Requirement=] [=refines=] zero or more [=Requirement=]s."
 	relation entity Refines [
 		from Requirement
 		to Requirement
@@ -291,8 +290,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Specifies"
-	@dc:^description """A [=Requirement=] [=specifies=] zero or more
-		[=SpecifiedElement=]s."""
+	@dc:^description "A [=Requirement=] [=specifies=] zero or more
+		[=SpecifiedElement=]s."
 	relation entity Specifies [
 		from Requirement
 		to SpecifiedElement
@@ -306,7 +305,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Transfers"
-	@dc:^description """An [=Interface=] [=transfers=] zero or more [=TraversingElement=]s."""
+	@dc:^description "An [=Interface=] [=transfers=] zero or more [=TraversingElement=]s."
 	relation entity Transfers [
 		from Interface
 		to TraversingElement
@@ -317,7 +316,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Transfers In"
-	@dc:^description """An [=Interface=] [=transfersIn=] zero or more [=TraversingElement=]s."""
+	@dc:^description "An [=Interface=] [=transfersIn=] zero or more [=TraversingElement=]s."
 	relation entity TransfersIn :> Transfers, SpecifiedElement [
 		from Interface
 		to TraversingElement
@@ -328,7 +327,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission> with # as mission {
 	]
 
 	@rdfs:label "Transfers Out"
-	@dc:^description """An [=Interface=] [=transfersOut=] zero or more [=TraversingElement=]s."""
+	@dc:^description "An [=Interface=] [=transfersOut=] zero or more [=TraversingElement=]s."
 	relation entity TransfersOut :> Transfers, SpecifiedElement [
 		from Interface
 		to TraversingElement

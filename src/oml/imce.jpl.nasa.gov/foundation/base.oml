@@ -1,6 +1,6 @@
 @dc:creator "Jet Propulsion Laboratory"
-@dc:rights """Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
-This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."""
+@dc:rights "Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
+This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
 @dc:^description "The Base vocabulary defines foundation concepts that are common to multiple specialized ontologies."
 @dc:title "Base"
 vocabulary <http://imce.jpl.nasa.gov/foundation/base> with # as base {
@@ -8,95 +8,95 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/base> with # as base {
 	extends <http://www.w3.org/2002/07/owl>
 
 	@rdfs:label "Identified Element"
-	@dc:^description """[=IdentifiedElement=] is the domain of several properties that connote unique identity.  Concepts whose
-		members may be uniquely identifiable individuals should specialize [=IdentifiedElement=]."""
+	@dc:^description "[=IdentifiedElement=] is the domain of several properties that connote unique identity.  Concepts whose
+		members may be uniquely identifiable individuals should specialize [=IdentifiedElement=]."
 	aspect IdentifiedElement
 
 	@rdfs:label "Aggregated Element"
-	@dc:^description """[=AggregatedElement=] is the domain and rage of the [=aggregates=] property. Aggregation is a
+	@dc:^description "[=AggregatedElement=] is the domain and rage of the [=aggregates=] property. Aggregation is a
 		homeomeric relation that is potentially many-to-many. Concepts that may participate in such aggregations should specialize
 		[=AggregatedElement=] and apply appropriate range restrictions to [=aggregates=] and
-		[=isAggregatedIn=]."""
+		[=isAggregatedIn=]."
 	aspect AggregatedElement
 
 	@rdfs:label "Container"
-	@dc:^description """"[=Container=] is the domain of the [=contains=] property. Containment is a homeomeric
+	@dc:^description "[=Container=] is the domain of the [=contains=] property. Containment is a homeomeric
 		one-to-many relation. Concepts that may participate as the container in such relations should specialize
-		[=Container=] and apply appropriate range restrictions to [=contains=]."""
+		[=Container=] and apply appropriate range restrictions to [=contains=]."
 	aspect Container
 
 	@rdfs:label "Contained Element"
-	@dc:^description """"[=ContainedElement=] is the range of the [=contains=] property. Containment is a homeomeric
+	@dc:^description "[=ContainedElement=] is the range of the [=contains=] property. Containment is a homeomeric
 		one-to-many relation. Concepts that may participate in such as the contained in such relations should specialize
-		[=ContainedElement=] and apply appropriate range restrictions to [=isContainedIn=]."""
+		[=ContainedElement=] and apply appropriate range restrictions to [=isContainedIn=]."
 	aspect ContainedElement
 
 	@rdfs:label "Package"
 	@dc:^description "A [=Package=] groups an arbitrary collection of axioms and/or assertions."
 	concept Package :> IdentifiedElement
 
-	@rdfs:label """has short name"""
-	@dc:^description """[=hasShortName=] relates an [=IdentifiedElement=] to zero or more short names.
-		Short names need not be unique. Context-specific short names (e.g., assembly name) should specialize [=hasShortName=]"""
+	@rdfs:label "has short name"
+	@dc:^description "[=hasShortName=] relates an [=IdentifiedElement=] to zero or more short names.
+		Short names need not be unique. Context-specific short names (e.g., assembly name) should specialize [=hasShortName=]"
 	scalar property hasShortName [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has containment index"
-	@dc:^description """"[=hasContainmentIndex=] indicates the unique position of a [=ContainedElement=] in a tree
+	@dc:^description "[=hasContainmentIndex=] indicates the unique position of a [=ContainedElement=] in a tree
 		of [=contains=] relationships. One intended use for [=hasContainmentIndex=] is to indicate order
 		of siblings in a serial presentation such as a graph or indented list. Context-specific containment indices (e.g., hierarchical work breakdown
-		structure numbers) should specialize [=hasContainmentIndex=]."""
+		structure numbers) should specialize [=hasContainmentIndex=]."
 	scalar property hasContainmentIndex [
 		domain ContainedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has index entry"
-	@dc:^description """[=hasIndexEntry=] relates an [=IdentifiedElement=] to zero or one terms under which
+	@dc:^description "[=hasIndexEntry=] relates an [=IdentifiedElement=] to zero or one terms under which
 		it would be indexed in a document. Context-specific index entries (e.g., a DocBook <tag>indexentry</tag>) should specialize
-		[=hasIndexEntry=]."""
+		[=hasIndexEntry=]."
 	scalar property hasIndexEntry [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has canonical name"
-	@dc:^description """"[=hasCanonicalName=] relates an [=IdentifiedElement=] to zero or one standard or official names.
-		Canonical names need not be unique. Context-specific canonical names should specialize [=hasCanonicalName=]."""
+	@dc:^description "[=hasCanonicalName=] relates an [=IdentifiedElement=] to zero or one standard or official names.
+		Canonical names need not be unique. Context-specific canonical names should specialize [=hasCanonicalName=]."
 	scalar property hasCanonicalName [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has sort key"
-	@dc:^description """[=hasSortKey=] relates an [=IdentifiedElement=] to zero or one string-valued keys
-		that may be used to establish its order in a sorted collection. Context-specific sort keys should specialize [=hasSortKey=]."""
+	@dc:^description "[=hasSortKey=] relates an [=IdentifiedElement=] to zero or one string-valued keys
+		that may be used to establish its order in a sorted collection. Context-specific sort keys should specialize [=hasSortKey=]."
 	scalar property hasSortKey [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has alternate name"
-	@dc:^description """"[=hasAlternateName=] property relates an [=IdentifiedElement=] to zero or more alternate names.
-		Alternate names need not be unique. Context-specific alternate names should specialize [=hasAlternateName=]."""
+	@dc:^description "[=hasAlternateName=] property relates an [=IdentifiedElement=] to zero or more alternate names.
+		Alternate names need not be unique. Context-specific alternate names should specialize [=hasAlternateName=]."
 	scalar property hasAlternateName [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has uuid"
-	@dc:^description """[=hasUuid=] relates an [=IdentifiedElement=] to zero or one universally unique identifiers.
-		Context-specific unique identifiers should specialize [=hasUuid=]."""
+	@dc:^description "[=hasUuid=] relates an [=IdentifiedElement=] to zero or one universally unique identifiers.
+		Context-specific unique identifiers should specialize [=hasUuid=]."
 	scalar property hasUuid [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "has description"
-	@dc:^description """"[=hasDescription=] relates an [=IdentifiedElement=] to zero or one text descriptions.
-		Context-specific descriptions should specialize [=hasDescription=]."""
+	@dc:^description "[=hasDescription=] relates an [=IdentifiedElement=] to zero or one text descriptions.
+		Context-specific descriptions should specialize [=hasDescription=]."
 	scalar property hasDescription [
 		domain IdentifiedElement
 		range xsd:string
@@ -104,16 +104,16 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/base> with # as base {
 	]
 
 	@rdfs:label "has identifier"
-	@dc:^description """"[=hasIdentifier=] property relates an [=IdentifiedElement=] to zero or more identifiers.
-		Context-specific identifiers should specialize [=hasIdentifier=]."""
+	@dc:^description "[=hasIdentifier=] property relates an [=IdentifiedElement=] to zero or more identifiers.
+		Context-specific identifiers should specialize [=hasIdentifier=]."
 	scalar property hasIdentifier [
 		domain IdentifiedElement
 		range xsd:string
 	]
 
 	@rdfs:label "Contains"
-	@dc:^description """[=contains=] is a homeomeric one-to-many relation used to represent tree structures. Context-specific
-		containment relations should specialize [=contains=]."""
+	@dc:^description "[=contains=] is a homeomeric one-to-many relation used to represent tree structures. Context-specific
+		containment relations should specialize [=contains=]."
 	relation entity Contains [
 		from Container
 		to ContainedElement
@@ -127,8 +127,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/base> with # as base {
 	]
 
 	@rdfs:label "Aggregates"
-	@dc:^description """[=aggregates=] is a homeomeric many-to-many relation used to represent relations corresponding
-		to directed acyclic graphs. Context-specific aggregation relations should specialize [=aggregates=]."""
+	@dc:^description "[=aggregates=] is a homeomeric many-to-many relation used to represent relations corresponding
+		to directed acyclic graphs. Context-specific aggregation relations should specialize [=aggregates=]."
 	relation entity Aggregates [
 		from AggregatedElement
 		to AggregatedElement
