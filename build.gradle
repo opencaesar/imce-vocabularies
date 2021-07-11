@@ -67,10 +67,14 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
     // OML catalog
     inputCatalogPath = file('catalog.xml')
-    // OWL folder
-    outputFolderPath = file('build/bikeshed')
+    // OML catalog title
+    inputCatalogTitle = project.title
+    // OML catalog version
+    inputCatalogVersion = project.version
     // Root ontology IRI
     rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
+    // OWL folder
+    outputFolderPath = file('build/bikeshed')
     // Publish URL
     publishUrl = 'https://opencaesar.github.io/imce-vocabularies/'
 }
