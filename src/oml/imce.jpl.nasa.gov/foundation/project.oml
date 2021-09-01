@@ -1,83 +1,93 @@
 @dc:creator "Jet Propulsion Laboratory"
 @dc:rights "Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. 
 This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
-@dc:^description "The Project vocabulary defines concepts and properties for describing a project in terms of its stakeholders, concerns, work breakdown, and deliverables. It provides a basis for specialization by domain experts."
+@dc:description "The Project vocabulary defines concepts and properties for describing a project in terms of its stakeholders, concerns, work breakdown, and deliverables. It provides a basis for specialization by domain experts."
 @dc:title "Project"
 vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 
-	extends <http://imce.jpl.nasa.gov/foundation/analysis>
+	extends <http://purl.org/dc/elements/1.1> with / as dc
+
+	extends <http://www.w3.org/2001/XMLSchema> as xsd
+
+	extends <http://www.w3.org/2000/01/rdf-schema> as rdfs
+
+	extends <http://imce.jpl.nasa.gov/foundation/base> as base
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission> as mission
+
+	extends <http://imce.jpl.nasa.gov/foundation/analysis> as analysis
 
 	@rdfs:label "Assigned Element"
-	@dc:^description "[=AssignedElement=] is the domain of [=isAssignedTo=]."
+	@dc:description "[=AssignedElement=] is the domain of [=isAssignedTo=]."
 	aspect AssignedElement
 
 	@rdfs:label "Bound Element"
-	@dc:^description "[=BoundElement=] is the domain of [=binds=]."
+	@dc:description "[=BoundElement=] is the domain of [=binds=]."
 	aspect BoundElement
 
 	@rdfs:label "Developed Element"
-	@dc:^description "[=DevelopedElement=] is the domain of [=manifests=]."
+	@dc:description "[=DevelopedElement=] is the domain of [=manifests=]."
 	aspect DevelopedElement :> analysis:CharacterizedElement
 
 	@rdfs:label "Realized Element"
-	@dc:^description "[=RealizedElement=] is the domain and range of [=realizes=]."
+	@dc:description "[=RealizedElement=] is the domain and range of [=realizes=]."
 	aspect RealizedElement
 
 	@rdfs:label "Supplied Element"
-	@dc:^description "A [=SuppliedElement=] is the range of [=supplies=]."
+	@dc:description "A [=SuppliedElement=] is the range of [=supplies=]."
 	aspect SuppliedElement
 
 	@rdfs:label "Authority"
-	@dc:^description "An [=Authority=] is any entity that asserts a fact in a model. Example [=Authority=]s include [=Program=], [=Project=], and [=WorkPackage=]. (The association of an 
+	@dc:description "An [=Authority=] is any entity that asserts a fact in a model. Example [=Authority=]s include [=Program=], [=Project=], and [=WorkPackage=]. (The association of an 
     	[=Authority=] with its asserted facts requires mechanisms outside the vocabulary of OML and OWL proper, e.g., named graphs. Authorization is conveyed by the organization of statements in a repository.)"
 	concept Authority
 
 	@rdfs:label "Concern"
-	@dc:^description "<para>A [=Concern=] is a specific interest that one or more [=Stakeholder=]s have in the successful completion of a [=Project=] or [=Program=] and its [=Mission=]s. </para>"
+	@dc:description "<para>A [=Concern=] is a specific interest that one or more [=Stakeholder=]s have in the successful completion of a [=Project=] or [=Program=] and its [=Mission=]s. </para>"
 	concept Concern :> base:IdentifiedElement, base:AggregatedElement [
 		restricts all relation base:aggregates to Concern
 		restricts all relation base:isAggregatedIn to Concern
 	]
 
 	@rdfs:label "Deliverable"
-	@dc:^description "A [=Deliverable=] is the result of successful execution of a [=Process=]. It may be a prerequisite to another [=Process=]."
+	@dc:description "A [=Deliverable=] is the result of successful execution of a [=Process=]. It may be a prerequisite to another [=Process=]."
 	concept Deliverable :> base:IdentifiedElement
 
 	@rdfs:label "Development State"
-	@dc:^description "A [=DevelopmentState=] is a kind of [=Deliverable=] that represents a defined condition for a [=DevelopedElement=]. [=DevelopmentState=]s may be unique to the 
+	@dc:description "A [=DevelopmentState=] is a kind of [=Deliverable=] that represents a defined condition for a [=DevelopedElement=]. [=DevelopmentState=]s may be unique to the 
 	    [=DevelopedElement=]; example [=DevelopmentState=]s for a [=Product=] include Preliminary, Draft, and Final."
 	concept DevelopmentState :> analysis:Characterization, Deliverable [
 		restricts all relation analysis:characterizes to DevelopedElement
 	]
 
 	@rdfs:label "Facility"
-	@dc:^description "A [=Facility=] is any asset (e.g., laboratory, assembly facility, test facility, etc.) whose [=DevelopmentState=] may be a [=Deliverable=] for a project process."
+	@dc:description "A [=Facility=] is any asset (e.g., laboratory, assembly facility, test facility, etc.) whose [=DevelopmentState=] may be a [=Deliverable=] for a project process."
 	concept Facility :> base:IdentifiedElement, DevelopedElement
 
 	@rdfs:label "Interchange"
-	@dc:^description "An [=Interchange=] represents the intended joint behavior of a pair of [=Process=]es. It indicates that a [=Deliverable=] may be delivered by one [=Process=] 
+	@dc:description "An [=Interchange=] represents the intended joint behavior of a pair of [=Process=]es. It indicates that a [=Deliverable=] may be delivered by one [=Process=] 
     	and received by the other [=Process=]."
 	concept Interchange :> base:IdentifiedElement
 
 	@rdfs:label "Interchange Point"
-	@dc:^description "An [=InterchangePoint=] is a feature of a [=Process=] that permits it to participate
+	@dc:description "An [=InterchangePoint=] is a feature of a [=Process=] that permits it to participate
 		in an [=Interchange=]."
 	concept InterchangePoint :> base:IdentifiedElement
 
 	@rdfs:label "Organization"
-	@dc:^description "An [=Organization=] [=hasResponsibilityFor=] zero or more [=Authority=]s."
+	@dc:description "An [=Organization=] [=hasResponsibilityFor=] zero or more [=Authority=]s."
 	concept Organization :> base:IdentifiedElement
 
 	@rdfs:label "Person"
-	@dc:^description "A [=Person=] is an individual human being. A [=Person=] [=belongsTo=] zero or more [=Organization=]s."
+	@dc:description "A [=Person=] is an individual human being. A [=Person=] [=belongsTo=] zero or more [=Organization=]s."
 	concept Person :> base:IdentifiedElement
 
 	@rdfs:label "Policy"
-	@dc:^description "A [=Policy=] represents a specific exercise of authority that [=binds=] one or more model elements."
+	@dc:description "A [=Policy=] represents a specific exercise of authority that [=binds=] one or more model elements."
 	concept Policy :> base:IdentifiedElement
 
 	@rdfs:label "Process"
-	@dc:^description "A [=Process=] is an activity authorized by a [=WorkPackage=] in support of delivering a [=Component=] or producing a [=Product=]. Examples include <emphasis>
+	@dc:description "A [=Process=] is an activity authorized by a [=WorkPackage=] in support of delivering a [=Component=] or producing a [=Product=]. Examples include <emphasis>
     	design trajectory</emphasis>, <emphasis>conduct trade study</emphasis>, and <emphasis>review subsystem design</emphasis>."
 	concept Process :> base:IdentifiedElement, AssignedElement, RealizedElement [
 		restricts all relation realizes to Process
@@ -85,20 +95,20 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Product"
-	@dc:^description "A [=Product=] is a document or other artifact supplied by a [=WorkPackage=]. Example [=Product=]s include trade study reports, design documents, and inspection reports."
+	@dc:description "A [=Product=] is a document or other artifact supplied by a [=WorkPackage=]. Example [=Product=]s include trade study reports, design documents, and inspection reports."
 	concept Product :> base:AggregatedElement, base:IdentifiedElement, DevelopedElement, SuppliedElement [
 		restricts all relation base:aggregates to Product
 		restricts all relation base:isAggregatedIn to Product
 	]
 
 	@rdfs:label "Program"
-	@dc:^description "A [=Program=] is an [=Authority=] that [=authorizes=] zero or more [=Project=]s."
+	@dc:description "A [=Program=] is an [=Authority=] that [=authorizes=] zero or more [=Project=]s."
 	concept Program :> Authority [
 		restricts all relation authorizes to Project
 	]
 
 	@rdfs:label "Project"
-	@dc:^description "A [=Project=] is an [=Authority=] that [=supplies=] a related set of [=Mission=]s in pursuit of a set of [=Objective=]s."
+	@dc:description "A [=Project=] is an [=Authority=] that [=supplies=] a related set of [=Mission=]s in pursuit of a set of [=Objective=]s."
 	concept Project :> Authority, RealizedElement [
 		restricts all relation authorizes to WorkPackage
 		restricts all relation isAuthorizedBy to Program
@@ -108,16 +118,16 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Role"
-	@dc:^description "A [=Role=] corresponds to a set of assignments meant to be filled by a single [=Person=]."
+	@dc:description "A [=Role=] corresponds to a set of assignments meant to be filled by a single [=Person=]."
 	concept Role :> base:IdentifiedElement
 
 	@rdfs:label "Stakeholder"
-	@dc:^description "A [=Stakeholder=] is a person or organization with a recognized interest in the successful completion of a [=Project=] or [=Program=]. Example 
+	@dc:description "A [=Stakeholder=] is a person or organization with a recognized interest in the successful completion of a [=Project=] or [=Program=]. Example 
     	[=Stakeholder=]s include scientists, NASA Directorates, nuclear safety advocates, and the general public."
 	concept Stakeholder :> base:IdentifiedElement
 
 	@rdfs:label "Work Package"
-	@dc:^description "A [=WorkPackage=] is an [=Authority=] subordinate to a [=Project=]
+	@dc:description "A [=WorkPackage=] is an [=Authority=] subordinate to a [=Project=]
 		that [=produces=] definite [=Product=]s and/or [=supplies=] definite
 		[=SuppliedElements=] in the context of that [=Project=]."
 	concept WorkPackage :> base:Package, Authority, RealizedElement [
@@ -128,7 +138,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Approves"
-	@dc:^description "A [=Role=] [=approves=] zero or more [=Product=]s."
+	@dc:description "A [=Role=] [=approves=] zero or more [=Product=]s."
 	relation entity Approves :> HasAssignment [
 		from Role
 		to Product
@@ -141,7 +151,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Authorizes"
-	@dc:^description "An [=Authority=] [=authorizes=] zero or more [=Authority=]s."
+	@dc:description "An [=Authority=] [=authorizes=] zero or more [=Authority=]s."
 	relation entity Authorizes [
 		from Authority
 		to Authority
@@ -155,7 +165,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Belongs To"
-	@dc:^description "A [=Person=] [=belongsTo=] zero or more [=Organization=]s."
+	@dc:description "A [=Person=] [=belongsTo=] zero or more [=Organization=]s."
 	relation entity BelongsTo [
 		from Person
 		to Organization
@@ -164,7 +174,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Binds"
-	@dc:^description "A [=Policy=] [=binds=] zero or more [=BoundElement=]s."
+	@dc:description "A [=Policy=] [=binds=] zero or more [=BoundElement=]s."
 	relation entity Binds [
 		from Policy
 		to BoundElement
@@ -177,7 +187,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Concurs"
-	@dc:^description "A [=Role=] [=concurs=] in zero or more [=Product=]s."
+	@dc:description "A [=Role=] [=concurs=] in zero or more [=Product=]s."
 	relation entity Concurs :> HasAssignment [
 		from Role
 		to Product
@@ -190,7 +200,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Delegates To"
-	@dc:^description "A [=Role=] [=delegatesTo=] zero or more [=Role=]s."
+	@dc:description "A [=Role=] [=delegatesTo=] zero or more [=Role=]s."
 	relation entity DelegatesTo [
 		from Role
 		to Role
@@ -204,7 +214,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Delivers"
-	@dc:^description "An [=InterchangePoint=] [=delivers=] zero or more [=Deliverable=]s."
+	@dc:description "An [=InterchangePoint=] [=delivers=] zero or more [=Deliverable=]s."
 	relation entity Delivers [
 		from InterchangePoint
 		to Deliverable
@@ -218,7 +228,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Describes"
-	@dc:^description "A [=Product=] [=describes=] zero or more [=DevelopedElement=]s."
+	@dc:description "A [=Product=] [=describes=] zero or more [=DevelopedElement=]s."
 	relation entity Describes [
 		from Product
 		to DevelopedElement
@@ -231,7 +241,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Executes"
-	@dc:^description "An [=Authority=] [=executes=] zero or more [=Process=]es."
+	@dc:description "An [=Authority=] [=executes=] zero or more [=Process=]es."
 	relation entity Executes [
 		from Authority
 		to Process
@@ -245,7 +255,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Assignment"
-	@dc:^description "A [=Role=] [=hasAssignment=] zero or more [=AssignedElement=]es."
+	@dc:description "A [=Role=] [=hasAssignment=] zero or more [=AssignedElement=]es."
 	relation entity HasAssignment [
 		from Role
 		to AssignedElement
@@ -258,7 +268,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Participant"
-	@dc:^description "An [=Interchange=] [=hasParticipant=] zero or more [=Deliverable=]s."
+	@dc:description "An [=Interchange=] [=hasParticipant=] zero or more [=Deliverable=]s."
 	relation entity HasParticipant [
 		from Interchange
 		to Deliverable
@@ -271,7 +281,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Responsibility For"
-	@dc:^description "An [=Organization=] [=hasResponsibilityFor=] zero or more [=Authority=]s."
+	@dc:description "An [=Organization=] [=hasResponsibilityFor=] zero or more [=Authority=]s."
 	relation entity HasResponsibilityFor [
 		from Organization
 		to Authority
@@ -283,7 +293,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Has Role"
-	@dc:^description "A [=Person=] [=hasRole=] zero or more [=Role=]s."
+	@dc:description "A [=Person=] [=hasRole=] zero or more [=Role=]s."
 	relation entity HasRole [
 		from Person
 		to Role
@@ -297,7 +307,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Interchanges Through"
-	@dc:^description "A [=Process=] [=interchangesThrough=] zero or more [=InterchangePoint=]s."
+	@dc:description "A [=Process=] [=interchangesThrough=] zero or more [=InterchangePoint=]s."
 	relation entity InterchangesThrough [
 		from Process
 		to InterchangePoint
@@ -311,7 +321,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Invokes"
-	@dc:^description "A [=Process=] [=invokes=] zero or more [=Process=]es."
+	@dc:description "A [=Process=] [=invokes=] zero or more [=Process=]es."
 	relation entity Invokes [
 		from Process
 		to Process
@@ -323,7 +333,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Involves"
-	@dc:^description "An [=Interchange=] [=involves=] zero or more [=Process=]es."
+	@dc:description "An [=Interchange=] [=involves=] zero or more [=Process=]es."
 	relation entity Involves [
 		from Interchange
 		to Process
@@ -336,7 +346,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Involves1"
-	@dc:^description "[=involves1=] and [=involves2=] are distinguishable specializations of
+	@dc:description "[=involves1=] and [=involves2=] are distinguishable specializations of
 		[=involves=]. These specializations are employed to indicate distinct ends of an
 		[=Interchange=]."
 	relation entity Involves1 :> Involves [
@@ -352,7 +362,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Involves2"
-	@dc:^description "[=involves1=] and [=involves2=] are distinguishable specializations of
+	@dc:description "[=involves1=] and [=involves2=] are distinguishable specializations of
 		[=involves=]. These specializations are employed to indicate distinct ends of an
 		[=Interchange=]."
 	relation entity Involves2 :> Involves [
@@ -368,7 +378,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Manifests"
-	@dc:^description "A [=DevelopedElement=] [=manifests=] zero or more [=DevelopmentState=]s."
+	@dc:description "A [=DevelopedElement=] [=manifests=] zero or more [=DevelopmentState=]s."
 	relation entity Manifests [
 		from DevelopedElement
 		to DevelopmentState
@@ -382,7 +392,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Prepares"
-	@dc:^description "A [=Role=] [=prepares=] zero or more [=Product=]s."
+	@dc:description "A [=Role=] [=prepares=] zero or more [=Product=]s."
 	relation entity Prepares :> HasAssignment [
 		from Role
 		to Product
@@ -395,7 +405,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Produces"
-	@dc:^description "A [=Authority=] [=produces=] zero or more [=Product=]s."
+	@dc:description "A [=Authority=] [=produces=] zero or more [=Product=]s."
 	relation entity Produces [
 		from Authority
 		to Product
@@ -409,7 +419,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Realizes"
-	@dc:^description "A [=RealizedElement=] [=realizes=] zero or more [=RealizedElement=]s."
+	@dc:description "A [=RealizedElement=] [=realizes=] zero or more [=RealizedElement=]s."
 	relation entity Realizes [
 		from RealizedElement
 		to RealizedElement
@@ -422,7 +432,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Receives"
-	@dc:^description "An [=InterchangePoint=] [=receives=] zero or more [=Deliverable=]s."
+	@dc:description "An [=InterchangePoint=] [=receives=] zero or more [=Deliverable=]s."
 	relation entity Receives :> AssignedElement [
 		from InterchangePoint
 		to Deliverable
@@ -435,7 +445,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Relies On"
-	@dc:^description "An [=Authority=] [=reliesOn=] zero or more [=DevelopedElement=]s."
+	@dc:description "An [=Authority=] [=reliesOn=] zero or more [=DevelopedElement=]s."
 	relation entity ReliesOn :> AssignedElement [
 		from Authority
 		to DevelopedElement
@@ -448,7 +458,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Represents"
-	@dc:^description "An [=Stakeholder=] [=represents=] zero or more [=Concern=]s."
+	@dc:description "An [=Stakeholder=] [=represents=] zero or more [=Concern=]s."
 	relation entity Represents [
 		from Stakeholder
 		to Concern
@@ -461,7 +471,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "Supplies"
-	@dc:^description "An [=Authority=] [=supplies=] zero or more [=SuppliedElement=]s."
+	@dc:description "An [=Authority=] [=supplies=] zero or more [=SuppliedElement=]s."
 	relation entity Supplies :> AssignedElement [
 		from Authority
 		to SuppliedElement
@@ -475,7 +485,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project> with # as project {
 	]
 
 	@rdfs:label "is required not later than"
-	@dc:^description "A [=Deliverable=] [=isRequiredNotLaterThan=] some [=dateTime=]."
+	@dc:description "A [=Deliverable=] [=isRequiredNotLaterThan=] some [=dateTime=]."
 	scalar property isRequiredNotLaterThan [
 		domain Deliverable
 		range xsd:dateTime

@@ -1,63 +1,71 @@
 @dc:creator "Jet Propulsion Laboratory"
 @dc:rights "Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology.
 This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
-@dc:^description "The Analysis vocabulary defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts."
+@dc:description "The Analysis vocabulary defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts."
 @dc:title "Analysis"
 vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 
-	extends <http://imce.jpl.nasa.gov/foundation/mission>
+	extends <http://purl.org/dc/elements/1.1> with / as dc
 
-	extends <http://iupac.org/metrology>
+	extends <http://www.w3.org/2000/01/rdf-schema> as rdfs
+
+	extends <http://www.w3.org/2001/XMLSchema> as xsd
+
+	extends <http://iupac.org/metrology> as metrology
+
+	extends <http://imce.jpl.nasa.gov/foundation/base> as base
+
+	extends <http://imce.jpl.nasa.gov/foundation/mission> as mission
 
 	@rdfs:label "Characterized Element"
-	@dc:^description "[=CharacterizedElement=] is the range of [=characterizes=]."
+	@dc:description "[=CharacterizedElement=] is the range of [=characterizes=]."
 	aspect CharacterizedElement
 
 	@rdfs:label "Analyzed Element"
-	@dc:^description "[=AnalyzedElement=] is the range of [=analyzes=]."
+	@dc:description "[=AnalyzedElement=] is the range of [=analyzes=]."
 	aspect AnalyzedElement
 
 	@rdfs:label "Assumption"
-	@dc:^description "An [=Assumption=] is a [=Characterization=] that is taken to be true for the purpose of analysis."
+	@dc:description "An [=Assumption=] is a [=Characterization=] that is taken to be true for the purpose of analysis."
 	concept Assumption :> Characterization
 
 	@rdfs:label "Characterization"
-	@dc:^description "A [=Characterization=] provides a parametric or other qualification of zero or more model elements."
+	@dc:description "A [=Characterization=] provides a parametric or other qualification of zero or more model elements."
 	concept Characterization :> base:IdentifiedElement
 
 	@rdfs:label "Driving Requirements Explanation"
-	@dc:^description "A [=DrivingRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s as <emphasis>driving</emphasis>, and makes the 
+	@dc:description "A [=DrivingRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s as <emphasis>driving</emphasis>, and makes the 
     designation via the [=explains=] property."
 	concept DrivingRequirementsExplanation :> Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
 	@rdfs:label "Explanation"
-	@dc:^description "An [=Explanation=] captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
+	@dc:description "An [=Explanation=] captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
     contain narrative prose directly or provide a reference to external products."
 	concept Explanation :> Characterization, base:AggregatedElement
 
 	@rdfs:label "Fact"
-	@dc:^description "A [=Fact=] is an [=Assumption=] taken because it is thought to be true."
+	@dc:description "A [=Fact=] is an [=Assumption=] taken because it is thought to be true."
 	concept Fact :> Assumption
 
 	@rdfs:label "GlossaryEntry"
-	@dc:^description "[=GlossaryEntry=] is a [=Characterization=] that associates a term with a definition."
+	@dc:description "[=GlossaryEntry=] is a [=Characterization=] that associates a term with a definition."
 	concept GlossaryEntry :> Characterization
 
 	@rdfs:label "Key Requirements Explanation"
-	@dc:^description "A [=KeyRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s 
+	@dc:description "A [=KeyRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s 
     as <emphasis>key</emphasis>, and makes the designation via the [=explains=] property."
 	concept KeyRequirementsExplanation :> Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
 	@rdfs:label "Trade Study"
-	@dc:^description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
+	@dc:description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
 	concept TradeStudy :> Explanation
 
 	@rdfs:label "Analyzes"
-	@dc:^description "An [=Explanation=] [=analyzes=] zero or more [=AnalyzedElement=]s."
+	@dc:description "An [=Explanation=] [=analyzes=] zero or more [=AnalyzedElement=]s."
 	relation entity Analyzes [
 		from Explanation
 		to AnalyzedElement
@@ -70,7 +78,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Characterizes"
-	@dc:^description "A [=Characterization=] [=characterizes=] zero or more [=CharacterizedElement=]s."
+	@dc:description "A [=Characterization=] [=characterizes=] zero or more [=CharacterizedElement=]s."
 	relation entity Characterizes :> mission:SpecifiedElement [
 		from Characterization
 		to CharacterizedElement
@@ -83,7 +91,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Explains"
-	@dc:^description "An [=Explanation=] [=explains=] zero or more [=CharacterizedElement=]s."
+	@dc:description "An [=Explanation=] [=explains=] zero or more [=CharacterizedElement=]s."
 	relation entity Explains :> Characterizes [
 		from Explanation
 		to CharacterizedElement
@@ -109,7 +117,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
 	]
 
 	@rdfs:label "Validates"
-	@dc:^description "An [=Explanation=] [=validates=] zero or more [=CharacterizedElement=]s."
+	@dc:description "An [=Explanation=] [=validates=] zero or more [=CharacterizedElement=]s."
 	relation entity Validates :> Explains [
 		from Explanation
 		to CharacterizedElement

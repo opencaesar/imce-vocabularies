@@ -4,7 +4,7 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '2.4.2'
+version = '3.0.0'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
@@ -18,9 +18,9 @@ buildscript {
     }
     dependencies {
         classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-        classpath 'io.opencaesar.adapters:oml2owl-gradle:0.9.+'
-        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.9.+'
-        classpath 'io.opencaesar.oml:oml-merge-gradle:0.9.+'
+        classpath 'io.opencaesar.adapters:oml2owl-gradle:1.0.+'
+        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:1.0.+'
+        classpath 'io.opencaesar.oml:oml-merge-gradle:1.0.+'
     }
 }
 
@@ -43,14 +43,14 @@ configurations {
  * Dependency versions
  */
 ext { 
-    coreVersion = '2.+'
+    metrologyVersion = '4.+'
 }
 
 /*
  * The OML dependencies
  */
 dependencies {
-    oml "io.opencaesar.ontologies:core-vocabularies:$coreVersion"
+    oml "io.opencaesar.ontologies:metrology-vocabularies:$metrologyVersion"
 }
 
 /*
