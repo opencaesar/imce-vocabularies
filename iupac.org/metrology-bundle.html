@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>RDF</title>
+  <title>Metrology Bundle</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -12,7 +12,7 @@
  *   - .toc for the Table of Contents (<ol class="toc">)
  *     + <span class="secno"> for the section numbers
  *   - #toc for the Table of Contents (<nav id="toc">)
- *   - ul.index for Indices (<a href="#ref">term</a><span>, in §N.M</span>)
+ *   - ul.index for Indices (<a href="#ref">term</a><span>, in § N.M</span>)
  *   - table.index for Index Tables (e.g. for properties or elements)
  *
  * Structural Markup
@@ -1487,9 +1487,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 3d6a6fcbb, updated Wed Jun 16 16:19:39 2021 -0700" name="generator">
-  <link href="https://opencaesar.github.io/imce-vocabularies//www.w3.org/1999/02/22-rdf-syntax-ns" rel="canonical">
-  <meta content="a6e6ba0b47c8ca1aeff969517f378ef296eec39b" name="document-revision">
+  <meta content="Bikeshed version 4f053d00e, updated Tue Aug 10 14:13:32 2021 -0700" name="generator">
+  <link href="https://opencaesar.github.io/imce-vocabularies//iupac.org/metrology-bundle" rel="canonical">
+  <meta content="f330bc419e4d1f768fdea2061ea528a5cb12f9e7" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1891,16 +1891,16 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.opencaesar.io/oml/"><img alt="OML Specification" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref allcaps" id="title">RDF</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2021-07-11">11 July 2021</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Metrology Bundle</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2021-09-09">9 September 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//www.w3.org/1999/02/22-rdf-syntax-ns">https://opencaesar.github.io/imce-vocabularies//www.w3.org/1999/02/22-rdf-syntax-ns</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/imce-vocabularies//iupac.org/metrology-bundle">https://opencaesar.github.io/imce-vocabularies//iupac.org/metrology-bundle</a>
      <dt class="editor">Editor:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">W3C</span>
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Jet Propulsion Laboratory</span>
      <dt>Copyright:
-     <dd>Copyright 1999 W3C.
+     <dd>Copyright 2010-2020, by the California Institute of Technology. ALL RIGHTS RESERVED. United States Government Sponsorship acknowledged. Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology. This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons.
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1908,30 +1908,14 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The RDF vocabulary is a subset of the vocabulary maintained by the W3C.</p>
+   <p>This is the metrology vocabulary bundle.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
-    <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
-    <li>
-     <a href="#Scalars"><span class="secno">3</span> <span class="content">Scalars</span></a>
-     <ol class="toc">
-      <li><a href="#PlainLiteral"><span class="secno">3.1</span> <span class="content"><span>PlainLiteral</span></span></a>
-      <li><a href="#XMLLiteral"><span class="secno">3.2</span> <span class="content"><span>XMLLiteral</span></span></a>
-     </ol>
-    <li>
-     <a href="#AnnotationProperties"><span class="secno">4</span> <span class="content">Annotation Properties</span></a>
-     <ol class="toc">
-      <li><a href="#About"><span class="secno">4.1</span> <span class="content"><span>about</span></span></a>
-     </ol>
-    <li>
-     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
-     <ol class="toc">
-      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
-     </ol>
+    <li><a href="#Inclusions"><span class="secno">2</span> <span class="content">Inclusions</span></a>
    </ol>
   </nav>
   <main>
@@ -1939,20 +1923,15 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>rdf: <a href="22-rdf-syntax-ns.html">http://www.w3.org/1999/02/22-rdf-syntax-ns</a></p>
+      <p><a href="metrology-bundle.html">http://iupac.org/metrology-bundle</a> [metrology-bundle]</p>
     </ul>
-    <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
+    <h2 class="heading settled" data-level="2" id="Inclusions"><span class="secno">2. </span><span class="content">Inclusions</span><a class="self-link" href="#Inclusions"></a></h2>
     <ul>
      <li data-md>
-      <p>xsd: <a href="http://www.w3.org/2001/XMLSchema.html">http://www.w3.org/2001/XMLSchema</a></p>
+      <p><a href="http://purl.org/dc/elements/1.html">http://purl.org/dc/elements/1.1</a> [dc]</p>
+     <li data-md>
+      <p><a href="http://iupac.org/metrology.html">http://iupac.org/metrology</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="Scalars"><span class="secno">3. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="PlainLiteral"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plainliteral">PlainLiteral<a class="self-link" href="#plainliteral"></a></dfn></span><a class="self-link" href="#PlainLiteral"></a></h3>
-    <table class="def"></table>
-    <h3 class="heading settled" data-level="3.2" id="XMLLiteral"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmlliteral">XMLLiteral<a class="self-link" href="#xmlliteral"></a></dfn></span><a class="self-link" href="#XMLLiteral"></a></h3>
-    <table class="def"></table>
-    <h2 class="heading settled" data-level="4" id="AnnotationProperties"><span class="secno">4. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="About"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="about">about<a class="self-link" href="#about"></a></dfn></span><a class="self-link" href="#About"></a></h3>
    </div>
   </main>
 <script>
@@ -2084,10 +2063,3 @@ dfn > a.self-link::before      { content: "#"; }
 
 })();
 </script>
-  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
-  <ul class="index">
-   <li><a href="#about">about</a><span>, in §4.1</span>
-   <li><a href="#plainliteral">PlainLiteral</a><span>, in §3.1</span>
-   <li><a href="#xmlliteral">XMLLiteral</a><span>, in §3.2</span>
-  </ul>
