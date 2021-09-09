@@ -3,19 +3,19 @@
 This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
 @dc:description "The Analysis vocabulary defines general concepts and properties for analyses (e.g., trade studies, driving requirements analysis, etc.). It provides a basis for specialization by domain experts."
 @dc:title "Analysis"
-vocabulary <http://imce.jpl.nasa.gov/foundation/analysis> with # as analysis {
+vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 
-	extends <http://purl.org/dc/elements/1.1> with / as dc
+	extends <http://purl.org/dc/elements/1.1/> as dc
 
-	extends <http://www.w3.org/2000/01/rdf-schema> as rdfs
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
-	extends <http://www.w3.org/2001/XMLSchema> as xsd
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	extends <http://iupac.org/metrology> as metrology
+	extends <http://iupac.org/metrology#> as metrology
 
-	extends <http://imce.jpl.nasa.gov/foundation/base> as base
+	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
-	extends <http://imce.jpl.nasa.gov/foundation/mission> as mission
+	extends <http://imce.jpl.nasa.gov/foundation/mission#> as mission
 
 	@rdfs:label "Characterized Element"
 	@dc:description "[=CharacterizedElement=] is the range of [=characterizes=]."

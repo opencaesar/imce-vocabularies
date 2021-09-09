@@ -3,12 +3,12 @@
 This software may be subject to U.S. export control laws. By accepting this software, the user agrees to comply with all applicable U.S. export laws and regulations. User has the responsibility to obtain export licenses, or other export authority as may be required before exporting such information to foreign countries or providing access to foreign persons."
 @dc:description "The foundation bundle contains a number of foundational vocabularies."
 @dc:title "Foundation"
-vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle> with # as foundation-bundle {
+vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle#> as foundation-bundle {
 
-	extends <http://iupac.org/metrology-bundle>
+	extends <http://iupac.org/metrology-bundle#>
 	
-	includes <http://purl.org/dc/elements/1.1> with / as dc
+	includes <http://purl.org/dc/elements/1.1/> as dc
 
-	includes <http://imce.jpl.nasa.gov/foundation/project>
+	includes <http://imce.jpl.nasa.gov/foundation/project#>
 
 }
