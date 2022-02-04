@@ -11,7 +11,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 
 	extends <http://www.w3.org/2001/XMLSchema#> as xsd
 
-	extends <http://iupac.org/metrology#> as metrology
+	extends <http://bipm.org/jcgm/vim4#> as vim4
 
 	extends <http://imce.jpl.nasa.gov/foundation/base#> as base
 
@@ -141,11 +141,15 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		range xsd:string
 	]
 
-	ref aspect metrology:Object :> analysis:CharacterizedElement
+	ref aspect vim4:Object :> analysis:CharacterizedElement
 	
 	ref concept mission:Requirement :> analysis:CharacterizedElement
 
-	ref concept metrology:Quantity :> analysis:Characterization
+  // All concept specializations of the aspect vim4:IndividualProperty are all analysis:Characterization(s).
+  
+	ref concept vim4:IndividualNominalProperty :> analysis:Characterization
+  ref concept vim4:IndividualUnitaryQuantity :> analysis:Characterization
+  ref concept vim4:IndividualOrdinalQuantity :> analysis:Characterization
 
-	ref relation entity metrology:IsQuantityOf :> analysis:Characterizes
+	ref relation entity vim4:Characterizes :> analysis:Characterizes
 }
