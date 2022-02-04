@@ -83,15 +83,12 @@ task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
  * A task to render the Bikeshed specification to HTML
  */
 import org.gradle.internal.os.OperatingSystem
-task generateDocs(dependsOn: omlToBikeshed) {
-    doLast {
-        if (OperatingSystem.current().isWindows()) {
-            exec { commandLine 'build/bikeshed/publish.bat' }
-        } else {
-            exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
-            exec { commandLine 'build/bikeshed/publish.sh' }
-        }
-    }
+task generateDocs(type: Exec, dependsOn: omlToBikeshed) {
+  if (OperatingSystem.current().isWindows()) {
+     commandLine 'build/bikeshed/publish.bat'
+  } else {
+     commandLine 'build/bikeshed/publish.sh' 
+  }
 }
 
 /*
