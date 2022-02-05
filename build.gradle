@@ -6,6 +6,11 @@ description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
 version = '3.1.0'
 
+/*
+ * Properties
+ */
+ext.bikeshed = 'build/gradle'
+
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
 /* 
@@ -74,7 +79,7 @@ task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
     // Root ontology IRI
     rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
     // OWL folder
-    outputFolderPath = file('build/bikeshed')
+    outputFolderPath = file("$bikeshed")
     // Publish URL
     publishUrl = 'https://opencaesar.github.io/imce-vocabularies/'
 }
@@ -82,13 +87,14 @@ task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
 /*
  * A task to render the Bikeshed specification to HTML
  */
-import org.gradle.internal.os.OperatingSystem
 task generateDocs(type: Exec, dependsOn: omlToBikeshed) {
-  if (OperatingSystem.current().isWindows()) {
-     commandLine 'build/bikeshed/publish.bat'
-  } else {
-     commandLine 'build/bikeshed/publish.sh' 
-  }
+	inputs.files(fileTree("$bikeshed").include('**/*.bs'))
+	outputs.files(fileTree("$bikeshed").include('**/*.html'))
+	if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+		commandLine "$bikeshed/publish.bat"
+	} else {
+		commandLine "$bikeshed/publish.sh"
+	}
 }
 
 /*

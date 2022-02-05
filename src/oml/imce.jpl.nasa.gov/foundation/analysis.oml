@@ -145,11 +145,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	
 	ref concept mission:Requirement :> analysis:CharacterizedElement
 
-  // All concept specializations of the aspect vim4:IndividualProperty are all analysis:Characterization(s).
+	// All concept specializations of the aspect vim4:IndividualProperty are all analysis:Characterization(s).
   
 	ref concept vim4:IndividualNominalProperty :> analysis:Characterization
-  ref concept vim4:IndividualUnitaryQuantity :> analysis:Characterization
-  ref concept vim4:IndividualOrdinalQuantity :> analysis:Characterization
+	ref concept vim4:IndividualUnitaryQuantity :> analysis:Characterization
+	ref concept vim4:IndividualOrdinalQuantity :> analysis:Characterization
 
 	ref relation entity vim4:Characterizes :> analysis:Characterizes
 }
