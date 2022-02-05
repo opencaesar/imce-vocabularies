@@ -43,7 +43,7 @@ configurations {
  * Dependency versions
  */
 ext { 
-    metrologyVersion = '4.+'
+    metrologyVersion = '5.+'
 }
 
 /*
