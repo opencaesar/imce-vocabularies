@@ -4,7 +4,12 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '3.0.0'
+version = '3.1.0'
+
+/*
+ * Properties
+ */
+ext.bikeshed = 'build/gradle'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
@@ -19,8 +24,8 @@ buildscript {
     dependencies {
         classpath 'io.opencaesar.owl:owl-reason-gradle:+'
         classpath 'io.opencaesar.adapters:oml2owl-gradle:1.0.+'
-        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:1.0.+'
-        classpath 'io.opencaesar.oml:oml-merge-gradle:1.0.+'
+        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:1.1.+'
+        classpath 'io.opencaesar.oml:oml-merge-gradle:1.1.+'
     }
 }
 
@@ -43,7 +48,7 @@ configurations {
  * Dependency versions
  */
 ext { 
-    metrologyVersion = '4.+'
+    metrologyVersion = '5.+'
 }
 
 /*
@@ -74,7 +79,7 @@ task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
     // Root ontology IRI
     rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
     // OWL folder
-    outputFolderPath = file('build/bikeshed')
+    outputFolderPath = file("$bikeshed")
     // Publish URL
     publishUrl = 'https://opencaesar.github.io/imce-vocabularies/'
 }
@@ -82,16 +87,14 @@ task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
 /*
  * A task to render the Bikeshed specification to HTML
  */
-import org.gradle.internal.os.OperatingSystem
-task generateDocs(dependsOn: omlToBikeshed) {
-    doLast {
-        if (OperatingSystem.current().isWindows()) {
-            exec { commandLine 'build/bikeshed/publish.bat' }
-        } else {
-            exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
-            exec { commandLine 'build/bikeshed/publish.sh' }
-        }
-    }
+task generateDocs(type: Exec, dependsOn: omlToBikeshed) {
+	inputs.files(fileTree("$bikeshed").include('**/*.bs'))
+	outputs.files(fileTree("$bikeshed").include('**/*.html'))
+	if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+		commandLine "$bikeshed/publish.bat"
+	} else {
+		commandLine "$bikeshed/publish.sh"
+	}
 }
 
 /*

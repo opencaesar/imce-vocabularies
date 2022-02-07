@@ -5,7 +5,7 @@ This software may be subject to U.S. export control laws. By accepting this soft
 @dc:title "Foundation"
 vocabulary bundle <http://imce.jpl.nasa.gov/foundation/bundle#> as foundation-bundle {
 
-	extends <http://iupac.org/metrology-bundle#>
+	extends <http://bipm.org/jcgm/jcgm-bundle#>
 	
 	includes <http://purl.org/dc/elements/1.1/> as dc
 
