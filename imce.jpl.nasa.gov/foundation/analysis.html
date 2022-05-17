@@ -1269,7 +1269,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span:not(.dfn-paneled) {
+		ul.index li a + span {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1487,9 +1487,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 4f053d00e, updated Tue Aug 10 14:13:32 2021 -0700" name="generator">
+  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
   <link href="https://opencaesar.github.io/imce-vocabularies//imce.jpl.nasa.gov/foundation/analysis" rel="canonical">
-  <meta content="f330bc419e4d1f768fdea2061ea528a5cb12f9e7" name="document-revision">
+  <meta content="f42ff04ac6f1a1a6e5a589f7b75c9bc09a7f5017" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1746,6 +1746,16 @@ figcaption:not(.no-marker)::before {
 
 .dfn-paneled { cursor: pointer; }
 </style>
+<style>/* style-issues */
+
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1939,7 +1949,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.opencaesar.io/oml/"><img alt="OML Specification" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">Analysis</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2021-09-09">9 September 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-05-17">17 May 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2020,7 +2030,7 @@ dfn > a.self-link::before      { content: "#"; }
      <li data-md>
       <p><a href="http://www.w3.org/2001/XMLSchema.html">http://www.w3.org/2001/XMLSchema</a> [xsd]</p>
      <li data-md>
-      <p><a href="http://iupac.org/metrology.html">http://iupac.org/metrology</a> [metrology]</p>
+      <p><a href="http://bipm.org/jcgm/vim4.html">http://bipm.org/jcgm/vim4</a> [vim4]</p>
      <li data-md>
       <p><a href="http://imce.jpl.nasa.gov/foundation/base.html">http://imce.jpl.nasa.gov/foundation/base</a> [base]</p>
      <li data-md>
@@ -2047,7 +2057,7 @@ dfn > a.self-link::before      { content: "#"; }
        <td>
         <ul>
          <li><a data-link-type="dfn" href="project.html#developedelement" id="ref-for-developedelement">project:DevelopedElement</a>
-         <li><a data-link-type="dfn" href="../../iupac.org/metrology.html#object" id="ref-for-object">metrology:Object</a>
+         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#object" id="ref-for-object">vim4:Object</a>
          <li><a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement">mission:Requirement</a>
         </ul>
       <tr>
@@ -2102,7 +2112,9 @@ dfn > a.self-link::before      { content: "#"; }
          <li><a data-link-type="dfn" href="project.html#developmentstate" id="ref-for-developmentstate">project:DevelopmentState</a>
          <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation③">Explanation</a>
          <li><a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry">GlossaryEntry</a>
-         <li><a data-link-type="dfn" href="../../iupac.org/metrology.html#quantity" id="ref-for-quantity">metrology:Quantity</a>
+         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualnominalproperty" id="ref-for-individualnominalproperty">vim4:IndividualNominalProperty</a>
+         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualordinalquantity" id="ref-for-individualordinalquantity">vim4:IndividualOrdinalQuantity</a>
+         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualunitaryquantity" id="ref-for-individualunitaryquantity">vim4:IndividualUnitaryQuantity</a>
         </ul>
       <tr>
        <th>Relations with source
@@ -2269,8 +2281,8 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Subtypes
        <td>
         <ul>
+         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#characterizes" id="ref-for-characterizes④">vim4:Characterizes</a>
          <li><a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑥">Explains</a>
-         <li><a data-link-type="dfn" href="../../iupac.org/metrology.html#isquantityof" id="ref-for-isquantityof">metrology:IsQuantityOf</a>
          <li><a data-link-type="dfn" href="analysis.html#limits" id="ref-for-limits②">Limits</a>
         </ul>
       <tr>
@@ -2301,7 +2313,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes④">Characterizes</a>
+         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes⑤">Characterizes</a>
         </ul>
       <tr>
        <th>Subtypes
@@ -2337,7 +2349,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes⑤">Characterizes</a>
+         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes⑥">Characterizes</a>
         </ul>
       <tr>
        <th>Forward Relation
@@ -2566,6 +2578,36 @@ dfn > a.self-link::before      { content: "#"; }
    <li><a href="#validates">Validates</a><span>, in § 5.5</span>
    <li><a href="#dom-validates-validates">validates</a><span>, in § 5.5</span>
   </ul>
+  <aside class="dfn-panel" data-for="term-for-characterizes">
+   <a href="../../bipm.org/jcgm/vim4.html#characterizes">../../bipm.org/jcgm/vim4.html#characterizes</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-characterizes④">5.2. Characterizes</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-individualnominalproperty">
+   <a href="../../bipm.org/jcgm/vim4.html#individualnominalproperty">../../bipm.org/jcgm/vim4.html#individualnominalproperty</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-individualnominalproperty">4.2. Characterization</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-individualordinalquantity">
+   <a href="../../bipm.org/jcgm/vim4.html#individualordinalquantity">../../bipm.org/jcgm/vim4.html#individualordinalquantity</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-individualordinalquantity">4.2. Characterization</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-individualunitaryquantity">
+   <a href="../../bipm.org/jcgm/vim4.html#individualunitaryquantity">../../bipm.org/jcgm/vim4.html#individualunitaryquantity</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-individualunitaryquantity">4.2. Characterization</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-object">
+   <a href="../../bipm.org/jcgm/vim4.html#object">../../bipm.org/jcgm/vim4.html#object</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-object">3.2. CharacterizedElement</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-analyzedelement">
    <a href="analysis.html#analyzedelement">analysis.html#analyzedelement</a><b>Referenced in:</b>
    <ul>
@@ -2616,8 +2658,8 @@ dfn > a.self-link::before      { content: "#"; }
    <ul>
     <li><a href="#ref-for-characterizes①">3.2. CharacterizedElement</a>
     <li><a href="#ref-for-characterizes②">4.2. Characterization</a>
-    <li><a href="#ref-for-characterizes④">5.3. Explains</a>
-    <li><a href="#ref-for-characterizes⑤">5.4. Limits</a>
+    <li><a href="#ref-for-characterizes⑤">5.3. Explains</a>
+    <li><a href="#ref-for-characterizes⑥">5.4. Limits</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-drivingrequirementsexplanation">
@@ -2743,24 +2785,6 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#ref-for-developmentstate">4.2. Characterization</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-isquantityof">
-   <a href="../../iupac.org/metrology.html#isquantityof">../../iupac.org/metrology.html#isquantityof</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-isquantityof">5.2. Characterizes</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-object">
-   <a href="../../iupac.org/metrology.html#object">../../iupac.org/metrology.html#object</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-object">3.2. CharacterizedElement</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-quantity">
-   <a href="../../iupac.org/metrology.html#quantity">../../iupac.org/metrology.html#quantity</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-quantity">4.2. Characterization</a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-string">
    <a href="../../www.w3.org/2001/XMLSchema.html#string">../../www.w3.org/2001/XMLSchema.html#string</a><b>Referenced in:</b>
    <ul>
@@ -2771,6 +2795,15 @@ dfn > a.self-link::before      { content: "#"; }
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
+    <a data-link-type="biblio">[http://bipm.org/jcgm/vim4]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-characterizes">characterizes</span>
+     <li><span class="dfn-paneled" id="term-for-individualnominalproperty">individualnominalproperty</span>
+     <li><span class="dfn-paneled" id="term-for-individualordinalquantity">individualordinalquantity</span>
+     <li><span class="dfn-paneled" id="term-for-individualunitaryquantity">individualunitaryquantity</span>
+     <li><span class="dfn-paneled" id="term-for-object">object</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/analysis]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-analyzedelement">analyzedelement</span>
@@ -2778,7 +2811,7 @@ dfn > a.self-link::before      { content: "#"; }
      <li><span class="dfn-paneled" id="term-for-assumption">assumption</span>
      <li><span class="dfn-paneled" id="term-for-characterization">characterization</span>
      <li><span class="dfn-paneled" id="term-for-characterizedelement">characterizedelement</span>
-     <li><span class="dfn-paneled" id="term-for-characterizes">characterizes</span>
+     <li><span class="dfn-paneled" id="term-for-characterizes①">characterizes</span>
      <li><span class="dfn-paneled" id="term-for-drivingrequirementsexplanation">drivingrequirementsexplanation</span>
      <li><span class="dfn-paneled" id="term-for-explains">explains</span>
      <li><span class="dfn-paneled" id="term-for-explanation">explanation</span>
@@ -2808,13 +2841,6 @@ dfn > a.self-link::before      { content: "#"; }
     <ul>
      <li><span class="dfn-paneled" id="term-for-developedelement">developedelement</span>
      <li><span class="dfn-paneled" id="term-for-developmentstate">developmentstate</span>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[http://iupac.org/metrology]</a> defines the following terms:
-    <ul>
-     <li><span class="dfn-paneled" id="term-for-isquantityof">isquantityof</span>
-     <li><span class="dfn-paneled" id="term-for-object">object</span>
-     <li><span class="dfn-paneled" id="term-for-quantity">quantity</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.w3.org/2001/xmlschema]</a> defines the following terms:
