@@ -9,7 +9,7 @@ version = '3.1.0'
 /*
  * Properties
  */
-ext.bikeshed = 'build/gradle'
+ext.bikeshed = 'build/bikeshed'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
