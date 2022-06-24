@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version fb1e763a4, updated Tue Mar 1 13:13:50 2022 -0800" name="generator">
+  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
   <link href="https://opencaesar.github.io/imce-vocabularies//imce.jpl.nasa.gov/foundation/analysis" rel="canonical">
   <meta content="f42ff04ac6f1a1a6e5a589f7b75c9bc09a7f5017" name="document-revision">
 <style>
@@ -1949,7 +1949,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.opencaesar.io/oml/"><img alt="OML Specification" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">Analysis</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-05-17">17 May 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-06-24">24 June 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2037,18 +2037,18 @@ dfn > a.self-link::before      { content: "#"; }
       <p><a href="http://imce.jpl.nasa.gov/foundation/mission.html">http://imce.jpl.nasa.gov/foundation/mission</a> [mission]</p>
     </ul>
     <h2 class="heading settled" data-level="3" id="Aspects"><span class="secno">3. </span><span class="content">Aspects</span><a class="self-link" href="#Aspects"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="AnalyzedElement"><span class="secno">3.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="analyzedelement">AnalyzedElement</dfn></span><a class="self-link" href="#AnalyzedElement"></a></h3>
+    <h3 class="heading settled" data-level="3.1" id="AnalyzedElement"><span class="secno">3.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="analyzedelement" id="analyzedelement">AnalyzedElement</dfn></span><a class="self-link" href="#AnalyzedElement"></a></h3>
     <p><a data-link-type="dfn" href="#analyzedelement" id="ref-for-analyzedelement">AnalyzedElement</a> is the range of <a data-link-type="dfn" href="#analyzes" id="ref-for-analyzes">analyzes</a>.</p>
     <table class="def">
      <tbody>
       <tr>
-       <th>Relations with target
+       <th>Relations
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation">Explanation</a> ← <a data-link-type="dfn" href="analysis.html#analyzes" id="ref-for-analyzes①">Analyzes</a> → AnalyzedElement 
+         <li> <a data-link-type="dfn" href="analysis.html#isanalyzedby" id="ref-for-isanalyzedby">isAnalyzedBy</a> : <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation">Explanation</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="3.2" id="CharacterizedElement"><span class="secno">3.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="characterizedelement">CharacterizedElement</dfn></span><a class="self-link" href="#CharacterizedElement"></a></h3>
+    <h3 class="heading settled" data-level="3.2" id="CharacterizedElement"><span class="secno">3.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="characterizedelement" id="characterizedelement">CharacterizedElement</dfn></span><a class="self-link" href="#CharacterizedElement"></a></h3>
     <p><a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement">CharacterizedElement</a> is the range of <a data-link-type="dfn" href="#characterizes" id="ref-for-characterizes">characterizes</a>.</p>
     <table class="def">
      <tbody>
@@ -2056,22 +2056,22 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="project.html#developedelement" id="ref-for-developedelement">project:DevelopedElement</a>
-         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#object" id="ref-for-object">vim4:Object</a>
-         <li><a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement">mission:Requirement</a>
+         <li> <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement">mission:Requirement</a> 
+         <li> <a data-link-type="dfn" href="project.html#developedelement" id="ref-for-developedelement">project:DevelopedElement</a> 
+         <li> <a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#object" id="ref-for-object">vim4:Object</a> 
         </ul>
       <tr>
-       <th>Relations with target
+       <th>Relations
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization">Characterization</a> ← <a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes①">Characterizes</a> → CharacterizedElement 
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①">Explanation</a> ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains">Explains</a> → CharacterizedElement 
-         <li><a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption">Assumption</a> ← <a data-link-type="dfn" href="analysis.html#limits" id="ref-for-limits">Limits</a> → CharacterizedElement 
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation②">Explanation</a> ← <a data-link-type="dfn" href="analysis.html#validates" id="ref-for-validates">Validates</a> → CharacterizedElement 
+         <li> <a data-link-type="dfn" href="analysis.html#ischaracterizedby" id="ref-for-ischaracterizedby">isCharacterizedBy</a> : <a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization">Characterization</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#isexplainedby" id="ref-for-isexplainedby">isExplainedBy</a> : <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①">Explanation</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#islimitedby" id="ref-for-islimitedby">isLimitedBy</a> : <a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption">Assumption</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#isvalidatedby" id="ref-for-isvalidatedby">isValidatedBy</a> : <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation②">Explanation</a> 
         </ul>
     </table>
     <h2 class="heading settled" data-level="4" id="concepts"><span class="secno">4. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="Assumption"><span class="secno">4.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="assumption">Assumption</dfn></span><a class="self-link" href="#Assumption"></a></h3>
+    <h3 class="heading settled" data-level="4.1" id="Assumption"><span class="secno">4.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="assumption" id="assumption">Assumption</dfn></span><a class="self-link" href="#Assumption"></a></h3>
     <p>An <a data-link-type="dfn" href="#assumption" id="ref-for-assumption①">Assumption</a> is a <a data-link-type="dfn" href="#characterization" id="ref-for-characterization①">Characterization</a> that is taken to be true for the purpose of analysis.</p>
     <table class="def">
      <tbody>
@@ -2079,22 +2079,22 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization②">Characterization</a>
+         <li> <a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization②">Characterization</a> 
         </ul>
       <tr>
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#fact" id="ref-for-fact">Fact</a>
+         <li> <a data-link-type="dfn" href="analysis.html#fact" id="ref-for-fact">Fact</a> 
         </ul>
       <tr>
-       <th>Relations with source
+       <th>Relations
        <td>
         <ul>
-         <li>Assumption ← <a data-link-type="dfn" href="analysis.html#limits" id="ref-for-limits①">Limits</a> → <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①">CharacterizedElement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#limits_1" id="ref-for-limits_1">limits</a> : <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①">CharacterizedElement</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.2" id="Characterization"><span class="secno">4.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="characterization">Characterization</dfn></span><a class="self-link" href="#Characterization"></a></h3>
+    <h3 class="heading settled" data-level="4.2" id="Characterization"><span class="secno">4.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="characterization" id="characterization">Characterization</dfn></span><a class="self-link" href="#Characterization"></a></h3>
     <p>A <a data-link-type="dfn" href="#characterization" id="ref-for-characterization③">Characterization</a> provides a parametric or other qualification of zero or more model elements.</p>
     <table class="def">
      <tbody>
@@ -2102,33 +2102,33 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="base.html#identifiedelement" id="ref-for-identifiedelement">base:IdentifiedElement</a>
+         <li> <a data-link-type="dfn" href="base.html#identifiedelement" id="ref-for-identifiedelement">base:IdentifiedElement</a> 
         </ul>
       <tr>
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption②">Assumption</a>
-         <li><a data-link-type="dfn" href="project.html#developmentstate" id="ref-for-developmentstate">project:DevelopmentState</a>
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation③">Explanation</a>
-         <li><a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry">GlossaryEntry</a>
-         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualnominalproperty" id="ref-for-individualnominalproperty">vim4:IndividualNominalProperty</a>
-         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualordinalquantity" id="ref-for-individualordinalquantity">vim4:IndividualOrdinalQuantity</a>
-         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualunitaryquantity" id="ref-for-individualunitaryquantity">vim4:IndividualUnitaryQuantity</a>
+         <li> <a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption②">Assumption</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation③">Explanation</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry">GlossaryEntry</a> 
+         <li> <a data-link-type="dfn" href="project.html#developmentstate" id="ref-for-developmentstate">project:DevelopmentState</a> 
+         <li> <a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualnominalproperty" id="ref-for-individualnominalproperty">vim4:IndividualNominalProperty</a> 
+         <li> <a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualordinalquantity" id="ref-for-individualordinalquantity">vim4:IndividualOrdinalQuantity</a> 
+         <li> <a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#individualunitaryquantity" id="ref-for-individualunitaryquantity">vim4:IndividualUnitaryQuantity</a> 
         </ul>
       <tr>
-       <th>Relations with source
+       <th>Relations
        <td>
         <ul>
-         <li>Characterization ← <a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes②">Characterizes</a> → <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement②">CharacterizedElement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#characterizes_1" id="ref-for-characterizes_1">characterizes</a> : <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement②">CharacterizedElement</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.3" id="DrivingRequirementsExplanation"><span class="secno">4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="drivingrequirementsexplanation">DrivingRequirementsExplanation</dfn></span><a class="self-link" href="#DrivingRequirementsExplanation"></a></h3>
+    <h3 class="heading settled" data-level="4.3" id="DrivingRequirementsExplanation"><span class="secno">4.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="drivingrequirementsexplanation" id="drivingrequirementsexplanation">DrivingRequirementsExplanation</dfn></span><a class="self-link" href="#DrivingRequirementsExplanation"></a></h3>
     <p>
      A <a data-link-type="dfn" href="#drivingrequirementsexplanation" id="ref-for-drivingrequirementsexplanation">DrivingRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement①">Requirement</a>s as 
      <emphasis>driving</emphasis>
      , and makes the
-	    designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains①">explains</a> property.
+	    designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains">explains</a> property.
     </p>
     <table class="def">
      <tbody>
@@ -2136,16 +2136,16 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation④">Explanation</a>
+         <li> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation④">Explanation</a> 
         </ul>
       <tr>
-       <th>Relations with source
+       <th>Relations
        <td>
         <ul>
-         <li>DrivingRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains②">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement②">mission:Requirement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#explains_1" id="ref-for-explains_1">explains</a> : <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement②">mission:Requirement</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.4" id="Explanation"><span class="secno">4.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="explanation">Explanation</dfn></span><a class="self-link" href="#Explanation"></a></h3>
+    <h3 class="heading settled" data-level="4.4" id="Explanation"><span class="secno">4.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="explanation" id="explanation">Explanation</dfn></span><a class="self-link" href="#Explanation"></a></h3>
     <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation⑤">Explanation</a> captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
 	    contain narrative prose directly or provide a reference to external products.</p>
     <table class="def">
@@ -2154,27 +2154,27 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="base.html#aggregatedelement" id="ref-for-aggregatedelement">base:AggregatedElement</a>
-         <li><a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization④">Characterization</a>
+         <li> <a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization④">Characterization</a> 
+         <li> <a data-link-type="dfn" href="base.html#aggregatedelement" id="ref-for-aggregatedelement">base:AggregatedElement</a> 
         </ul>
       <tr>
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#drivingrequirementsexplanation" id="ref-for-drivingrequirementsexplanation①">DrivingRequirementsExplanation</a>
-         <li><a data-link-type="dfn" href="analysis.html#keyrequirementsexplanation" id="ref-for-keyrequirementsexplanation">KeyRequirementsExplanation</a>
-         <li><a data-link-type="dfn" href="analysis.html#tradestudy" id="ref-for-tradestudy">TradeStudy</a>
+         <li> <a data-link-type="dfn" href="analysis.html#drivingrequirementsexplanation" id="ref-for-drivingrequirementsexplanation①">DrivingRequirementsExplanation</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#keyrequirementsexplanation" id="ref-for-keyrequirementsexplanation">KeyRequirementsExplanation</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#tradestudy" id="ref-for-tradestudy">TradeStudy</a> 
         </ul>
       <tr>
-       <th>Relations with source
+       <th>Relations
        <td>
         <ul>
-         <li>Explanation ← <a data-link-type="dfn" href="analysis.html#analyzes" id="ref-for-analyzes②">Analyzes</a> → <a data-link-type="dfn" href="analysis.html#analyzedelement" id="ref-for-analyzedelement①">AnalyzedElement</a> 
-         <li>Explanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains③">Explains</a> → <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement③">CharacterizedElement</a> 
-         <li>Explanation ← <a data-link-type="dfn" href="analysis.html#validates" id="ref-for-validates①">Validates</a> → <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement④">CharacterizedElement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#analyzes_1" id="ref-for-analyzes_1">analyzes</a> : <a data-link-type="dfn" href="analysis.html#analyzedelement" id="ref-for-analyzedelement①">AnalyzedElement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#explains_1" id="ref-for-explains_1①">explains</a> : <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement③">CharacterizedElement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#validates_1" id="ref-for-validates_1">validates</a> : <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement④">CharacterizedElement</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.5" id="Fact"><span class="secno">4.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="fact">Fact</dfn></span><a class="self-link" href="#Fact"></a></h3>
+    <h3 class="heading settled" data-level="4.5" id="Fact"><span class="secno">4.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="fact" id="fact">Fact</dfn></span><a class="self-link" href="#Fact"></a></h3>
     <p>A <a data-link-type="dfn" href="#fact" id="ref-for-fact①">Fact</a> is an <a data-link-type="dfn" href="#assumption" id="ref-for-assumption③">Assumption</a> taken because it is thought to be true.</p>
     <table class="def">
      <tbody>
@@ -2182,10 +2182,10 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption④">Assumption</a>
+         <li> <a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption④">Assumption</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.6" id="GlossaryEntry"><span class="secno">4.6. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="glossaryentry">GlossaryEntry</dfn></span><a class="self-link" href="#GlossaryEntry"></a></h3>
+    <h3 class="heading settled" data-level="4.6" id="GlossaryEntry"><span class="secno">4.6. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="glossaryentry" id="glossaryentry">GlossaryEntry</dfn></span><a class="self-link" href="#GlossaryEntry"></a></h3>
     <p><a data-link-type="dfn" href="#glossaryentry" id="ref-for-glossaryentry①">GlossaryEntry</a> is a <a data-link-type="dfn" href="#characterization" id="ref-for-characterization⑤">Characterization</a> that associates a term with a definition.</p>
     <table class="def">
      <tbody>
@@ -2193,22 +2193,22 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization⑥">Characterization</a>
+         <li> <a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization⑥">Characterization</a> 
         </ul>
       <tr>
        <th>Properties
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#hasglossarydefinition" id="ref-for-hasglossarydefinition">hasGlossaryDefinition</a>
-         <li><a data-link-type="dfn" href="analysis.html#hasglossaryterm" id="ref-for-hasglossaryterm">hasGlossaryTerm</a>
+         <li> <a data-link-type="dfn" href="analysis.html#hasglossarydefinition" id="ref-for-hasglossarydefinition">hasGlossaryDefinition</a> : <a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string">xsd:string</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#hasglossaryterm" id="ref-for-hasglossaryterm">hasGlossaryTerm</a> : <a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string①">xsd:string</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.7" id="KeyRequirementsExplanation"><span class="secno">4.7. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="keyrequirementsexplanation">KeyRequirementsExplanation</dfn></span><a class="self-link" href="#KeyRequirementsExplanation"></a></h3>
+    <h3 class="heading settled" data-level="4.7" id="KeyRequirementsExplanation"><span class="secno">4.7. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="keyrequirementsexplanation" id="keyrequirementsexplanation">KeyRequirementsExplanation</dfn></span><a class="self-link" href="#KeyRequirementsExplanation"></a></h3>
     <p>
      A <a data-link-type="dfn" href="#keyrequirementsexplanation" id="ref-for-keyrequirementsexplanation①">KeyRequirementsExplanation</a> provides the rationale for designating a set of <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement③">Requirement</a>s
 	    as 
      <emphasis>key</emphasis>
-     , and makes the designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains④">explains</a> property.
+     , and makes the designation via the <a data-link-type="dfn" href="#explains" id="ref-for-explains①">explains</a> property.
     </p>
     <table class="def">
      <tbody>
@@ -2216,16 +2216,16 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑥">Explanation</a>
+         <li> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑥">Explanation</a> 
         </ul>
       <tr>
-       <th>Relations with source
+       <th>Relations
        <td>
         <ul>
-         <li>KeyRequirementsExplanation ← <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑤">Explains</a> → <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement④">mission:Requirement</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#explains_1" id="ref-for-explains_1②">explains</a> : <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement④">mission:Requirement</a> 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="4.8" id="TradeStudy"><span class="secno">4.8. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="tradestudy">TradeStudy</dfn></span><a class="self-link" href="#TradeStudy"></a></h3>
+    <h3 class="heading settled" data-level="4.8" id="TradeStudy"><span class="secno">4.8. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="tradestudy" id="tradestudy">TradeStudy</dfn></span><a class="self-link" href="#TradeStudy"></a></h3>
     <p>A <a data-link-type="dfn" href="#tradestudy" id="ref-for-tradestudy①">TradeStudy</a> explains some set of model elements and their properties through comparison with alternatives.</p>
     <table class="def">
      <tbody>
@@ -2233,188 +2233,188 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑦">Explanation</a>
+         <li> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑦">Explanation</a> 
         </ul>
     </table>
     <h2 class="heading settled" data-level="5" id="Relations"><span class="secno">5. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
-    <h3 class="heading settled" data-level="5.1" id="Analyzes"><span class="secno">5.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="analyzes">Analyzes</dfn></span><a class="self-link" href="#Analyzes"></a></h3>
-    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation⑧">Explanation</a> <a data-link-type="dfn" href="#analyzes" id="ref-for-analyzes③">analyzes</a> zero or more <a data-link-type="dfn" href="#analyzedelement" id="ref-for-analyzedelement②">AnalyzedElement</a>s.</p>
+    <h3 class="heading settled" data-level="5.1" id="Analyzes"><span class="secno">5.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="analyzes" id="analyzes">Analyzes</dfn></span><a class="self-link" href="#Analyzes"></a></h3>
+    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation⑧">Explanation</a> <a data-link-type="dfn" href="#analyzes" id="ref-for-analyzes①">analyzes</a> zero or more <a data-link-type="dfn" href="#analyzedelement" id="ref-for-analyzedelement②">AnalyzedElement</a>s.</p>
     <table class="def">
      <tbody>
       <tr>
        <th>Source
-       <td><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑨">Explanation</a>
+       <td> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation⑨">Explanation</a> 
       <tr>
        <th>Target
-       <td><a data-link-type="dfn" href="analysis.html#analyzedelement" id="ref-for-analyzedelement③">AnalyzedElement</a>
+       <td> <a data-link-type="dfn" href="analysis.html#analyzedelement" id="ref-for-analyzedelement③">AnalyzedElement</a> 
       <tr>
-       <th>Forward Relation
-       <td><dfn class="idl-code" data-dfn-for="Analyzes" data-dfn-type="attribute" data-export id="dom-analyzes-analyzes"><code>analyzes</code><a class="self-link" href="#dom-analyzes-analyzes"></a></dfn> 
+       <th>Forward relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="analyzes_1" id="analyzes_1">analyzes<a class="self-link" href="#analyzes_1"></a></dfn> 
       <tr>
-       <th>Reverse Relation
-       <td><dfn class="idl-code" data-dfn-for="Analyzes" data-dfn-type="attribute" data-export id="dom-analyzes-isanalyzedby"><code>isAnalyzedBy</code><a class="self-link" href="#dom-analyzes-isanalyzedby"></a></dfn> 
+       <th>Reverse relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="isanalyzedby" id="isanalyzedby">isAnalyzedBy<a class="self-link" href="#isanalyzedby"></a></dfn> 
       <tr>
        <th>Attributes
        <td>
         <ul>
-         <li>Asymmetric
-         <li>Irreflexive
+         <li> Asymmetric 
+         <li> Irreflexive 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="5.2" id="Characterizes"><span class="secno">5.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="characterizes">Characterizes</dfn></span><a class="self-link" href="#Characterizes"></a></h3>
-    <p>A <a data-link-type="dfn" href="#characterization" id="ref-for-characterization⑦">Characterization</a> <a data-link-type="dfn" href="#characterizes" id="ref-for-characterizes③">characterizes</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑤">CharacterizedElement</a>s.</p>
+    <h3 class="heading settled" data-level="5.2" id="Characterizes"><span class="secno">5.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="characterizes" id="characterizes">Characterizes</dfn></span><a class="self-link" href="#Characterizes"></a></h3>
+    <p>A <a data-link-type="dfn" href="#characterization" id="ref-for-characterization⑦">Characterization</a> <a data-link-type="dfn" href="#characterizes" id="ref-for-characterizes①">characterizes</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑤">CharacterizedElement</a>s.</p>
     <table class="def">
      <tbody>
       <tr>
        <th>Source
-       <td><a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization⑧">Characterization</a>
+       <td> <a data-link-type="dfn" href="analysis.html#characterization" id="ref-for-characterization⑧">Characterization</a> 
       <tr>
        <th>Target
-       <td><a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement⑥">CharacterizedElement</a>
+       <td> <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement⑥">CharacterizedElement</a> 
       <tr>
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="mission.html#specifiedelement" id="ref-for-specifiedelement">mission:SpecifiedElement</a>
+         <li> <a data-link-type="dfn" href="mission.html#specifiedelement" id="ref-for-specifiedelement">mission:SpecifiedElement</a> 
         </ul>
       <tr>
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#characterizes" id="ref-for-characterizes④">vim4:Characterizes</a>
-         <li><a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑥">Explains</a>
-         <li><a data-link-type="dfn" href="analysis.html#limits" id="ref-for-limits②">Limits</a>
+         <li> <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains②">Explains</a> 
+         <li> <a data-link-type="dfn" href="analysis.html#limits" id="ref-for-limits">Limits</a> 
+         <li> <a data-link-type="dfn" href="../../bipm.org/jcgm/vim4.html#characterizes" id="ref-for-characterizes②">vim4:Characterizes</a> 
         </ul>
       <tr>
-       <th>Forward Relation
-       <td><dfn class="idl-code" data-dfn-for="Characterizes" data-dfn-type="attribute" data-export id="dom-characterizes-characterizes"><code>characterizes</code><a class="self-link" href="#dom-characterizes-characterizes"></a></dfn> 
+       <th>Forward relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="characterizes_1" id="characterizes_1">characterizes<a class="self-link" href="#characterizes_1"></a></dfn> 
       <tr>
-       <th>Reverse Relation
-       <td><dfn class="idl-code" data-dfn-for="Characterizes" data-dfn-type="attribute" data-export id="dom-characterizes-ischaracterizedby"><code>isCharacterizedBy</code><a class="self-link" href="#dom-characterizes-ischaracterizedby"></a></dfn> 
+       <th>Reverse relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="ischaracterizedby" id="ischaracterizedby">isCharacterizedBy<a class="self-link" href="#ischaracterizedby"></a></dfn> 
       <tr>
        <th>Attributes
        <td>
         <ul>
-         <li>Asymmetric
-         <li>Irreflexive
+         <li> Asymmetric 
+         <li> Irreflexive 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="5.3" id="Explains"><span class="secno">5.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="explains">Explains</dfn></span><a class="self-link" href="#Explains"></a></h3>
-    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation①⓪">Explanation</a> <a data-link-type="dfn" href="#explains" id="ref-for-explains⑦">explains</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑦">CharacterizedElement</a>s.</p>
+    <h3 class="heading settled" data-level="5.3" id="Explains"><span class="secno">5.3. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="explains" id="explains">Explains</dfn></span><a class="self-link" href="#Explains"></a></h3>
+    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation①⓪">Explanation</a> <a data-link-type="dfn" href="#explains" id="ref-for-explains③">explains</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑦">CharacterizedElement</a>s.</p>
     <table class="def">
      <tbody>
       <tr>
        <th>Source
-       <td><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①①">Explanation</a>
+       <td> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①①">Explanation</a> 
       <tr>
        <th>Target
-       <td><a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement⑧">CharacterizedElement</a>
+       <td> <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement⑧">CharacterizedElement</a> 
       <tr>
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes⑤">Characterizes</a>
+         <li> <a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes③">Characterizes</a> 
         </ul>
       <tr>
        <th>Subtypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#validates" id="ref-for-validates②">Validates</a>
+         <li> <a data-link-type="dfn" href="analysis.html#validates" id="ref-for-validates">Validates</a> 
         </ul>
       <tr>
-       <th>Forward Relation
-       <td><dfn class="idl-code" data-dfn-for="Explains" data-dfn-type="attribute" data-export id="dom-explains-explains"><code>explains</code><a class="self-link" href="#dom-explains-explains"></a></dfn> 
+       <th>Forward relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="explains_1" id="explains_1">explains<a class="self-link" href="#explains_1"></a></dfn> 
       <tr>
-       <th>Reverse Relation
-       <td><dfn class="idl-code" data-dfn-for="Explains" data-dfn-type="attribute" data-export id="dom-explains-isexplainedby"><code>isExplainedBy</code><a class="self-link" href="#dom-explains-isexplainedby"></a></dfn> 
+       <th>Reverse relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="isexplainedby" id="isexplainedby">isExplainedBy<a class="self-link" href="#isexplainedby"></a></dfn> 
       <tr>
        <th>Attributes
        <td>
         <ul>
-         <li>Asymmetric
-         <li>Irreflexive
+         <li> Asymmetric 
+         <li> Irreflexive 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="5.4" id="Limits"><span class="secno">5.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="limits">Limits</dfn></span><a class="self-link" href="#Limits"></a></h3>
-    <p>An <a data-link-type="dfn" href="#assumption" id="ref-for-assumption⑤">Assumption</a> <a data-link-type="dfn" href="#limits" id="ref-for-limits③">limits</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑨">CharacterizedElement</a>s.</p>
+    <h3 class="heading settled" data-level="5.4" id="Limits"><span class="secno">5.4. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="limits" id="limits">Limits</dfn></span><a class="self-link" href="#Limits"></a></h3>
+    <p>An <a data-link-type="dfn" href="#assumption" id="ref-for-assumption⑤">Assumption</a> <a data-link-type="dfn" href="#limits" id="ref-for-limits①">limits</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement⑨">CharacterizedElement</a>s.</p>
     <table class="def">
      <tbody>
       <tr>
        <th>Source
-       <td><a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption⑥">Assumption</a>
+       <td> <a data-link-type="dfn" href="analysis.html#assumption" id="ref-for-assumption⑥">Assumption</a> 
       <tr>
        <th>Target
-       <td><a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①⓪">CharacterizedElement</a>
+       <td> <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①⓪">CharacterizedElement</a> 
       <tr>
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes⑥">Characterizes</a>
+         <li> <a data-link-type="dfn" href="analysis.html#characterizes" id="ref-for-characterizes④">Characterizes</a> 
         </ul>
       <tr>
-       <th>Forward Relation
-       <td><dfn class="idl-code" data-dfn-for="Limits" data-dfn-type="attribute" data-export id="dom-limits-limits"><code>limits</code><a class="self-link" href="#dom-limits-limits"></a></dfn> 
+       <th>Forward relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="limits_1" id="limits_1">limits<a class="self-link" href="#limits_1"></a></dfn> 
       <tr>
-       <th>Reverse Relation
-       <td><dfn class="idl-code" data-dfn-for="Limits" data-dfn-type="attribute" data-export id="dom-limits-islimitedby"><code>isLimitedBy</code><a class="self-link" href="#dom-limits-islimitedby"></a></dfn> 
+       <th>Reverse relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="islimitedby" id="islimitedby">isLimitedBy<a class="self-link" href="#islimitedby"></a></dfn> 
       <tr>
        <th>Attributes
        <td>
         <ul>
-         <li>Asymmetric
-         <li>Irreflexive
+         <li> Asymmetric 
+         <li> Irreflexive 
         </ul>
     </table>
-    <h3 class="heading settled" data-level="5.5" id="Validates"><span class="secno">5.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export id="validates">Validates</dfn></span><a class="self-link" href="#Validates"></a></h3>
-    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation①②">Explanation</a> <a data-link-type="dfn" href="#validates" id="ref-for-validates③">validates</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement①①">CharacterizedElement</a>s.</p>
+    <h3 class="heading settled" data-level="5.5" id="Validates"><span class="secno">5.5. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="validates" id="validates">Validates</dfn></span><a class="self-link" href="#Validates"></a></h3>
+    <p>An <a data-link-type="dfn" href="#explanation" id="ref-for-explanation①②">Explanation</a> <a data-link-type="dfn" href="#validates" id="ref-for-validates①">validates</a> zero or more <a data-link-type="dfn" href="#characterizedelement" id="ref-for-characterizedelement①①">CharacterizedElement</a>s.</p>
     <table class="def">
      <tbody>
       <tr>
        <th>Source
-       <td><a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①③">Explanation</a>
+       <td> <a data-link-type="dfn" href="analysis.html#explanation" id="ref-for-explanation①③">Explanation</a> 
       <tr>
        <th>Target
-       <td><a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①②">CharacterizedElement</a>
+       <td> <a data-link-type="dfn" href="analysis.html#characterizedelement" id="ref-for-characterizedelement①②">CharacterizedElement</a> 
       <tr>
        <th>Supertypes
        <td>
         <ul>
-         <li><a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains⑧">Explains</a>
+         <li> <a data-link-type="dfn" href="analysis.html#explains" id="ref-for-explains④">Explains</a> 
         </ul>
       <tr>
-       <th>Forward Relation
-       <td><dfn class="idl-code" data-dfn-for="Validates" data-dfn-type="attribute" data-export id="dom-validates-validates"><code>validates</code><a class="self-link" href="#dom-validates-validates"></a></dfn> 
+       <th>Forward relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="validates_1" id="validates_1">validates<a class="self-link" href="#validates_1"></a></dfn> 
       <tr>
-       <th>Reverse Relation
-       <td><dfn class="idl-code" data-dfn-for="Validates" data-dfn-type="attribute" data-export id="dom-validates-isvalidatedby"><code>isValidatedBy</code><a class="self-link" href="#dom-validates-isvalidatedby"></a></dfn> 
+       <th>Reverse relation
+       <td> <dfn data-dfn-type="dfn" data-export data-lt="isvalidatedby" id="isvalidatedby">isValidatedBy<a class="self-link" href="#isvalidatedby"></a></dfn> 
       <tr>
        <th>Attributes
        <td>
         <ul>
-         <li>Asymmetric
-         <li>Irreflexive
+         <li> Asymmetric 
+         <li> Irreflexive 
         </ul>
     </table>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
-    <h3 class="heading settled" data-level="6.1" id="HasGlossaryDefinition"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="hasglossarydefinition">hasGlossaryDefinition<a class="self-link" href="#hasglossarydefinition"></a></dfn></span><a class="self-link" href="#HasGlossaryDefinition"></a></h3>
+    <h3 class="heading settled" data-level="6.1" id="HasGlossaryDefinition"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export data-lt="hasglossarydefinition" id="hasglossarydefinition">hasGlossaryDefinition<a class="self-link" href="#hasglossarydefinition"></a></dfn></span><a class="self-link" href="#HasGlossaryDefinition"></a></h3>
     <table class="def">
      <tbody>
       <tr>
        <th>Domain
-       <td><a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry②">GlossaryEntry</a>
+       <td> <a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry②">GlossaryEntry</a> 
       <tr>
        <th>Range
-       <td><a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string">string</a>
+       <td> <a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string②">string</a> 
     </table>
-    <h3 class="heading settled" data-level="6.2" id="HasGlossaryTerm"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="hasglossaryterm">hasGlossaryTerm<a class="self-link" href="#hasglossaryterm"></a></dfn></span><a class="self-link" href="#HasGlossaryTerm"></a></h3>
+    <h3 class="heading settled" data-level="6.2" id="HasGlossaryTerm"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export data-lt="hasglossaryterm" id="hasglossaryterm">hasGlossaryTerm<a class="self-link" href="#hasglossaryterm"></a></dfn></span><a class="self-link" href="#HasGlossaryTerm"></a></h3>
     <table class="def">
      <tbody>
       <tr>
        <th>Domain
-       <td><a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry③">GlossaryEntry</a>
+       <td> <a data-link-type="dfn" href="analysis.html#glossaryentry" id="ref-for-glossaryentry③">GlossaryEntry</a> 
       <tr>
        <th>Range
-       <td><a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string①">string</a>
+       <td> <a data-link-type="dfn" href="../../www.w3.org/2001/XMLSchema.html#string" id="ref-for-string③">string</a> 
     </table>
    </div>
   </main>
@@ -2550,38 +2550,38 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#analyzedelement">AnalyzedElement</a><span>, in § 3.1</span>
-   <li><a href="#analyzes">Analyzes</a><span>, in § 5.1</span>
-   <li><a href="#dom-analyzes-analyzes">analyzes</a><span>, in § 5.1</span>
-   <li><a href="#assumption">Assumption</a><span>, in § 4.1</span>
-   <li><a href="#characterization">Characterization</a><span>, in § 4.2</span>
-   <li><a href="#characterizedelement">CharacterizedElement</a><span>, in § 3.2</span>
-   <li><a href="#characterizes">Characterizes</a><span>, in § 5.2</span>
-   <li><a href="#dom-characterizes-characterizes">characterizes</a><span>, in § 5.2</span>
-   <li><a href="#drivingrequirementsexplanation">DrivingRequirementsExplanation</a><span>, in § 4.3</span>
-   <li><a href="#explains">Explains</a><span>, in § 5.3</span>
-   <li><a href="#dom-explains-explains">explains</a><span>, in § 5.3</span>
-   <li><a href="#explanation">Explanation</a><span>, in § 4.4</span>
-   <li><a href="#fact">Fact</a><span>, in § 4.5</span>
-   <li><a href="#glossaryentry">GlossaryEntry</a><span>, in § 4.6</span>
-   <li><a href="#hasglossarydefinition">hasGlossaryDefinition</a><span>, in § 6.1</span>
-   <li><a href="#hasglossaryterm">hasGlossaryTerm</a><span>, in § 6.2</span>
-   <li><a href="#dom-analyzes-isanalyzedby">isAnalyzedBy</a><span>, in § 5.1</span>
-   <li><a href="#dom-characterizes-ischaracterizedby">isCharacterizedBy</a><span>, in § 5.2</span>
-   <li><a href="#dom-explains-isexplainedby">isExplainedBy</a><span>, in § 5.3</span>
-   <li><a href="#dom-limits-islimitedby">isLimitedBy</a><span>, in § 5.4</span>
-   <li><a href="#dom-validates-isvalidatedby">isValidatedBy</a><span>, in § 5.5</span>
-   <li><a href="#keyrequirementsexplanation">KeyRequirementsExplanation</a><span>, in § 4.7</span>
-   <li><a href="#limits">Limits</a><span>, in § 5.4</span>
-   <li><a href="#dom-limits-limits">limits</a><span>, in § 5.4</span>
-   <li><a href="#tradestudy">TradeStudy</a><span>, in § 4.8</span>
-   <li><a href="#validates">Validates</a><span>, in § 5.5</span>
-   <li><a href="#dom-validates-validates">validates</a><span>, in § 5.5</span>
+   <li><a href="#analyzedelement">analyzedelement</a><span>, in § 3.1</span>
+   <li><a href="#analyzes">analyzes</a><span>, in § 5.1</span>
+   <li><a href="#analyzes_1">analyzes_1</a><span>, in § 5.1</span>
+   <li><a href="#assumption">assumption</a><span>, in § 4.1</span>
+   <li><a href="#characterization">characterization</a><span>, in § 4.2</span>
+   <li><a href="#characterizedelement">characterizedelement</a><span>, in § 3.2</span>
+   <li><a href="#characterizes">characterizes</a><span>, in § 5.2</span>
+   <li><a href="#characterizes_1">characterizes_1</a><span>, in § 5.2</span>
+   <li><a href="#drivingrequirementsexplanation">drivingrequirementsexplanation</a><span>, in § 4.3</span>
+   <li><a href="#explains">explains</a><span>, in § 5.3</span>
+   <li><a href="#explains_1">explains_1</a><span>, in § 5.3</span>
+   <li><a href="#explanation">explanation</a><span>, in § 4.4</span>
+   <li><a href="#fact">fact</a><span>, in § 4.5</span>
+   <li><a href="#glossaryentry">glossaryentry</a><span>, in § 4.6</span>
+   <li><a href="#hasglossarydefinition">hasglossarydefinition</a><span>, in § 6.1</span>
+   <li><a href="#hasglossaryterm">hasglossaryterm</a><span>, in § 6.2</span>
+   <li><a href="#isanalyzedby">isanalyzedby</a><span>, in § 5.1</span>
+   <li><a href="#ischaracterizedby">ischaracterizedby</a><span>, in § 5.2</span>
+   <li><a href="#isexplainedby">isexplainedby</a><span>, in § 5.3</span>
+   <li><a href="#islimitedby">islimitedby</a><span>, in § 5.4</span>
+   <li><a href="#isvalidatedby">isvalidatedby</a><span>, in § 5.5</span>
+   <li><a href="#keyrequirementsexplanation">keyrequirementsexplanation</a><span>, in § 4.7</span>
+   <li><a href="#limits">limits</a><span>, in § 5.4</span>
+   <li><a href="#limits_1">limits_1</a><span>, in § 5.4</span>
+   <li><a href="#tradestudy">tradestudy</a><span>, in § 4.8</span>
+   <li><a href="#validates">validates</a><span>, in § 5.5</span>
+   <li><a href="#validates_1">validates_1</a><span>, in § 5.5</span>
   </ul>
   <aside class="dfn-panel" data-for="term-for-characterizes">
    <a href="../../bipm.org/jcgm/vim4.html#characterizes">../../bipm.org/jcgm/vim4.html#characterizes</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-characterizes④">5.2. Characterizes</a>
+    <li><a href="#ref-for-characterizes②">5.2. Characterizes</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-individualnominalproperty">
@@ -2615,11 +2615,10 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#ref-for-analyzedelement③">5.1. Analyzes</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-analyzes">
-   <a href="analysis.html#analyzes">analysis.html#analyzes</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-analyzes_1">
+   <a href="analysis.html#analyzes_1">analysis.html#analyzes_1</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-analyzes①">3.1. AnalyzedElement</a>
-    <li><a href="#ref-for-analyzes②">4.4. Explanation</a>
+    <li><a href="#ref-for-analyzes_1">4.4. Explanation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-assumption">
@@ -2656,10 +2655,14 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-characterizes">
    <a href="analysis.html#characterizes">analysis.html#characterizes</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-characterizes①">3.2. CharacterizedElement</a>
-    <li><a href="#ref-for-characterizes②">4.2. Characterization</a>
-    <li><a href="#ref-for-characterizes⑤">5.3. Explains</a>
-    <li><a href="#ref-for-characterizes⑥">5.4. Limits</a>
+    <li><a href="#ref-for-characterizes③">5.3. Explains</a>
+    <li><a href="#ref-for-characterizes④">5.4. Limits</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-characterizes_1">
+   <a href="analysis.html#characterizes_1">analysis.html#characterizes_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-characterizes_1">4.2. Characterization</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-drivingrequirementsexplanation">
@@ -2671,12 +2674,16 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-explains">
    <a href="analysis.html#explains">analysis.html#explains</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-explains">3.2. CharacterizedElement</a>
-    <li><a href="#ref-for-explains②">4.3. DrivingRequirementsExplanation</a>
-    <li><a href="#ref-for-explains③">4.4. Explanation</a>
-    <li><a href="#ref-for-explains⑤">4.7. KeyRequirementsExplanation</a>
-    <li><a href="#ref-for-explains⑥">5.2. Characterizes</a>
-    <li><a href="#ref-for-explains⑧">5.5. Validates</a>
+    <li><a href="#ref-for-explains②">5.2. Characterizes</a>
+    <li><a href="#ref-for-explains④">5.5. Validates</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-explains_1">
+   <a href="analysis.html#explains_1">analysis.html#explains_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-explains_1">4.3. DrivingRequirementsExplanation</a>
+    <li><a href="#ref-for-explains_1①">4.4. Explanation</a>
+    <li><a href="#ref-for-explains_1②">4.7. KeyRequirementsExplanation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-explanation">
@@ -2719,6 +2726,36 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#ref-for-hasglossaryterm">4.6. GlossaryEntry</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-isanalyzedby">
+   <a href="analysis.html#isanalyzedby">analysis.html#isanalyzedby</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-isanalyzedby">3.1. AnalyzedElement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-ischaracterizedby">
+   <a href="analysis.html#ischaracterizedby">analysis.html#ischaracterizedby</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ischaracterizedby">3.2. CharacterizedElement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-isexplainedby">
+   <a href="analysis.html#isexplainedby">analysis.html#isexplainedby</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-isexplainedby">3.2. CharacterizedElement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-islimitedby">
+   <a href="analysis.html#islimitedby">analysis.html#islimitedby</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-islimitedby">3.2. CharacterizedElement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-isvalidatedby">
+   <a href="analysis.html#isvalidatedby">analysis.html#isvalidatedby</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-isvalidatedby">3.2. CharacterizedElement</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-keyrequirementsexplanation">
    <a href="analysis.html#keyrequirementsexplanation">analysis.html#keyrequirementsexplanation</a><b>Referenced in:</b>
    <ul>
@@ -2728,9 +2765,13 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-limits">
    <a href="analysis.html#limits">analysis.html#limits</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-limits">3.2. CharacterizedElement</a>
-    <li><a href="#ref-for-limits①">4.1. Assumption</a>
-    <li><a href="#ref-for-limits②">5.2. Characterizes</a>
+    <li><a href="#ref-for-limits">5.2. Characterizes</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-limits_1">
+   <a href="analysis.html#limits_1">analysis.html#limits_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-limits_1">4.1. Assumption</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-tradestudy">
@@ -2742,9 +2783,13 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-validates">
    <a href="analysis.html#validates">analysis.html#validates</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-validates">3.2. CharacterizedElement</a>
-    <li><a href="#ref-for-validates①">4.4. Explanation</a>
-    <li><a href="#ref-for-validates②">5.3. Explains</a>
+    <li><a href="#ref-for-validates">5.3. Explains</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-validates_1">
+   <a href="analysis.html#validates_1">analysis.html#validates_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-validates_1">4.4. Explanation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-aggregatedelement">
@@ -2788,14 +2833,15 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-string">
    <a href="../../www.w3.org/2001/XMLSchema.html#string">../../www.w3.org/2001/XMLSchema.html#string</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-string">6.1. hasGlossaryDefinition</a>
-    <li><a href="#ref-for-string①">6.2. hasGlossaryTerm</a>
+    <li><a href="#ref-for-string">4.6. GlossaryEntry</a> <a href="#ref-for-string①">(2)</a>
+    <li><a href="#ref-for-string②">6.1. hasGlossaryDefinition</a>
+    <li><a href="#ref-for-string③">6.2. hasGlossaryTerm</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
-    <a data-link-type="biblio">[http://bipm.org/jcgm/vim4]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://BIPM.ORG/JCGM/VIM4]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-characterizes">characterizes</span>
      <li><span class="dfn-paneled" id="term-for-individualnominalproperty">individualnominalproperty</span>
@@ -2804,46 +2850,55 @@ dfn > a.self-link::before      { content: "#"; }
      <li><span class="dfn-paneled" id="term-for-object">object</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/analysis]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/ANALYSIS]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-analyzedelement">analyzedelement</span>
-     <li><span class="dfn-paneled" id="term-for-analyzes">analyzes</span>
+     <li><span class="dfn-paneled" id="term-for-analyzes_1">analyzes_1</span>
      <li><span class="dfn-paneled" id="term-for-assumption">assumption</span>
      <li><span class="dfn-paneled" id="term-for-characterization">characterization</span>
      <li><span class="dfn-paneled" id="term-for-characterizedelement">characterizedelement</span>
      <li><span class="dfn-paneled" id="term-for-characterizes①">characterizes</span>
+     <li><span class="dfn-paneled" id="term-for-characterizes_1">characterizes_1</span>
      <li><span class="dfn-paneled" id="term-for-drivingrequirementsexplanation">drivingrequirementsexplanation</span>
      <li><span class="dfn-paneled" id="term-for-explains">explains</span>
+     <li><span class="dfn-paneled" id="term-for-explains_1">explains_1</span>
      <li><span class="dfn-paneled" id="term-for-explanation">explanation</span>
      <li><span class="dfn-paneled" id="term-for-fact">fact</span>
      <li><span class="dfn-paneled" id="term-for-glossaryentry">glossaryentry</span>
      <li><span class="dfn-paneled" id="term-for-hasglossarydefinition">hasglossarydefinition</span>
      <li><span class="dfn-paneled" id="term-for-hasglossaryterm">hasglossaryterm</span>
+     <li><span class="dfn-paneled" id="term-for-isanalyzedby">isanalyzedby</span>
+     <li><span class="dfn-paneled" id="term-for-ischaracterizedby">ischaracterizedby</span>
+     <li><span class="dfn-paneled" id="term-for-isexplainedby">isexplainedby</span>
+     <li><span class="dfn-paneled" id="term-for-islimitedby">islimitedby</span>
+     <li><span class="dfn-paneled" id="term-for-isvalidatedby">isvalidatedby</span>
      <li><span class="dfn-paneled" id="term-for-keyrequirementsexplanation">keyrequirementsexplanation</span>
      <li><span class="dfn-paneled" id="term-for-limits">limits</span>
+     <li><span class="dfn-paneled" id="term-for-limits_1">limits_1</span>
      <li><span class="dfn-paneled" id="term-for-tradestudy">tradestudy</span>
      <li><span class="dfn-paneled" id="term-for-validates">validates</span>
+     <li><span class="dfn-paneled" id="term-for-validates_1">validates_1</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/base]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/BASE]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-aggregatedelement">aggregatedelement</span>
      <li><span class="dfn-paneled" id="term-for-identifiedelement">identifiedelement</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/mission]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/MISSION]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-requirement">requirement</span>
      <li><span class="dfn-paneled" id="term-for-specifiedelement">specifiedelement</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://imce.jpl.nasa.gov/foundation/project]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/PROJECT]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-developedelement">developedelement</span>
      <li><span class="dfn-paneled" id="term-for-developmentstate">developmentstate</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://www.w3.org/2001/xmlschema]</a> defines the following terms:
+    <a data-link-type="biblio">[HTTP://WWW.W3.ORG/2001/XMLSCHEMA]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-string">string</span>
     </ul>
@@ -2925,34 +2980,34 @@ dfn > a.self-link::before      { content: "#"; }
    <b><a href="#analyzes">#analyzes</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-analyzes">3.1. AnalyzedElement</a>
-    <li><a href="#ref-for-analyzes③">5.1. Analyzes</a>
+    <li><a href="#ref-for-analyzes①">5.1. Analyzes</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="characterizes">
    <b><a href="#characterizes">#characterizes</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-characterizes">3.2. CharacterizedElement</a>
-    <li><a href="#ref-for-characterizes③">5.2. Characterizes</a>
+    <li><a href="#ref-for-characterizes①">5.2. Characterizes</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="explains">
    <b><a href="#explains">#explains</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-explains①">4.3. DrivingRequirementsExplanation</a>
-    <li><a href="#ref-for-explains④">4.7. KeyRequirementsExplanation</a>
-    <li><a href="#ref-for-explains⑦">5.3. Explains</a>
+    <li><a href="#ref-for-explains">4.3. DrivingRequirementsExplanation</a>
+    <li><a href="#ref-for-explains①">4.7. KeyRequirementsExplanation</a>
+    <li><a href="#ref-for-explains③">5.3. Explains</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="limits">
    <b><a href="#limits">#limits</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-limits③">5.4. Limits</a>
+    <li><a href="#ref-for-limits①">5.4. Limits</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="validates">
    <b><a href="#validates">#validates</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-validates③">5.5. Validates</a>
+    <li><a href="#ref-for-validates①">5.5. Validates</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
