@@ -44,6 +44,14 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@dc:description """A [=Constraint=] expresses a condition asserted to be true in some context."""
 	concept Constraint :> Explanation
 	
+	concept SatisfiedConstraint :> Constraint [
+		restricts scalar property hasTruthValue to "true"^^xsd:boolean
+	]
+	
+	concept UnsatisfiedConstraint :> Constraint [
+		restricts scalar property hasTruthValue to "false"^^xsd:boolean
+	]
+	
 	ref concept vim4:IndividualNominalProperty :> CharacterizedElement
 	
 	concept NominalPropertyValueConstraint :> Constraint [
@@ -94,6 +102,12 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		functional
 	]
 	
+	scalar property hasTruthValue [
+		domain Constraint
+		range xsd:boolean
+		functional
+	]
+	
 	@rdfs:label "Constrains"
 	@dc:description """[=Constrains=] is a subproperty of [=Explains=]."""
 	relation entity Constrains :> Explains [
@@ -125,7 +139,25 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		restricts all relation explains to mission:Requirement
 	]
 
+	@rdfs:label "Scenario"
+	@dc:description """A [=Scenario=] [=avers=] or [=denies=] zero or more [=Constraints=]."""
 	concept Scenario :> Characterization
+	
+	@rdfs:label "Always"
+	@dc:description """[=Always=] is a [=Scenario=] whose [=Constraint=]s are always satisfied."""
+	concept Always :> Scenario [
+		restricts all relation asserts to SatisfiedConstraint
+		restricts some relation asserts to SatisfiedConstraint
+		restricts all relation denies to UnsatisfiedConstraint
+	]
+	
+	@rdfs:label "Never"
+	@dc:description """[=Never=] is a [=Scenario=] whose [=Constraint=]s are never satisfied."""
+	concept Never :> Scenario [
+		restricts all relation asserts to UnsatisfiedConstraint
+		restricts some relation asserts to UnsatisfiedConstraint
+		restricts all relation denies to SatisfiedConstraint
+	]
 	
 	@rdfs:label "Trade Study"
 	@dc:description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
@@ -248,13 +280,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		asymmetric
 	]
 	
-	@rdfs:label "Refutes"
-	@dc:description """A [=Scenario=] [=refutes=] zero or more [=Constraint=]s."""
-	relation entity Refutes [
+	@rdfs:label "Denies"
+	@dc:description """A [=Scenario=] [=denies=] zero or more [=Constraint=]s."""
+	relation entity Denies [
 		from Scenario
 		to Constraint
-		@rdfs:label "refutes"
-		forward refutes
+		@rdfs:label "denies"
+		forward denies
 		asymmetric
 	]
 	
