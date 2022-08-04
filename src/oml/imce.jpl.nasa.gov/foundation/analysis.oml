@@ -40,6 +40,71 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		restricts all relation explains to mission:Requirement
 	]
 
+	@rdfs:label "Constraint"
+	@dc:description """A [=Constraint=] expresses a condition asserted to be true in some context."""
+	concept Constraint :> Explanation
+	
+	ref concept vim4:IndividualNominalProperty :> CharacterizedElement
+	
+	concept NominalPropertyValueConstraint :> Constraint [
+//		restricts all relation analyzes to vim4:NominalPropertyValue
+		restricts all relation explains to vim4:IndividualNominalProperty
+	]
+	
+	ref aspect vim4:QuantityValue :> AnalyzedElement
+	ref aspect vim4:IndividualQuantity :> CharacterizedElement
+	
+	@rdfs:label "Quantity Value Constraint"
+	@dc:description """A [=QuantityValueConstraint expresses a relation between a [=vim4:QuantityValue=] and a [=vim4:IndividualQuantity=]."""
+	concept QuantityValueConstraint :> Constraint [
+		restricts all relation analyzes to vim4:QuantityValue
+		restricts all relation explains to vim4:IndividualQuantity
+	]
+	
+	@rdfs:label "Ordinal Quantity Value Constraint"
+	@dc:description """An [=OrdinalQuantityValueConstraint expresses a relation between a [=vim4:OrdinalQuantityValue=] and a [=vim4:IndividualOrdinalQuantity=]."""
+	concept OrdinalQuantityValueConstraint :> QuantityValueConstraint [
+		restricts all relation analyzes to vim4:OrdinalQuantityValue
+		restricts all relation explains to vim4:IndividualOrdinalQuantity
+	]
+	
+	@rdfs:label "Unitary Quantity Value Constraint"
+	@dc:description """A [=UnitaryQuantityValueConstraint expresses a relation between a [=vim4:UnitaryQuantityValue=] and a [=vim4:IndividualUnitaryQuantity=]."""
+	concept UnitaryQuantityValueConstraint :> QuantityValueConstraint [
+		restricts all relation analyzes to vim4:UnitaryQuantityValue
+		restricts all relation explains to vim4:IndividualUnitaryQuantity
+	]
+	
+	@rdfs:label "quantity value relation"
+	@dc:description "[=quantityValueRelation=] is the enumeration of possible order relations in a [=UnitaryQuantityValueConstraint=]."
+	enumerated scalar quantityValueRelation [        	// These are HTML entity names.
+		"equals",
+		"lt",
+		"le",
+		"gt",
+		"ge",
+		"ne"
+	]
+	
+	@rdfs:label "has quantity value relation"
+	@dc:description """[=hasQuantityValueRelation=] associates a [=UnitaryQuantityValueConstraint=] with a single [=quantityValueRelation=]."""
+	scalar property hasQuantityValueRelation [
+		domain QuantityValueConstraint
+		range quantityValueRelation
+		functional
+	]
+	
+	@rdfs:label "Constrains"
+	@dc:description """[=Constrains=] is a subproperty of [=Explains=]."""
+	relation entity Constrains :> Explains [
+		from Constraint
+		to analysis:CharacterizedElement
+		@rdfs:label "constrains"
+		forward constrains
+		@rdfs:label "is constrained by"
+		reverse isConstrainedBy
+	]
+	
 	@rdfs:label "Explanation"
 	@dc:description "An [=Explanation=] captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
     contain narrative prose directly or provide a reference to external products."
@@ -60,6 +125,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		restricts all relation explains to mission:Requirement
 	]
 
+	concept Scenario :> Characterization
+	
 	@rdfs:label "Trade Study"
 	@dc:description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
 	concept TradeStudy :> Explanation
@@ -129,6 +196,68 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		irreflexive
 	]
 
+	@rdfs:label "Has Quantity Value"
+	@dc:description """[=HasQuantityValue=] relates a [=QuantityValueConstraint=] to a constraining [=vim4:QuantityValue=]."""
+	relation entity HasQuantityValue :> Analyzes [
+		from QuantityValueConstraint
+		to vim4:QuantityValue
+		@rdfs:label "has quantity value"
+		forward hasQuantityValue
+		asymmetric
+	]
+	
+	@rdfs:label "Applies During"
+	@dc:description """A [=mission:Requirement=] [=appliesDuring=] zero or more [=Scenario=]s. If a
+					   [=mission:Requirement=] [=appliesDuring=] multiple [=Scenario=]s, it applies
+					   during each separately."""
+	relation entity AppliesDuring [
+		from mission:Requirement
+		to Scenario
+		@rdfs:label "applies during"
+		forward appliesDuring
+		asymmetric
+	]
+	
+	@rdfs:label "Requires"
+	@dc:description """A [=mission:Requirement=] [=requires=] zero or more [=Constraint=]s."""
+	relation entity Requires [
+		from mission:Requirement
+		to Constraint
+		@rdfs:label "requires"
+		forward requires
+		asymmetric
+	]
+	
+	@rdfs:label "Forbids"
+	@dc:description """A [=mission:Requirement=] [=forbids=] zero or more [=Constraint=]s."""
+	relation entity Forbids [
+		from mission:Requirement
+		to Constraint
+		@rdfs:label "forbids"
+		forward forbids
+		asymmetric
+	]
+	
+	@rdfs:label "Asserts"
+	@dc:description """A [=Scenario=] [=asserts=] zero or more [=Constraint=]s."""
+	relation entity Asserts [
+		from Scenario
+		to Constraint
+		@rdfs:label "asserts"
+		forward asserts
+		asymmetric
+	]
+	
+	@rdfs:label "Refutes"
+	@dc:description """A [=Scenario=] [=refutes=] zero or more [=Constraint=]s."""
+	relation entity Refutes [
+		from Scenario
+		to Constraint
+		@rdfs:label "refutes"
+		forward refutes
+		asymmetric
+	]
+	
 	@rdfs:label "has glossary definition"
 	scalar property hasGlossaryDefinition :> base:hasDescription [
 		domain GlossaryEntry
