@@ -1487,9 +1487,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
+  <meta content="Bikeshed version 44af0bf3e, updated Fri Jul 29 17:05:16 2022 -0700" name="generator">
   <link href="https://opencaesar.github.io/imce-vocabularies//imce.jpl.nasa.gov/foundation/mission" rel="canonical">
-  <meta content="f42ff04ac6f1a1a6e5a589f7b75c9bc09a7f5017" name="document-revision">
+  <meta content="5fd58f4f282cebf155976c57d4ef71da079985a7" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1949,7 +1949,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.opencaesar.io/oml/"><img alt="OML Specification" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">Mission</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-06-24">24 June 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-08-15">15 August 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2449,6 +2449,9 @@ dfn > a.self-link::before      { content: "#"; }
         <th>Relations
         <td>
          <ul>
+          <li> <a data-link-type="dfn" href="analysis.html#appliesduring_1" id="ref-for-appliesduring_1">analysis:appliesDuring</a> : <a data-link-type="dfn" href="analysis.html#scenario" id="ref-for-scenario">analysis:Scenario</a> 
+          <li> <a data-link-type="dfn" href="analysis.html#forbids_1" id="ref-for-forbids_1">analysis:forbids</a> : <a data-link-type="dfn" href="analysis.html#constraint" id="ref-for-constraint">analysis:Constraint</a> 
+          <li> <a data-link-type="dfn" href="analysis.html#requires_1" id="ref-for-requires_1">analysis:requires</a> : <a data-link-type="dfn" href="analysis.html#constraint" id="ref-for-constraint①">analysis:Constraint</a> 
           <li> <a data-link-type="dfn" href="mission.html#isrefinedby" id="ref-for-isrefinedby">isRefinedBy</a> : <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement③">Requirement</a> 
           <li> <a data-link-type="dfn" href="mission.html#refines_1" id="ref-for-refines_1">refines</a> : <a data-link-type="dfn" href="mission.html#requirement" id="ref-for-requirement④">Requirement</a> 
           <li> <a data-link-type="dfn" href="mission.html#specifies_1" id="ref-for-specifies_1">specifies</a> : <a data-link-type="dfn" href="mission.html#specifiedelement" id="ref-for-specifiedelement⑤">SpecifiedElement</a> 
@@ -3130,6 +3133,12 @@ dfn > a.self-link::before      { content: "#"; }
    <li><a href="#traverses_1">traverses_1</a><span>, in § 5.17</span>
    <li><a href="#traversingelement">traversingelement</a><span>, in § 3.4</span>
   </ul>
+  <aside class="dfn-panel" data-for="term-for-appliesduring_1">
+   <a href="analysis.html#appliesduring_1">analysis.html#appliesduring_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-appliesduring_1">4.13. Requirement</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-characterizedelement">
    <a href="analysis.html#characterizedelement">analysis.html#characterizedelement</a><b>Referenced in:</b>
    <ul>
@@ -3140,6 +3149,30 @@ dfn > a.self-link::before      { content: "#"; }
    <a href="analysis.html#characterizes">analysis.html#characterizes</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-characterizes">3.3. SpecifiedElement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-constraint">
+   <a href="analysis.html#constraint">analysis.html#constraint</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-constraint">4.13. Requirement</a> <a href="#ref-for-constraint①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-forbids_1">
+   <a href="analysis.html#forbids_1">analysis.html#forbids_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-forbids_1">4.13. Requirement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-requires_1">
+   <a href="analysis.html#requires_1">analysis.html#requires_1</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-requires_1">4.13. Requirement</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-scenario">
+   <a href="analysis.html#scenario">analysis.html#scenario</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-scenario">4.13. Requirement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-aggregatedelement">
@@ -3738,8 +3771,13 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/ANALYSIS]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="term-for-appliesduring_1">appliesduring_1</span>
      <li><span class="dfn-paneled" id="term-for-characterizedelement">characterizedelement</span>
      <li><span class="dfn-paneled" id="term-for-characterizes">characterizes</span>
+     <li><span class="dfn-paneled" id="term-for-constraint">constraint</span>
+     <li><span class="dfn-paneled" id="term-for-forbids_1">forbids_1</span>
+     <li><span class="dfn-paneled" id="term-for-requires_1">requires_1</span>
+     <li><span class="dfn-paneled" id="term-for-scenario">scenario</span>
     </ul>
    <li>
     <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/BASE]</a> defines the following terms:

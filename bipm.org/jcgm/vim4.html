@@ -1487,9 +1487,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 37b7e7e68, updated Fri May 27 15:08:11 2022 -0700" name="generator">
+  <meta content="Bikeshed version 44af0bf3e, updated Fri Jul 29 17:05:16 2022 -0700" name="generator">
   <link href="https://opencaesar.github.io/imce-vocabularies//bipm.org/jcgm/vim4" rel="canonical">
-  <meta content="f42ff04ac6f1a1a6e5a589f7b75c9bc09a7f5017" name="document-revision">
+  <meta content="5fd58f4f282cebf155976c57d4ef71da079985a7" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1949,7 +1949,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.opencaesar.io/oml/"><img alt="OML Specification" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">OML formalization of VIM4 Committee Draft 11 January 2021</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-06-24">24 June 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2022-08-15">15 August 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2213,6 +2213,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
+         <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement" id="ref-for-characterizedelement">analysis:CharacterizedElement</a> 
          <li> <a data-link-type="dfn" href="vim4.html#individualproperty" id="ref-for-individualproperty">IndividualProperty</a> 
         </ul>
       <tr>
@@ -2237,7 +2238,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
-         <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement" id="ref-for-characterizedelement">analysis:CharacterizedElement</a> 
+         <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement" id="ref-for-characterizedelement①">analysis:CharacterizedElement</a> 
         </ul>
     </table>
     <h3 class="heading settled" data-level="3.8" id="QuantityValue"><span class="secno">3.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export data-lt="quantityvalue" id="quantityvalue">QuantityValue<a class="self-link" href="#quantityvalue"></a></dfn></span><a class="self-link" href="#QuantityValue"></a></h3>
@@ -2247,6 +2248,7 @@ dfn > a.self-link::before      { content: "#"; }
        <th>Supertypes
        <td>
         <ul>
+         <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#analyzedelement" id="ref-for-analyzedelement">analysis:AnalyzedElement</a> 
          <li> <a data-link-type="dfn" href="vim4.html#identifiedelement" id="ref-for-identifiedelement①">IdentifiedElement</a> 
          <li> <a data-link-type="dfn" href="vim4.html#individualquantity" id="ref-for-individualquantity①">IndividualQuantity</a> 
         </ul>
@@ -2336,6 +2338,7 @@ dfn > a.self-link::before      { content: "#"; }
        <td>
         <ul>
          <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterization" id="ref-for-characterization">analysis:Characterization</a> 
+         <li> <a data-link-type="dfn" href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement" id="ref-for-characterizedelement②">analysis:CharacterizedElement</a> 
          <li> <a data-link-type="dfn" href="vim4.html#individualproperty" id="ref-for-individualproperty①">IndividualProperty</a> 
         </ul>
       <tr>
@@ -4417,6 +4420,12 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#ref-for-yieldsmeasurementuncertainty_1">4.12. MeasurementModel</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-analyzedelement">
+   <a href="../../imce.jpl.nasa.gov/foundation/analysis.html#analyzedelement">../../imce.jpl.nasa.gov/foundation/analysis.html#analyzedelement</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-analyzedelement">3.8. QuantityValue</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-characterization">
    <a href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterization">../../imce.jpl.nasa.gov/foundation/analysis.html#characterization</a><b>Referenced in:</b>
    <ul>
@@ -4428,7 +4437,9 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-characterizedelement">
    <a href="../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement">../../imce.jpl.nasa.gov/foundation/analysis.html#characterizedelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-characterizedelement">3.7. Object</a>
+    <li><a href="#ref-for-characterizedelement">3.6. IndividualQuantity</a>
+    <li><a href="#ref-for-characterizedelement①">3.7. Object</a>
+    <li><a href="#ref-for-characterizedelement②">4.4. IndividualNominalProperty</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-characterizes">
@@ -4574,6 +4585,7 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[HTTP://IMCE.JPL.NASA.GOV/FOUNDATION/ANALYSIS]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="term-for-analyzedelement">analyzedelement</span>
      <li><span class="dfn-paneled" id="term-for-characterization">characterization</span>
      <li><span class="dfn-paneled" id="term-for-characterizedelement">characterizedelement</span>
      <li><span class="dfn-paneled" id="term-for-characterizes">characterizes</span>
