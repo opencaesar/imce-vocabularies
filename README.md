@@ -34,3 +34,11 @@ You must first have Bikeshed (the app itself) installed from [here](https://taba
 ```
 ./gradlew publishToMavenLocal
 ```
+> The version of the published artifact(s) is specified in the build.gradle script
+
+## Publish to Maven Central
+```
+./gradlew publish
+```
+> The version of the published artifact(s) is specified in the build.gradle script
+> The published artifacts go to a staging area on Maven Central from which they need to be manually released.
