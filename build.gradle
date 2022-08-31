@@ -69,7 +69,7 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 /*
  * A task to generate Bikeshed specification for the OML catalog
  */
-task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask) {
+task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask, dependsOn: downloadDependencies) {
     // OML catalog
     inputCatalogPath = file('catalog.xml')
     // OML catalog title

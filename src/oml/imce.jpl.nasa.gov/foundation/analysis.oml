@@ -63,21 +63,21 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	ref aspect vim4:IndividualQuantity :> CharacterizedElement
 	
 	@rdfs:label "Quantity Value Constraint"
-	@dc:description """A [=QuantityValueConstraint expresses a relation between a [=vim4:QuantityValue=] and a [=vim4:IndividualQuantity=]."""
+	@dc:description """A [=QuantityValueConstraint=] expresses a relation between a [=QuantityValue=] and a [=IndividualQuantity=]."""
 	concept QuantityValueConstraint :> Constraint [
 		restricts all relation analyzes to vim4:QuantityValue
 		restricts all relation explains to vim4:IndividualQuantity
 	]
 	
 	@rdfs:label "Ordinal Quantity Value Constraint"
-	@dc:description """An [=OrdinalQuantityValueConstraint expresses a relation between a [=vim4:OrdinalQuantityValue=] and a [=vim4:IndividualOrdinalQuantity=]."""
+	@dc:description """An [=OrdinalQuantityValueConstraint=] expresses a relation between a [=OrdinalQuantityValue=] and a [=IndividualOrdinalQuantity=]."""
 	concept OrdinalQuantityValueConstraint :> QuantityValueConstraint [
 		restricts all relation analyzes to vim4:OrdinalQuantityValue
 		restricts all relation explains to vim4:IndividualOrdinalQuantity
 	]
 	
 	@rdfs:label "Unitary Quantity Value Constraint"
-	@dc:description """A [=UnitaryQuantityValueConstraint expresses a relation between a [=vim4:UnitaryQuantityValue=] and a [=vim4:IndividualUnitaryQuantity=]."""
+	@dc:description """A [=UnitaryQuantityValueConstraint=] expresses a relation between a [=UnitaryQuantityValue=] and a [=IndividualUnitaryQuantity=]."""
 	concept UnitaryQuantityValueConstraint :> QuantityValueConstraint [
 		restricts all relation analyzes to vim4:UnitaryQuantityValue
 		restricts all relation explains to vim4:IndividualUnitaryQuantity
@@ -140,7 +140,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 
 	@rdfs:label "Scenario"
-	@dc:description """A [=Scenario=] [=avers=] or [=denies=] zero or more [=Constraints=]."""
+	@dc:description """A [=Scenario=] [=asserts=] or [=denies=] zero or more [=Constraints=]."""
 	concept Scenario :> Characterization
 	
 	@rdfs:label "Always"
@@ -229,7 +229,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 
 	@rdfs:label "Has Quantity Value"
-	@dc:description """[=HasQuantityValue=] relates a [=QuantityValueConstraint=] to a constraining [=vim4:QuantityValue=]."""
+	@dc:description """[=HasQuantityValue=] relates a [=QuantityValueConstraint=] to a constraining [=QuantityValue=]."""
 	relation entity HasQuantityValue :> Analyzes [
 		from QuantityValueConstraint
 		to vim4:QuantityValue
@@ -239,8 +239,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 	
 	@rdfs:label "Applies During"
-	@dc:description """A [=mission:Requirement=] [=appliesDuring=] zero or more [=Scenario=]s. If a
-					   [=mission:Requirement=] [=appliesDuring=] multiple [=Scenario=]s, it applies
+	@dc:description """A [=Requirement=] [=appliesDuring=] zero or more [=Scenario=]s. If a
+					   [=Requirement=] [=appliesDuring=] multiple [=Scenario=]s, it applies
 					   during each separately."""
 	relation entity AppliesDuring [
 		from mission:Requirement
@@ -251,7 +251,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 	
 	@rdfs:label "Requires"
-	@dc:description """A [=mission:Requirement=] [=requires=] zero or more [=Constraint=]s."""
+	@dc:description """A [=Requirement=] [=requires=] zero or more [=Constraint=]s."""
 	relation entity Requires [
 		from mission:Requirement
 		to Constraint
@@ -261,7 +261,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 	
 	@rdfs:label "Forbids"
-	@dc:description """A [=mission:Requirement=] [=forbids=] zero or more [=Constraint=]s."""
+	@dc:description """A [=Requirement=] [=forbids=] zero or more [=Constraint=]s."""
 	relation entity Forbids [
 		from mission:Requirement
 		to Constraint
