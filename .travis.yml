@@ -16,10 +16,10 @@ install:
 
 cache:
   directories:
-    - $HOME/.m2
     - $HOME/.gradle
 
 script:
+  - ./gradlew buildEnvironment
   - ./gradlew build generateDocs --refresh-dependencies
 
 env:
