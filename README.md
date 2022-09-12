@@ -25,7 +25,7 @@ Equivalent to owlReason task
 ```
 
 ## Generate Docs
-You must first have Bikeshed (the app itself) installed from [here](https://tabatkins.github.io/bikeshed/#install-final)
+You must first have Bikeshed app installed from [here](https://tabatkins.github.io/bikeshed/#install-final)
 ```
 ./gradlew generateDocs
 ```
