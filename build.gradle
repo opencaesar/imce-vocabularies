@@ -4,7 +4,7 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '3.2.1'
+version = '4.0.0'
 
 /*
  * Properties
@@ -48,7 +48,7 @@ configurations {
  * Dependency versions
  */
 ext { 
-    metrologyVersion = '5.+'
+    metrologyVersion = '6.+'
 }
 
 /*

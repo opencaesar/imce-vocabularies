@@ -37,7 +37,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/base#> as base {
 
 	@rdfs:label "Package"
 	@dc:description "A [=Package=] groups an arbitrary collection of axioms and/or assertions."
-	concept Package :> IdentifiedElement
+	concept Package < IdentifiedElement
 
 	@rdfs:label "has short name"
 	@dc:description "[=hasShortName=] relates an [=IdentifiedElement=] to zero or more short names.

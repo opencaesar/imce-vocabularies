@@ -27,7 +27,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Developed Element"
 	@dc:description "[=DevelopedElement=] is the domain of [=manifests=]."
-	aspect DevelopedElement :> analysis:CharacterizedElement
+	aspect DevelopedElement < analysis:CharacterizedElement
 
 	@rdfs:label "Realized Element"
 	@dc:description "[=RealizedElement=] is the domain and range of [=realizes=]."
@@ -44,72 +44,72 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Concern"
 	@dc:description "<para>A [=Concern=] is a specific interest that one or more [=Stakeholder=]s have in the successful completion of a [=Project=] or [=Program=] and its [=Mission=]s. </para>"
-	concept Concern :> base:IdentifiedElement, base:AggregatedElement [
+	concept Concern < base:IdentifiedElement, base:AggregatedElement [
 		restricts all relation base:aggregates to Concern
 		restricts all relation base:isAggregatedIn to Concern
 	]
 
 	@rdfs:label "Deliverable"
 	@dc:description "A [=Deliverable=] is the result of successful execution of a [=Process=]. It may be a prerequisite to another [=Process=]."
-	concept Deliverable :> base:IdentifiedElement
+	concept Deliverable < base:IdentifiedElement
 
 	@rdfs:label "Development State"
 	@dc:description "A [=DevelopmentState=] is a kind of [=Deliverable=] that represents a defined condition for a [=DevelopedElement=]. [=DevelopmentState=]s may be unique to the 
 	    [=DevelopedElement=]; example [=DevelopmentState=]s for a [=Product=] include Preliminary, Draft, and Final."
-	concept DevelopmentState :> analysis:Characterization, Deliverable [
+	concept DevelopmentState < analysis:Characterization, Deliverable [
 		restricts all relation analysis:characterizes to DevelopedElement
 	]
 
 	@rdfs:label "Facility"
 	@dc:description "A [=Facility=] is any asset (e.g., laboratory, assembly facility, test facility, etc.) whose [=DevelopmentState=] may be a [=Deliverable=] for a project process."
-	concept Facility :> base:IdentifiedElement, DevelopedElement
+	concept Facility < base:IdentifiedElement, DevelopedElement
 
 	@rdfs:label "Interchange"
 	@dc:description "An [=Interchange=] represents the intended joint behavior of a pair of [=Process=]es. It indicates that a [=Deliverable=] may be delivered by one [=Process=] 
     	and received by the other [=Process=]."
-	concept Interchange :> base:IdentifiedElement
+	concept Interchange < base:IdentifiedElement
 
 	@rdfs:label "Interchange Point"
 	@dc:description "An [=InterchangePoint=] is a feature of a [=Process=] that permits it to participate
 		in an [=Interchange=]."
-	concept InterchangePoint :> base:IdentifiedElement
+	concept InterchangePoint < base:IdentifiedElement
 
 	@rdfs:label "Organization"
 	@dc:description "An [=Organization=] [=hasResponsibilityFor=] zero or more [=Authority=]s."
-	concept Organization :> base:IdentifiedElement
+	concept Organization < base:IdentifiedElement
 
 	@rdfs:label "Person"
 	@dc:description "A [=Person=] is an individual human being. A [=Person=] [=belongsTo=] zero or more [=Organization=]s."
-	concept Person :> base:IdentifiedElement
+	concept Person < base:IdentifiedElement
 
 	@rdfs:label "Policy"
 	@dc:description "A [=Policy=] represents a specific exercise of authority that [=binds=] one or more model elements."
-	concept Policy :> base:IdentifiedElement
+	concept Policy < base:IdentifiedElement
 
 	@rdfs:label "Process"
 	@dc:description "A [=Process=] is an activity authorized by a [=WorkPackage=] in support of delivering a [=Component=] or producing a [=Product=]. Examples include <emphasis>
     	design trajectory</emphasis>, <emphasis>conduct trade study</emphasis>, and <emphasis>review subsystem design</emphasis>."
-	concept Process :> base:IdentifiedElement, AssignedElement, RealizedElement [
+	concept Process < base:IdentifiedElement, AssignedElement, RealizedElement [
 		restricts all relation realizes to Process
 		restricts all relation isRealizedBy to Process
 	]
 
 	@rdfs:label "Product"
 	@dc:description "A [=Product=] is a document or other artifact supplied by a [=WorkPackage=]. Example [=Product=]s include trade study reports, design documents, and inspection reports."
-	concept Product :> base:AggregatedElement, base:IdentifiedElement, DevelopedElement, SuppliedElement [
+	concept Product < base:AggregatedElement, base:IdentifiedElement, DevelopedElement, SuppliedElement [
 		restricts all relation base:aggregates to Product
 		restricts all relation base:isAggregatedIn to Product
 	]
 
 	@rdfs:label "Program"
 	@dc:description "A [=Program=] is an [=Authority=] that [=authorizes=] zero or more [=Project=]s."
-	concept Program :> Authority [
+	concept Program < Authority [
 		restricts all relation authorizes to Project
 	]
 
 	@rdfs:label "Project"
 	@dc:description "A [=Project=] is an [=Authority=] that [=supplies=] a related set of [=Mission=]s in pursuit of a set of [=Objective=]s."
-	concept Project :> Authority, RealizedElement [
+	concept Project < Authority, RealizedElement [
 		restricts all relation authorizes to WorkPackage
 		restricts all relation isAuthorizedBy to Program
 		restricts all relation realizes to Project
@@ -119,18 +119,18 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Role"
 	@dc:description "A [=Role=] corresponds to a set of assignments meant to be filled by a single [=Person=]."
-	concept Role :> base:IdentifiedElement
+	concept Role < base:IdentifiedElement
 
 	@rdfs:label "Stakeholder"
 	@dc:description "A [=Stakeholder=] is a person or organization with a recognized interest in the successful completion of a [=Project=] or [=Program=]. Example 
     	[=Stakeholder=]s include scientists, NASA Directorates, nuclear safety advocates, and the general public."
-	concept Stakeholder :> base:IdentifiedElement
+	concept Stakeholder < base:IdentifiedElement
 
 	@rdfs:label "Work Package"
 	@dc:description "A [=WorkPackage=] is an [=Authority=] subordinate to a [=Project=]
 		that [=produces=] definite [=Product=]s and/or [=supplies=] definite
 		[=SuppliedElements=] in the context of that [=Project=]."
-	concept WorkPackage :> base:Package, Authority, RealizedElement [
+	concept WorkPackage < base:Package, Authority, RealizedElement [
 		restricts all relation authorizes to WorkPackage
 		restricts all relation isRealizedBy to WorkPackage
 		restricts all relation realizes to WorkPackage
@@ -139,7 +139,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Approves"
 	@dc:description "A [=Role=] [=approves=] zero or more [=Product=]s."
-	relation entity Approves :> HasAssignment [
+	relation entity Approves [
 		from Role
 		to Product
 		@rdfs:label "approves"
@@ -148,7 +148,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		reverse isApprovedBy
 		asymmetric
 		irreflexive
-	]
+	] < HasAssignment 
 
 	@rdfs:label "Authorizes"
 	@dc:description "An [=Authority=] [=authorizes=] zero or more [=Authority=]s."
@@ -188,7 +188,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Concurs"
 	@dc:description "A [=Role=] [=concurs=] in zero or more [=Product=]s."
-	relation entity Concurs :> HasAssignment [
+	relation entity Concurs [
 		from Role
 		to Product
 		@rdfs:label "concurs"
@@ -197,7 +197,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		reverse isConcurredBy
 		asymmetric
 		irreflexive
-	]
+	] < HasAssignment 
 
 	@rdfs:label "Delegates To"
 	@dc:description "A [=Role=] [=delegatesTo=] zero or more [=Role=]s."
@@ -349,7 +349,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 	@dc:description "[=involves1=] and [=involves2=] are distinguishable specializations of
 		[=involves=]. These specializations are employed to indicate distinct ends of an
 		[=Interchange=]."
-	relation entity Involves1 :> Involves [
+	relation entity Involves1 [
 		from Interchange
 		to Process
 		@rdfs:label "involves1"
@@ -359,13 +359,13 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		functional
 		asymmetric
 		irreflexive
-	]
+	] < Involves 
 
 	@rdfs:label "Involves2"
 	@dc:description "[=involves1=] and [=involves2=] are distinguishable specializations of
 		[=involves=]. These specializations are employed to indicate distinct ends of an
 		[=Interchange=]."
-	relation entity Involves2 :> Involves [
+	relation entity Involves2 [
 		from Interchange
 		to Process
 		@rdfs:label "involves2"
@@ -375,7 +375,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		functional
 		asymmetric
 		irreflexive
-	]
+	] < Involves 
 
 	@rdfs:label "Manifests"
 	@dc:description "A [=DevelopedElement=] [=manifests=] zero or more [=DevelopmentState=]s."
@@ -393,7 +393,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Prepares"
 	@dc:description "A [=Role=] [=prepares=] zero or more [=Product=]s."
-	relation entity Prepares :> HasAssignment [
+	relation entity Prepares [
 		from Role
 		to Product
 		@rdfs:label "prepares"
@@ -402,7 +402,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		reverse isPreparedBy
 		asymmetric
 		irreflexive
-	]
+	] < HasAssignment 
 
 	@rdfs:label "Produces"
 	@dc:description "A [=Authority=] [=produces=] zero or more [=Product=]s."
@@ -433,7 +433,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Receives"
 	@dc:description "An [=InterchangePoint=] [=receives=] zero or more [=Deliverable=]s."
-	relation entity Receives :> AssignedElement [
+	relation entity Receives [
 		from InterchangePoint
 		to Deliverable
 		@rdfs:label "receives"
@@ -442,11 +442,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		reverse isReceivedBy
 		asymmetric
 		irreflexive
-	]
+	] < AssignedElement 
 
 	@rdfs:label "Relies On"
 	@dc:description "An [=Authority=] [=reliesOn=] zero or more [=DevelopedElement=]s."
-	relation entity ReliesOn :> AssignedElement [
+	relation entity ReliesOn [
 		from Authority
 		to DevelopedElement
 		@rdfs:label "relies on"
@@ -455,7 +455,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		reverse isReliedOnBy
 		asymmetric
 		irreflexive
-	]
+	] < AssignedElement 
 
 	@rdfs:label "Represents"
 	@dc:description "An [=Stakeholder=] [=represents=] zero or more [=Concern=]s."
@@ -472,7 +472,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 
 	@rdfs:label "Supplies"
 	@dc:description "An [=Authority=] [=supplies=] zero or more [=SuppliedElement=]s."
-	relation entity Supplies :> AssignedElement [
+	relation entity Supplies [
 		from Authority
 		to SuppliedElement
 		@rdfs:label "supplies"
@@ -482,7 +482,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		inverse functional
 		asymmetric
 		irreflexive
-	]
+	] < AssignedElement 
 
 	@rdfs:label "is required not later than"
 	@dc:description "A [=Deliverable=] [=isRequiredNotLaterThan=] some [=dateTime=]."
@@ -491,30 +491,30 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		range xsd:dateTime
 	]
 
-	ref concept mission:Objective :> Concern
+	ref concept mission:Objective < Concern
 
-	ref concept mission:Component :> DevelopedElement, RealizedElement, SuppliedElement [
+	ref concept mission:Component < DevelopedElement, RealizedElement, SuppliedElement [
 		restricts all relation isRealizedBy to mission:Component
 		restricts all relation realizes to mission:Component
 		restricts all relation isSuppliedBy to WorkPackage
 	]
 
-	ref concept mission:Function :> RealizedElement [
+	ref concept mission:Function < RealizedElement [
 		restricts all relation isRealizedBy to mission:Function
 		restricts all relation realizes to mission:Function
 	]
 
-	ref concept mission:Interface :> DevelopedElement, RealizedElement [
+	ref concept mission:Interface < DevelopedElement, RealizedElement [
 		restricts all relation isRealizedBy to mission:Interface
 		restricts all relation realizes to mission:Interface
 	]
 
-	ref concept mission:Junction :> DevelopedElement, RealizedElement [
+	ref concept mission:Junction < DevelopedElement, RealizedElement [
 		restricts all relation realizes to mission:Junction
 		restricts all relation isRealizedBy to mission:Junction
 	]
 
-	ref concept mission:Mission :> RealizedElement, SuppliedElement [
+	ref concept mission:Mission < RealizedElement, SuppliedElement [
 		restricts all relation isRealizedBy to mission:Mission
 		restricts all relation realizes to mission:Mission
 		restricts all relation isSuppliedBy to Project
