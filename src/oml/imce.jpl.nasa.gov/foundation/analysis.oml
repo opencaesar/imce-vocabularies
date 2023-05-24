@@ -87,7 +87,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@dc:description "[=quantityValueRelation=] is the enumeration of possible order relations in a [=UnitaryQuantityValueConstraint=]."
 	scalar quantityValueRelation [        	// These are HTML entity names.
 		oneOf "equals", "lt", "le", "gt", "ge", "ne"
-	] < xsd:string
+	]
 	
 	@rdfs:label "has quantity value relation"
 	@dc:description """[=hasQuantityValueRelation=] associates a [=UnitaryQuantityValueConstraint=] with a single [=quantityValueRelation=]."""

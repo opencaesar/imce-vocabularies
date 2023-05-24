@@ -6,11 +6,6 @@ description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
 version = '4.0.0'
 
-/*
- * Properties
- */
-ext.bikeshed = 'build/bikeshed'
-
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
 /* 
@@ -22,11 +17,17 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-        classpath 'io.opencaesar.oml:oml-bikeshed-gradle:2.+'
+        classpath 'io.opencaesar.owl:owl-reason-gradle:2.+'
+        classpath 'io.opencaesar.owl:owl-doc-gradle:2.+'
         classpath 'io.opencaesar.oml:oml-merge-gradle:2.+'
         classpath 'io.opencaesar.adapters:oml2owl-gradle:2.+'
     }
+}
+
+// Dataset-specific variables
+ext {
+    // Root ontology IRI of the dataset
+    rootIri = 'http://imce.jpl.nasa.gov/foundation/bundle'
 }
 
 /*
@@ -45,17 +46,10 @@ configurations {
 }
 
 /*
- * Dependency versions
- */
-ext { 
-    metrologyVersion = '6.+'
-}
-
-/*
  * The OML dependencies
  */
 dependencies {
-    oml "io.opencaesar.ontologies:metrology-vocabularies:$metrologyVersion"
+    oml "io.opencaesar.ontologies:metrology-vocabularies:6.+"
 }
 
 /*
@@ -64,37 +58,6 @@ dependencies {
 task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
     inputZipPaths = configurations.oml.files
     outputCatalogFolder = file('build/oml')
-}
-
-/*
- * A task to generate Bikeshed specification for the OML catalog
- */
-task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask, dependsOn: downloadDependencies) {
-    // OML catalog
-    inputCatalogPath = file('catalog.xml')
-    // OML catalog title
-    inputCatalogTitle = project.title
-    // OML catalog version
-    inputCatalogVersion = project.version
-    // Root ontology IRI
-    rootOntologyIri='http://imce.jpl.nasa.gov/foundation/bundle'
-    // OWL folder
-    outputFolderPath = file("$bikeshed")
-    // Publish URL
-    publishUrl = 'https://opencaesar.github.io/imce-vocabularies/'
-}
-
-/*
- * A task to render the Bikeshed specification to HTML
- */
-task generateDocs(type: Exec, dependsOn: omlToBikeshed) {
-	inputs.files(fileTree("$bikeshed").include('**/*.bs'))
-	outputs.files(fileTree("$bikeshed").include('**/*.html'))
-	if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
-		commandLine "$bikeshed/publish.bat"
-	} else {
-		commandLine "$bikeshed/publish.sh"
-	}
 }
 
 /*
@@ -114,15 +77,33 @@ task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: omlToOwl)
     // OWL catalog
     catalogPath = file('build/owl/catalog.xml')
     // Input ontology IRI to reason on
-    inputOntologyIri = 'http://imce.jpl.nasa.gov/foundation/bundle'
+    inputOntologyIri = "$rootIri"
     // Entailment statements to generate and the ontologies to persist them in
     specs = [
-        'http://imce.jpl.nasa.gov/foundation/bundle/classes = ALL_SUBCLASS',
-        'http://imce.jpl.nasa.gov/foundation/bundle/properties = INVERSE_PROPERTY | ALL_SUBPROPERTY',
-        'http://imce.jpl.nasa.gov/foundation/bundle/individuals = ALL_INSTANCE | DATA_PROPERTY_VALUE | OBJECT_PROPERTY_VALUE | SAME_AS'
+        "$rootIri/classes = ALL_SUBCLASS",
+        "$rootIri/properties = INVERSE_PROPERTY | ALL_SUBPROPERTY",
+        "$rootIri/individuals = ALL_INSTANCE | DATA_PROPERTY_VALUE | OBJECT_PROPERTY_VALUE | SAME_AS"
     ]
     // Junit error report
     reportPath = file('build/reports/reasoning.xml')
+}
+
+/*
+ * A task to generate documentation for the OWL catalog
+ */
+task generateDocs (type: io.opencaesar.owl.doc.OwlDocTask, dependsOn: owlReason) {
+    // OWL catalog
+    inputCatalogPath = file('build/owl/catalog.xml')
+    // OWL catalog title
+    inputCatalogTitle = project.title
+    // OWL catalog version
+    inputCatalogVersion = project.version
+    // OWL Ontology Iris
+    inputOntologyIris = [ "$rootIri/classes", "$rootIri/properties",  "$rootIri/individuals" ]
+    // Output folder
+    outputFolderPath = file('build/doc')
+    // Output case sensitivie path
+    outputCaseSensitive = org.gradle.internal.os.OperatingSystem.current().isLinux()
 }
 
 /*
