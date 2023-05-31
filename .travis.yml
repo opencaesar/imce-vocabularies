@@ -1,25 +1,13 @@
-sudo: false
+language: java
 
-language: python
-
-python:
-  - "3.7"
-
-services:
-  - xvfb
-
-before_install:
-  - sudo apt-get install graphviz
-
-install:
-  - pip3 install bikeshed && bikeshed update
-
+jdk:
+  - openjdk17
+  
 cache:
   directories:
     - $HOME/.gradle
 
 script:
-  - ./gradlew buildEnvironment
   - ./gradlew build generateDocs --refresh-dependencies
 
 env:
@@ -32,7 +20,7 @@ deploy:
     script: .deploy/deploy.sh
     skip_cleanup: true
     on:
-      tags: false
+      tags: true
       branch: master
   - provider: script
     script: ./gradlew publish

@@ -27,71 +27,66 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 
 	@rdfs:label "Assumption"
 	@dc:description "An [=Assumption=] is a [=Characterization=] that is taken to be true for the purpose of analysis."
-	concept Assumption :> Characterization
+	concept Assumption < Characterization
 
 	@rdfs:label "Characterization"
 	@dc:description "A [=Characterization=] provides a parametric or other qualification of zero or more model elements."
-	concept Characterization :> base:IdentifiedElement
+	concept Characterization < base:IdentifiedElement
 
 	@rdfs:label "Driving Requirements Explanation"
 	@dc:description "A [=DrivingRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s as <emphasis>driving</emphasis>, and makes the 
     designation via the [=explains=] property."
-	concept DrivingRequirementsExplanation :> Explanation [
+	concept DrivingRequirementsExplanation < Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
 	@rdfs:label "Constraint"
 	@dc:description """A [=Constraint=] expresses a condition asserted to be true in some context."""
-	concept Constraint :> Explanation
+	concept Constraint < Explanation
 	
-	concept SatisfiedConstraint :> Constraint [
+	concept SatisfiedConstraint < Constraint [
 		restricts scalar property hasTruthValue to "true"^^xsd:boolean
 	]
 	
-	concept UnsatisfiedConstraint :> Constraint [
+	concept UnsatisfiedConstraint < Constraint [
 		restricts scalar property hasTruthValue to "false"^^xsd:boolean
 	]
 	
-	ref concept vim4:IndividualNominalProperty :> CharacterizedElement
+	ref concept vim4:IndividualNominalProperty < CharacterizedElement
 	
-	concept NominalPropertyValueConstraint :> Constraint [
+	concept NominalPropertyValueConstraint < Constraint [
 //		restricts all relation analyzes to vim4:NominalPropertyValue
 		restricts all relation explains to vim4:IndividualNominalProperty
 	]
 	
-	ref aspect vim4:QuantityValue :> AnalyzedElement
-	ref aspect vim4:IndividualQuantity :> CharacterizedElement
+	ref aspect vim4:QuantityValue < AnalyzedElement
+	ref aspect vim4:IndividualQuantity < CharacterizedElement
 	
 	@rdfs:label "Quantity Value Constraint"
 	@dc:description """A [=QuantityValueConstraint=] expresses a relation between a [=QuantityValue=] and a [=IndividualQuantity=]."""
-	concept QuantityValueConstraint :> Constraint [
+	concept QuantityValueConstraint < Constraint [
 		restricts all relation analyzes to vim4:QuantityValue
 		restricts all relation explains to vim4:IndividualQuantity
 	]
 	
 	@rdfs:label "Ordinal Quantity Value Constraint"
 	@dc:description """An [=OrdinalQuantityValueConstraint=] expresses a relation between a [=OrdinalQuantityValue=] and a [=IndividualOrdinalQuantity=]."""
-	concept OrdinalQuantityValueConstraint :> QuantityValueConstraint [
+	concept OrdinalQuantityValueConstraint < QuantityValueConstraint [
 		restricts all relation analyzes to vim4:OrdinalQuantityValue
 		restricts all relation explains to vim4:IndividualOrdinalQuantity
 	]
 	
 	@rdfs:label "Unitary Quantity Value Constraint"
 	@dc:description """A [=UnitaryQuantityValueConstraint=] expresses a relation between a [=UnitaryQuantityValue=] and a [=IndividualUnitaryQuantity=]."""
-	concept UnitaryQuantityValueConstraint :> QuantityValueConstraint [
+	concept UnitaryQuantityValueConstraint < QuantityValueConstraint [
 		restricts all relation analyzes to vim4:UnitaryQuantityValue
 		restricts all relation explains to vim4:IndividualUnitaryQuantity
 	]
 	
 	@rdfs:label "quantity value relation"
 	@dc:description "[=quantityValueRelation=] is the enumeration of possible order relations in a [=UnitaryQuantityValueConstraint=]."
-	enumerated scalar quantityValueRelation [        	// These are HTML entity names.
-		"equals",
-		"lt",
-		"le",
-		"gt",
-		"ge",
-		"ne"
+	scalar quantityValueRelation [        	// These are HTML entity names.
+		oneOf "equals", "lt", "le", "gt", "ge", "ne"
 	]
 	
 	@rdfs:label "has quantity value relation"
@@ -110,42 +105,42 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	
 	@rdfs:label "Constrains"
 	@dc:description """[=Constrains=] is a subproperty of [=Explains=]."""
-	relation entity Constrains :> Explains [
+	relation entity Constrains [
 		from Constraint
 		to analysis:CharacterizedElement
 		@rdfs:label "constrains"
 		forward constrains
 		@rdfs:label "is constrained by"
 		reverse isConstrainedBy
-	]
+	] < Explains
 	
 	@rdfs:label "Explanation"
 	@dc:description "An [=Explanation=] captures or summarizes the results of an analysis activity and relates it to one or more other model elements. It may
     contain narrative prose directly or provide a reference to external products."
-	concept Explanation :> Characterization, base:AggregatedElement
+	concept Explanation < Characterization, base:AggregatedElement
 
 	@rdfs:label "Fact"
 	@dc:description "A [=Fact=] is an [=Assumption=] taken because it is thought to be true."
-	concept Fact :> Assumption
+	concept Fact < Assumption
 
 	@rdfs:label "GlossaryEntry"
 	@dc:description "[=GlossaryEntry=] is a [=Characterization=] that associates a term with a definition."
-	concept GlossaryEntry :> Characterization
+	concept GlossaryEntry < Characterization
 
 	@rdfs:label "Key Requirements Explanation"
 	@dc:description "A [=KeyRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s 
     as <emphasis>key</emphasis>, and makes the designation via the [=explains=] property."
-	concept KeyRequirementsExplanation :> Explanation [
+	concept KeyRequirementsExplanation < Explanation [
 		restricts all relation explains to mission:Requirement
 	]
 
 	@rdfs:label "Scenario"
 	@dc:description """A [=Scenario=] [=asserts=] or [=denies=] zero or more [=Constraints=]."""
-	concept Scenario :> Characterization
+	concept Scenario < Characterization
 	
 	@rdfs:label "Always"
 	@dc:description """[=Always=] is a [=Scenario=] whose [=Constraint=]s are always satisfied."""
-	concept Always :> Scenario [
+	concept Always < Scenario [
 		restricts all relation asserts to SatisfiedConstraint
 		restricts some relation asserts to SatisfiedConstraint
 		restricts all relation denies to UnsatisfiedConstraint
@@ -153,7 +148,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	
 	@rdfs:label "Never"
 	@dc:description """[=Never=] is a [=Scenario=] whose [=Constraint=]s are never satisfied."""
-	concept Never :> Scenario [
+	concept Never < Scenario [
 		restricts all relation asserts to UnsatisfiedConstraint
 		restricts some relation asserts to UnsatisfiedConstraint
 		restricts all relation denies to SatisfiedConstraint
@@ -161,7 +156,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	
 	@rdfs:label "Trade Study"
 	@dc:description "A [=TradeStudy=] explains some set of model elements and their properties through comparison with alternatives."
-	concept TradeStudy :> Explanation
+	concept TradeStudy < Explanation
 
 	@rdfs:label "Analyzes"
 	@dc:description "An [=Explanation=] [=analyzes=] zero or more [=AnalyzedElement=]s."
@@ -178,7 +173,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 
 	@rdfs:label "Characterizes"
 	@dc:description "A [=Characterization=] [=characterizes=] zero or more [=CharacterizedElement=]s."
-	relation entity Characterizes :> mission:SpecifiedElement [
+	relation entity Characterizes [
 		from Characterization
 		to CharacterizedElement
 		@rdfs:label "characterizes"
@@ -187,11 +182,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		reverse isCharacterizedBy
 		asymmetric
 		irreflexive
-	]
+	] < mission:SpecifiedElement 
 
 	@rdfs:label "Explains"
 	@dc:description "An [=Explanation=] [=explains=] zero or more [=CharacterizedElement=]s."
-	relation entity Explains :> Characterizes [
+	relation entity Explains [
 		from Explanation
 		to CharacterizedElement
 		@rdfs:label "explains"
@@ -200,11 +195,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		reverse isExplainedBy
 		asymmetric
 		irreflexive
-	]
+	] < Characterizes
 
 	@rdfs:label "Limits"
 	@rdfs:comment "An [=Assumption=] [=limits=] zero or more [=CharacterizedElement=]s."
-	relation entity Limits :> Characterizes [
+	relation entity Limits [
 		from Assumption
 		to CharacterizedElement
 		@rdfs:label "limits"
@@ -213,11 +208,11 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		reverse isLimitedBy
 		asymmetric
 		irreflexive
-	]
+	] < Characterizes 
 
 	@rdfs:label "Validates"
 	@dc:description "An [=Explanation=] [=validates=] zero or more [=CharacterizedElement=]s."
-	relation entity Validates :> Explains [
+	relation entity Validates [
 		from Explanation
 		to CharacterizedElement
 		@rdfs:label "validates"
@@ -226,17 +221,17 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 		reverse isValidatedBy
 		asymmetric
 		irreflexive
-	]
+	] < Explains 
 
 	@rdfs:label "Has Quantity Value"
 	@dc:description """[=HasQuantityValue=] relates a [=QuantityValueConstraint=] to a constraining [=QuantityValue=]."""
-	relation entity HasQuantityValue :> Analyzes [
+	relation entity HasQuantityValue [
 		from QuantityValueConstraint
 		to vim4:QuantityValue
 		@rdfs:label "has quantity value"
 		forward hasQuantityValue
 		asymmetric
-	]
+	] < Analyzes 
 	
 	@rdfs:label "Applies During"
 	@dc:description """A [=Requirement=] [=appliesDuring=] zero or more [=Scenario=]s. If a
@@ -291,26 +286,26 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	]
 	
 	@rdfs:label "has glossary definition"
-	scalar property hasGlossaryDefinition :> base:hasDescription [
+	scalar property hasGlossaryDefinition [
 		domain GlossaryEntry
 		range xsd:string
-	]
+	] < base:hasDescription 
 
 	@rdfs:label "has glossary term"
-	scalar property hasGlossaryTerm :> base:hasCanonicalName [
+	scalar property hasGlossaryTerm [
 		domain GlossaryEntry
 		range xsd:string
-	]
+	] < base:hasCanonicalName
 
-	ref aspect vim4:Object :> analysis:CharacterizedElement
+	ref aspect vim4:Object < analysis:CharacterizedElement
 	
-	ref concept mission:Requirement :> analysis:CharacterizedElement
+	ref concept mission:Requirement < analysis:CharacterizedElement
 
 	// All concept specializations of the aspect vim4:IndividualProperty are all analysis:Characterization(s).
   
-	ref concept vim4:IndividualNominalProperty :> analysis:Characterization
-	ref concept vim4:IndividualUnitaryQuantity :> analysis:Characterization
-	ref concept vim4:IndividualOrdinalQuantity :> analysis:Characterization
+	ref concept vim4:IndividualNominalProperty < analysis:Characterization
+	ref concept vim4:IndividualUnitaryQuantity < analysis:Characterization
+	ref concept vim4:IndividualOrdinalQuantity < analysis:Characterization
 
-	ref relation entity vim4:Characterizes :> analysis:Characterizes
+	ref relation entity vim4:Characterizes < analysis:Characterizes
 }
