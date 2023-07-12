@@ -4,7 +4,7 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '4.0.0'
+version = '4.1.0'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
