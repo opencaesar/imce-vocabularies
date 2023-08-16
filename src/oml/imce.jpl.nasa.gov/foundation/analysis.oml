@@ -37,7 +37,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@dc:description "A [=DrivingRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s as <emphasis>driving</emphasis>, and makes the 
     designation via the [=explains=] property."
 	concept DrivingRequirementsExplanation < Explanation [
-		restricts all relation explains to mission:Requirement
+		restricts all explains to mission:Requirement
 	]
 
 	@rdfs:label "Constraint"
@@ -45,18 +45,18 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	concept Constraint < Explanation
 	
 	concept SatisfiedConstraint < Constraint [
-		restricts scalar property hasTruthValue to "true"^^xsd:boolean
+		restricts hasTruthValue to "true"^^xsd:boolean
 	]
 	
 	concept UnsatisfiedConstraint < Constraint [
-		restricts scalar property hasTruthValue to "false"^^xsd:boolean
+		restricts hasTruthValue to "false"^^xsd:boolean
 	]
 	
 	ref concept vim4:IndividualNominalProperty < CharacterizedElement
 	
 	concept NominalPropertyValueConstraint < Constraint [
-//		restricts all relation analyzes to vim4:NominalPropertyValue
-		restricts all relation explains to vim4:IndividualNominalProperty
+//		restricts all analyzes to vim4:NominalPropertyValue
+		restricts all explains to vim4:IndividualNominalProperty
 	]
 	
 	ref aspect vim4:QuantityValue < AnalyzedElement
@@ -65,22 +65,22 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@rdfs:label "Quantity Value Constraint"
 	@dc:description """A [=QuantityValueConstraint=] expresses a relation between a [=QuantityValue=] and a [=IndividualQuantity=]."""
 	concept QuantityValueConstraint < Constraint [
-		restricts all relation analyzes to vim4:QuantityValue
-		restricts all relation explains to vim4:IndividualQuantity
+		restricts all analyzes to vim4:QuantityValue
+		restricts all explains to vim4:IndividualQuantity
 	]
 	
 	@rdfs:label "Ordinal Quantity Value Constraint"
 	@dc:description """An [=OrdinalQuantityValueConstraint=] expresses a relation between a [=OrdinalQuantityValue=] and a [=IndividualOrdinalQuantity=]."""
 	concept OrdinalQuantityValueConstraint < QuantityValueConstraint [
-		restricts all relation analyzes to vim4:OrdinalQuantityValue
-		restricts all relation explains to vim4:IndividualOrdinalQuantity
+		restricts all analyzes to vim4:OrdinalQuantityValue
+		restricts all explains to vim4:IndividualOrdinalQuantity
 	]
 	
 	@rdfs:label "Unitary Quantity Value Constraint"
 	@dc:description """A [=UnitaryQuantityValueConstraint=] expresses a relation between a [=UnitaryQuantityValue=] and a [=IndividualUnitaryQuantity=]."""
 	concept UnitaryQuantityValueConstraint < QuantityValueConstraint [
-		restricts all relation analyzes to vim4:UnitaryQuantityValue
-		restricts all relation explains to vim4:IndividualUnitaryQuantity
+		restricts all analyzes to vim4:UnitaryQuantityValue
+		restricts all explains to vim4:IndividualUnitaryQuantity
 	]
 	
 	@rdfs:label "quantity value relation"
@@ -131,7 +131,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@dc:description "A [=KeyRequirementsExplanation=] provides the rationale for designating a set of [=Requirement=]s 
     as <emphasis>key</emphasis>, and makes the designation via the [=explains=] property."
 	concept KeyRequirementsExplanation < Explanation [
-		restricts all relation explains to mission:Requirement
+		restricts all explains to mission:Requirement
 	]
 
 	@rdfs:label "Scenario"
@@ -141,17 +141,17 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/analysis#> as analysis {
 	@rdfs:label "Always"
 	@dc:description """[=Always=] is a [=Scenario=] whose [=Constraint=]s are always satisfied."""
 	concept Always < Scenario [
-		restricts all relation asserts to SatisfiedConstraint
-		restricts some relation asserts to SatisfiedConstraint
-		restricts all relation denies to UnsatisfiedConstraint
+		restricts all asserts to SatisfiedConstraint
+		restricts some asserts to SatisfiedConstraint
+		restricts all denies to UnsatisfiedConstraint
 	]
 	
 	@rdfs:label "Never"
 	@dc:description """[=Never=] is a [=Scenario=] whose [=Constraint=]s are never satisfied."""
 	concept Never < Scenario [
-		restricts all relation asserts to UnsatisfiedConstraint
-		restricts some relation asserts to UnsatisfiedConstraint
-		restricts all relation denies to SatisfiedConstraint
+		restricts all asserts to UnsatisfiedConstraint
+		restricts some asserts to UnsatisfiedConstraint
+		restricts all denies to SatisfiedConstraint
 	]
 	
 	@rdfs:label "Trade Study"

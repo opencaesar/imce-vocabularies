@@ -40,26 +40,26 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission#> as mission {
 		perform a [=Function=]. Example [=Component=]s
     	include launch vehicle, spacecraft, telecommunication subsystem, flight software, attitude control software, and mission operations team."
 	concept Component < base:AggregatedElement, base:ContainedElement, base:Container, base:IdentifiedElement, PerformingElement, PresentingElement, SpecifiedElement [
-		restricts all relation base:aggregates to Component
-		restricts all relation base:isAggregatedIn to Component
-		restricts all relation base:contains to Component
-		restricts all relation base:isContainedIn to Component
+		restricts all base:aggregates to Component
+		restricts all base:isAggregatedIn to Component
+		restricts all base:contains to Component
+		restricts all base:isContainedIn to Component
 	]
 
 	@rdfs:label "Environment"
 	@dc:description "An [=Environment=] represents a set of conditions under which a [=Component=] [=performs=]
 		some [=Function=]. Example environments include low earth orbit, trans-Jupiter cruise, and Martian north polar surface."
 	concept Environment < base:AggregatedElement, base:IdentifiedElement [
-		restricts all relation base:isAggregatedIn to Environment
-		restricts all relation base:aggregates to Environment
+		restricts all base:isAggregatedIn to Environment
+		restricts all base:aggregates to Environment
 	]
 
 	@rdfs:label "Flow"
 	@dc:description "A [=Flow=] is a non-discrete transfer of substance or energy between [=Component=]s. <em>Non-discrete</em> implies 
 		that the substance or energy has no natural boundaries. Examples of [=Flow=] include electric  current, propellant, and heat."
 	concept Flow < base:ContainedElement, base:Container, base:IdentifiedElement, TraversingElement [
-		restricts all relation base:isContainedIn to Flow
-		restricts all relation base:contains to Flow
+		restricts all base:isContainedIn to Flow
+		restricts all base:contains to Flow
 	]
 
 	@rdfs:label "Function"
@@ -74,29 +74,29 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission#> as mission {
 	@rdfs:label "Item"
 	@dc:description "An [=Item=] is a discrete unit of material or information exchanged between two [=PresentingElement=]s."
 	concept Item < base:ContainedElement, base:Container, base:IdentifiedElement, TraversingElement [
-		restricts all relation base:isContainedIn to Item
-		restricts all relation base:contains to Item
+		restricts all base:isContainedIn to Item
+		restricts all base:contains to Item
 	]
 
 	@rdfs:label "Junction"
 	@dc:description "An [=Junction=] represents a set of mechanical, electrical, signal, or other properties that are common to a set of mutually connected [=Interface=]s."
 	concept Junction < base:ContainedElement, base:Container, base:IdentifiedElement [
-		restricts all relation base:isContainedIn to Junction
-		restricts all relation base:contains to Junction
+		restricts all base:isContainedIn to Junction
+		restricts all base:contains to Junction
 	]
 
 	@rdfs:label "Material Item"
 	@dc:description "A [=MaterialItem=] is a discrete unit of material exchanged between two [=Function=]s. Example [=MaterialItem=]s include rock hammer and soil sample."
 	concept MaterialItem < Item [
-		restricts all relation base:contains to MaterialItem
-		restricts all relation base:isContainedIn to MaterialItem
+		restricts all base:contains to MaterialItem
+		restricts all base:isContainedIn to MaterialItem
 	]
 
 	@rdfs:label "Message"
 	@dc:description "A [=Message=] is a discrete unit of information exchanged between two [=Function=]s. Example [=Message=]s include command, command response, and file contents."
 	concept Message < Item [
-		restricts all relation base:contains to Message
-		restricts all relation base:isContainedIn to Message
+		restricts all base:contains to Message
+		restricts all base:isContainedIn to Message
 	]
 
 	@rdfs:label "Mission"
@@ -106,15 +106,15 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/mission#> as mission {
 	@rdfs:label "Objective"
 	@dc:description "An [=Objective=] represents a specific interest that one or more stakeholders have in the successful execution of a mission."
 	concept Objective < base:AggregatedElement, base:IdentifiedElement [
-		restricts all relation base:aggregates to Objective
-		restricts all relation base:isAggregatedIn to Objective
+		restricts all base:aggregates to Objective
+		restricts all base:isAggregatedIn to Objective
 	]
 
 	@rdfs:label "Product"
 	@dc:description "A [=Product=] is a tangible artifact that results from achievement of mission objectives."
 	concept Product < base:AggregatedElement, base:IdentifiedElement [
-		restricts all relation base:isAggregatedIn to Product
-		restricts all relation base:aggregates to Product
+		restricts all base:isAggregatedIn to Product
+		restricts all base:aggregates to Product
 	]
 
 	@rdfs:label "Requirement"

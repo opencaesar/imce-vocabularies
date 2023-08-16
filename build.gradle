@@ -4,7 +4,7 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '4.1.0'
+version = '5.0.0'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
@@ -49,7 +49,7 @@ configurations {
  * The OML dependencies
  */
 dependencies {
-    oml "io.opencaesar.ontologies:metrology-vocabularies:6.+"
+    oml "io.opencaesar.ontologies:metrology-vocabularies:7.+"
 }
 
 /*

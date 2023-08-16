@@ -45,8 +45,8 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 	@rdfs:label "Concern"
 	@dc:description "<para>A [=Concern=] is a specific interest that one or more [=Stakeholder=]s have in the successful completion of a [=Project=] or [=Program=] and its [=Mission=]s. </para>"
 	concept Concern < base:IdentifiedElement, base:AggregatedElement [
-		restricts all relation base:aggregates to Concern
-		restricts all relation base:isAggregatedIn to Concern
+		restricts all base:aggregates to Concern
+		restricts all base:isAggregatedIn to Concern
 	]
 
 	@rdfs:label "Deliverable"
@@ -57,7 +57,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 	@dc:description "A [=DevelopmentState=] is a kind of [=Deliverable=] that represents a defined condition for a [=DevelopedElement=]. [=DevelopmentState=]s may be unique to the 
 	    [=DevelopedElement=]; example [=DevelopmentState=]s for a [=Product=] include Preliminary, Draft, and Final."
 	concept DevelopmentState < analysis:Characterization, Deliverable [
-		restricts all relation analysis:characterizes to DevelopedElement
+		restricts all analysis:characterizes to DevelopedElement
 	]
 
 	@rdfs:label "Facility"
@@ -90,31 +90,31 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 	@dc:description "A [=Process=] is an activity authorized by a [=WorkPackage=] in support of delivering a [=Component=] or producing a [=Product=]. Examples include <emphasis>
     	design trajectory</emphasis>, <emphasis>conduct trade study</emphasis>, and <emphasis>review subsystem design</emphasis>."
 	concept Process < base:IdentifiedElement, AssignedElement, RealizedElement [
-		restricts all relation realizes to Process
-		restricts all relation isRealizedBy to Process
+		restricts all realizes to Process
+		restricts all isRealizedBy to Process
 	]
 
 	@rdfs:label "Product"
 	@dc:description "A [=Product=] is a document or other artifact supplied by a [=WorkPackage=]. Example [=Product=]s include trade study reports, design documents, and inspection reports."
 	concept Product < base:AggregatedElement, base:IdentifiedElement, DevelopedElement, SuppliedElement [
-		restricts all relation base:aggregates to Product
-		restricts all relation base:isAggregatedIn to Product
+		restricts all base:aggregates to Product
+		restricts all base:isAggregatedIn to Product
 	]
 
 	@rdfs:label "Program"
 	@dc:description "A [=Program=] is an [=Authority=] that [=authorizes=] zero or more [=Project=]s."
 	concept Program < Authority [
-		restricts all relation authorizes to Project
+		restricts all authorizes to Project
 	]
 
 	@rdfs:label "Project"
 	@dc:description "A [=Project=] is an [=Authority=] that [=supplies=] a related set of [=Mission=]s in pursuit of a set of [=Objective=]s."
 	concept Project < Authority, RealizedElement [
-		restricts all relation authorizes to WorkPackage
-		restricts all relation isAuthorizedBy to Program
-		restricts all relation realizes to Project
-		restricts all relation isRealizedBy to Project
-		restricts all relation supplies to mission:Mission
+		restricts all authorizes to WorkPackage
+		restricts all isAuthorizedBy to Program
+		restricts all realizes to Project
+		restricts all isRealizedBy to Project
+		restricts all supplies to mission:Mission
 	]
 
 	@rdfs:label "Role"
@@ -131,10 +131,10 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		that [=produces=] definite [=Product=]s and/or [=supplies=] definite
 		[=SuppliedElements=] in the context of that [=Project=]."
 	concept WorkPackage < base:Package, Authority, RealizedElement [
-		restricts all relation authorizes to WorkPackage
-		restricts all relation isRealizedBy to WorkPackage
-		restricts all relation realizes to WorkPackage
-		restricts all relation supplies to mission:Component
+		restricts all authorizes to WorkPackage
+		restricts all isRealizedBy to WorkPackage
+		restricts all realizes to WorkPackage
+		restricts all supplies to mission:Component
 	]
 
 	@rdfs:label "Approves"
@@ -494,29 +494,29 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 	ref concept mission:Objective < Concern
 
 	ref concept mission:Component < DevelopedElement, RealizedElement, SuppliedElement [
-		restricts all relation isRealizedBy to mission:Component
-		restricts all relation realizes to mission:Component
-		restricts all relation isSuppliedBy to WorkPackage
+		restricts all isRealizedBy to mission:Component
+		restricts all realizes to mission:Component
+		restricts all isSuppliedBy to WorkPackage
 	]
 
 	ref concept mission:Function < RealizedElement [
-		restricts all relation isRealizedBy to mission:Function
-		restricts all relation realizes to mission:Function
+		restricts all isRealizedBy to mission:Function
+		restricts all realizes to mission:Function
 	]
 
 	ref concept mission:Interface < DevelopedElement, RealizedElement [
-		restricts all relation isRealizedBy to mission:Interface
-		restricts all relation realizes to mission:Interface
+		restricts all isRealizedBy to mission:Interface
+		restricts all realizes to mission:Interface
 	]
 
 	ref concept mission:Junction < DevelopedElement, RealizedElement [
-		restricts all relation realizes to mission:Junction
-		restricts all relation isRealizedBy to mission:Junction
+		restricts all realizes to mission:Junction
+		restricts all isRealizedBy to mission:Junction
 	]
 
 	ref concept mission:Mission < RealizedElement, SuppliedElement [
-		restricts all relation isRealizedBy to mission:Mission
-		restricts all relation realizes to mission:Mission
-		restricts all relation isSuppliedBy to Project
+		restricts all isRealizedBy to mission:Mission
+		restricts all realizes to mission:Mission
+		restricts all isSuppliedBy to Project
 	]
 }
