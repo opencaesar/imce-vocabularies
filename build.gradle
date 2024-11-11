@@ -4,7 +4,7 @@
 ext.title = "IMCE Vocabularies"
 description='The set of IMCE vocabularies'
 group = 'io.opencaesar.ontologies'
-version = '5.0.0'
+version = '5.1.0'
 
 apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
@@ -101,7 +101,7 @@ task generateDocs (type: io.opencaesar.owl.doc.OwlDocTask, dependsOn: owlReason)
     // OWL Ontology Iris
     inputOntologyIris = [ "$rootIri/classes", "$rootIri/properties",  "$rootIri/individuals" ]
     // Output folder
-    outputFolderPath = file('build/doc')
+    outputFolderPath = file('build/docs')
     // Output case sensitivie path
     outputCaseSensitive = org.gradle.internal.os.OperatingSystem.current().isLinux()
 }
