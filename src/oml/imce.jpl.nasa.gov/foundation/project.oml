@@ -385,7 +385,7 @@ vocabulary <http://imce.jpl.nasa.gov/foundation/project#> as project {
 		@rdfs:label "manifests"
 		forward manifests
 		@rdfs:label "is manifested by"
-		reverse isManfestedBy
+		reverse isManifestedBy
 		inverse functional
 		asymmetric
 		irreflexive
